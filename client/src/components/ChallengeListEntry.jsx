@@ -2,9 +2,9 @@ import React from 'react';
 
 var ChallengeListEntry = ({challenge}) => (
   <div className="challenge"> 
-  <div className="username"> {challenge.username} </div>
-  <div className="text"> {challenge.text} </div>
   <div className="image"> <img src={challenge.image} /> </div>
+  <div className="username"> Challenger: {challenge.username} </div>
+  <div className="text"> The Challenge: {challenge.text} </div>
   <div className="date">{challenge.date} </div>
   </div>
 );
