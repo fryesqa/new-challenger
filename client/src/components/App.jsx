@@ -20,8 +20,7 @@ class App extends React.Component {
       <div>
         <h1>New Challenger</h1> 
       </div>
-
-      )
+    )
   }
 }
 
