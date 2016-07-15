@@ -5,7 +5,7 @@ var ChallengeListEntry = ({challenge}) => (
   <div className="username"> {challenge.username} </div>
   <div className="text"> {challenge.text} </div>
   <div className="image"> <img src={challenge.image} /> </div>
-  <div className={challenge.date}> </div>
+  <div className="date">{challenge.date} </div>
   </div>
 );
 
