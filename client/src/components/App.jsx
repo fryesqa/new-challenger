@@ -1,6 +1,7 @@
 import React from 'react';
 import Router from 'react-router';
-import ChallengeList from './ChallengeList.jsx'
+import ChallengeList from './ChallengeList.jsx';
+import Login from './Login.jsx';
 
 const data = [{
         id: '1',
@@ -27,6 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Login />
         <h1>New Challenger</h1> 
         <ChallengeList challenges={this.state.challenges} />
       </div>
