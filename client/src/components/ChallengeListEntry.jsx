@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Needs more styling depending on fields
 var ChallengeListEntry = ({challenge}) => (
   <div className="challenge"> 
   <div className="image"> <img src={challenge.image} /> </div>
