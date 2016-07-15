@@ -3,8 +3,13 @@ import ChallengeListEntry from './ChallengeListEntry.jsx';
 
 var ChallengeList = ({challenges}) => (
   <div> 
-   {challenges.map(function(challenge) {
-    return <ChallengeListEntry key={challenge.id} challenge={challenge} />
+   {challenges.map(function(challenge, i) {
+    return (
+      <div> 
+      <h3> Challenge {i + 1}</h3> 
+      <ChallengeListEntry key={challenge.id} challenge={challenge} />
+      </div>
+    );
    })}
   </div>
   );
