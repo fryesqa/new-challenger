@@ -3,6 +3,7 @@ import Router from 'react-router';
 import ChallengeList from './ChallengeList.jsx';
 import Login from './Login.jsx';
 
+// dummy data for populating challenge components
 const data = [{
         id: '1',
         username: 'Bob Belcher',
@@ -17,6 +18,7 @@ const data = [{
         createdAt: new Date().toString()
       }];
 
+// challenges data is living in this.state.challenges
 class App extends React.Component {
   constructor(props) {
     super(props);
