@@ -1,0 +1,7 @@
+# Dependency directorys
+node_modules/
+
+# Build artifacts
+npm-debug.log
+.DS_Store
+/*.env
