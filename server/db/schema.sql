@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS user_challenge (
   userId INTEGER,
   challengeId INTEGER,
   timeAccepted TIMESTAMP WITH TIME ZONE DEFAULT now(),
-  timeCompleted TIMESTAMP WITH TIME ZONE, 
   CONSTRAINT join_user_fk FOREIGN KEY userId REFERENCES user (id),
   CONSTRAINT join_challenge_fk FOREIGN KEY challengeId REFERENCES challenge (id) 
 );
@@ -40,5 +39,7 @@ CREATE TABLE IF NOT EXISTS user_challenge (
 CREATE TABLE IF NOT EXISTS proof (
   id SERIAL PRIMARY KEY,
   userChallengeId INTEGER,
+  createdAt TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  creatorAccepted BOOLEAN,
   CONSTRAINT userChallenge_fk FOREIGN KEY userChallengeId REFERENCES user_challenge (id)
 );
