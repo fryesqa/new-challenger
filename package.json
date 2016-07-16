@@ -4,6 +4,7 @@
   "description": "NewChallenger",
   "main": "index.js",
   "scripts": {
+    "start": "webpack && node server/server.js",
     "dev": "webpack-dev-server --content-base client/public"
   },
   "repository": {
