@@ -48,3 +48,36 @@ app.get('*', function(req, res) {
 app.listen(port, function() {
   console.log('Listening on port', port);
 });
+
+/////////////////////////////////////
+function renderPage(appHtml) {
+  return (
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Challenger</title>
+
+        <!-- Materialize -->
+        <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+        <!-- Custom Styling -->
+        <link rel="stylesheet" src="/styles/style.css">
+        
+      </head>
+      <body>
+        <div id='app'>{appHtml}</div>
+        <!-- bundle.js contains all of webpack's compiled & transpiled JSX -->
+        <script src="./bundle.js"></script>
+
+        <!-- Scripts -->
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+      </body>
+    </html>
+  )
+}
+
