@@ -1,16 +1,23 @@
 import React from 'react';
-import Dropzone from 'react-dropzone'
+import Dropzone from 'react-dropzone';
 var Promise = require ('es6-promise').polyfill();
 var fetch = require ('isomorphic-fetch');
 
 class ImageUpload extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      imageFile: []
+    }
   }
 
-  onDrop(files) {
-    console.log('Received files:', files);
+  onDrop(imageFile) {
+    console.log('Received imageFile:', imageFile);
+    this.setState({
+      imageFile: imageFile
+    });
   }
+  // ^^ need some sort of handleImage / handleSubmit here, right now not being posted to server
 
   // fetch('localhost:3000/upload')
   //     .then(function(response) {
@@ -26,6 +33,9 @@ class ImageUpload extends React.Component {
   // or if just want to use html
   // <input type="file" />
   // <input type="submit" />
+
+  
+
   render() {
     return (
       <div> 
@@ -36,6 +46,12 @@ class ImageUpload extends React.Component {
       </div>
       );
   }
+  // trying to do image preview but the below isn't working, need to debug
+    // {this.state.imageFile.length > 0 ? <div>
+    // <h2>Uploading {this.state.imageFile.length} imageFile...</h2>
+    // <div>{this.state.imageFile.map((file) => <img src={file.preview} /> )}</div>
+    // </div> : null}
+
 
 }
 
