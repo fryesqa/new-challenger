@@ -6,7 +6,7 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: dummyData.user 
+      user: dummyData.user
     };
   }
 
@@ -14,11 +14,11 @@ class UserProfile extends React.Component {
     return (
       <div>
         <div>
-          <img src={this.state.user.imageUrl}></img>
+          <img src={this.state.user.imageUrl} alt=""></img>
           <span>
             <div>{this.state.user.username}</div>
             <div>{this.state.user.email}</div>
-          </span> 
+          </span>
         </div>
         <div>
           <h3>My Challenges</h3>
@@ -33,8 +33,8 @@ class UserProfile extends React.Component {
           <ChallengeList challenges={this.state.user.challengesCompleted} />
         </div>
       </div>
-    )
-  } 
+    );
+  }
 }
 
-export default UserProfile
+export default UserProfile;
