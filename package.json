@@ -36,6 +36,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-router": "^2.5.2",
