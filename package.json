@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "node_modules/.bin/webpack",
     "start": "node server/server.js",
-    "dev": "webpack-dev-server --content-base client/public"
+    "dev": "webpack-dev-server --content-base client/public",
+    "initDB": "sh server/db/dbinit.sh"
   },
   "repository": {
     "type": "git",
