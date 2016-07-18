@@ -20,8 +20,18 @@ class UserProfile extends React.Component {
             <div>{this.state.user.email}</div>
           </span> 
         </div>
-        <h3>My Challenges</h3>
-        <ChallengeList challenges={this.state.user.createdChallenges}/>
+        <div>
+          <h3>My Challenges</h3>
+          <ChallengeList challenges={this.state.user.challengesCreated} />
+        </div>
+        <div>
+          <h4>Current Challenges</h4>
+          <ChallengeList challenges={this.state.user.challengesTaken} />
+        </div>
+        <div>
+          <h4>Completed Challenges</h4>
+          <ChallengeList challenges={this.state.user.challengesCompleted} />
+        </div>
       </div>
     )
   } 
