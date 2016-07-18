@@ -6,9 +6,9 @@ var ChallengeList = ({challenges}) => (
   <div> 
    {challenges.map(function(challenge, i) {
     return (
-      <div> 
-      <h3> Challenge {i + 1}</h3> 
-      <ChallengeListEntry key={challenge.id} challenge={challenge} />
+      <div key={challenge.id}> 
+        <h3> Challenge {i + 1}</h3> 
+        <ChallengeListEntry challenge={challenge} />
       </div>
     );
    })}

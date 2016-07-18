@@ -2,36 +2,28 @@ import React from 'react';
 import Router from 'react-router';
 import ChallengeList from './ChallengeList.jsx';
 import Login from './Login.jsx';
+import ChallengeCreateForm from './ChallengeCreateForm.jsx';
+import dummyData from './dummyData.js';
 
-// dummy data for populating challenge components
-const data = [{
-        id: '1',
-        username: 'Bob Belcher',
-        text: 'Eat 5 hamburgers',
-        image: "https://upload.wikimedia.org/wikipedia/en/7/7f/Bob's_Burgers_promo.png",
-        createdAt: new Date().toString()
-      }, {
-        id: '2',
-        username: 'Bobby Belchy',
-        text: 'Eat 10 hamburgers',
-        image: "http://i.onionstatic.com/avclub/5748/94/original/304.jpg",
-        createdAt: new Date().toString()
-      }];
-
-// challenges data is living in this.state.challenges
+// challenges data is temporarily living in this.state.challenges
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      challenges: data
+      challenges: dummyData
     };
   }
+
+  // for routing to components 
+    // use <Login /> for login
+    // use <ChallengeCreateForm /> for challenge create form
+    // note: may want to pass down the username as props to these or use it in redux's state
 
   render() {
     return (
       <div>
-        <Login />
-        <h1>New Challenger</h1> 
+        <h1>Home page</h1> 
+        <ChallengeCreateForm /> 
         <ChallengeList challenges={this.state.challenges} />
       </div>
     )
