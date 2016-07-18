@@ -1,5 +1,5 @@
 import React from 'react';
-import Router from 'react-router';
+import { Link } from 'react-router';
 import ChallengeList from './ChallengeList.jsx';
 import Login from './Login.jsx';
 import ChallengeCreateForm from './ChallengeCreateForm.jsx';
@@ -23,7 +23,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Home page</h1> 
-        <ChallengeCreateForm /> 
+        <Link to="/create">Create a Challenge</Link > 
         <ChallengeList challenges={this.state.challenges} />
       </div>
     )
