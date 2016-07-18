@@ -14,12 +14,15 @@ class App extends React.Component {
     };
   }
 
+  // for routing to components 
+    // use <Login /> for login
+    // use <ImageUpload /> for image upload
+
   render() {
     return (
       <div>
-        <Login />
-        <h1>New Challenger</h1> 
-        <ImageUpload />
+        <h1>Home page</h1> 
+        <ImageUpload /> 
         <ChallengeList challenges={this.state.challenges} />
       </div>
     )
