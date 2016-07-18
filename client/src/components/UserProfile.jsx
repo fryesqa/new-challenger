@@ -1,5 +1,6 @@
-import React from 'react'
-import dummyData from './dummyData'
+import React from 'react';
+import ChallengeList from './ChallengeList.jsx';
+import dummyData from './dummyData';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class UserProfile extends React.Component {
           </span> 
         </div>
         <h3>My Challenges</h3>
-        <ChallengeList />
+        <ChallengeList challenges={this.state.user.createdChallenges}/>
       </div>
     )
   } 
