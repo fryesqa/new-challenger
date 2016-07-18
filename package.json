@@ -40,6 +40,7 @@
     "passport": "^0.3.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
+    "react-dropzone": "^3.5.3",
     "react-router": "^2.5.2",
     "redux": "^3.5.2"
   }
