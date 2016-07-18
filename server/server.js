@@ -65,6 +65,7 @@ function renderPage(appHtml) {
 
         <!-- Custom Styling -->
         <link rel="stylesheet" src="/styles/style.css">
+        <link rel="stylesheet" href="https://npmcdn.com/react-select/dist/react-select.css">
         
       </head>
       <body>
