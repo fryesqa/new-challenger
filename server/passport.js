@@ -15,3 +15,23 @@ passport.deserializeUser(function(user, done) {
   // null is for errors
   done(null, user);
 });
+
+passport.use(new FacebookStrategy({
+   clientID : config.facebookAuth.clientID,
+   clientSecret : config.facebookAuth.clientSecret,
+   callbackURL : config.facebookAuth.callbackURL,
+
+   enableProof: true,
+   profileFields : ['id', 'name', 'displayName', 'picture', 'emails']
+  }, 
+  function(accessToken, refreshToken, profile, done) {
+    process.nextTick(function(){
+      console.log('name is : ', profile.displayName);
+      console.log('id is : ', profile.id)
+      console.log('email is : ', profile.emails[0].value);
+      console.log('profile picture', profile.photos[0].value)
+      // placeholder to lookup user or create user record
+      done(null, profile);
+    });
+  }
+));
