@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import ChallengeList from './ChallengeList.jsx';
-import UserProfile from './UserProfile.jsx'
+import UserProfile from './UserProfile.jsx';
+import AdminChallenge from './AdminChallenge.jsx';
 import dummyData from './dummyData.js';
 
 // challenges data is temporarily living in this.state.challenges
@@ -27,6 +28,7 @@ class App extends React.Component {
           </Link>
         </div>
         <Link to="/challenge/create">Create a Challenge</Link>
+        <AdminChallenge challenge={dummyData.adminChallenge} />
         {this.props.children || <ChallengeList challenges={this.state.challenges} />}
       </div>
     );
