@@ -21,10 +21,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Home page</h1>
+        <div>
+          <Link to="user/1">
+            <img src="http://vignette3.wikia.nocookie.net/bobsburgerpedia/images/3/32/Jimmy_Pesto.png/revision/latest?cb=20130305162049" alt=""/>
+          </Link>
+        </div>
         <Link to="/challenge/create">Create a Challenge</Link>
-        <ChallengeList challenges={this.state.challenges} />
-        <UserProfile />
+        {this.props.children || <ChallengeList challenges={this.state.challenges} />}
       </div>
     );
   }
