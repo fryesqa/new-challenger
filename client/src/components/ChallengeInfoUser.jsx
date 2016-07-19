@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 // dummy data for challenge
 var challenge = {
@@ -15,16 +16,15 @@ var challenge = {
         createdAt: new Date().toString(),
         endTime: new Date().toString()
       };
-// class ChallengeInfoUser extends React.Component {
-  // render() {
-  //   return (
+
+
 var ChallengeInfoUser = (props) => (
   <table>
     <thead>
       <tr>
         <td> <img src="images/spork.png" width="50px" height="50px" /> </td> 
         <td> <h3>{challenge.name}</h3> </td> 
-        <td> <button>Submit Button</button> </td> 
+        <td> <Link to="/challenge/submitAttempt"><button>Submit Button</button></Link> </td> 
       </tr>
     </thead>
     <tbody>
