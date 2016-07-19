@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
+var pgClient = require('./db/connection.js')
 
 var passportFacebook = require('./passport.js')
 
