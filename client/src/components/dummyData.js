@@ -74,7 +74,28 @@ var dummyData = {
         endTime: new Date().toString()
       }
     ] 
-  }
+  },
+  adminChallenge: {
+    id: '3',
+    imageUrl: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/5/10/1273503176987/13970-lbs-of-pasta-007.jpg",
+    name: 'Pasta Pit',
+    description: 'Dive into a pit of perfectly cooked, saucy pasta and find the lone meatball',
+    category: 'Other',
+    icon: "",
+    challengers: [
+      {
+        id: 1,
+        username: 'Teddy',
+        attempt: {
+          imageUrl: "http://www.splendidtable.org/sites/default/files/styles/w1200/public/eating_spaghetti.jpg?itok=Ri1NoYKy"
+        }
+      },
+      {
+        id: 2,
+        username: 'Mort'
+      }
+    ]
+  } 
 };
 
 export default dummyData;
