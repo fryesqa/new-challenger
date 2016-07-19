@@ -85,7 +85,10 @@ var dummyData = {
     challengers: [
       {
         id: 1,
-        username: 'Teddy'
+        username: 'Teddy',
+        attempt: {
+          imageUrl: "http://www.splendidtable.org/sites/default/files/styles/w1200/public/eating_spaghetti.jpg?itok=Ri1NoYKy"
+        }
       },
       {
         id: 2,
