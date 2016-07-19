@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import ChallengeList from './ChallengeList.jsx';
+import UserProfile from './UserProfile.jsx'
 import dummyData from './dummyData.js';
 
 // challenges data is temporarily living in this.state.challenges
@@ -8,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      challenges: dummyData
+      challenges: dummyData.challenges
     };
   }
 
@@ -23,6 +24,7 @@ class App extends React.Component {
         <h1>Home page</h1>
         <Link to="/challenge/create">Create a Challenge</Link>
         <ChallengeList challenges={this.state.challenges} />
+        <UserProfile />
       </div>
     );
   }
