@@ -1,8 +1,8 @@
 #!/bin/sh
 echo '=creating database called test================================================'
-psql -c 'CREATE DATABASE test'
+psql -c 'CREATE DATABASE newchallenger'
 echo '=loading schema onto database================================================='
-psql -U $USER -d test -a -f ./server/db/schema.sql
+psql -U $USER -d newchallenger -a -f ./server/db/schema.sql
 
 #Comment out the above lines and uncomment the line below to delete database
 #psql -c 'DROP DATABASE test'
