@@ -18,7 +18,7 @@ app.use(passport.initialize());
 
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
 app.get('/auth/facebook/callback', 
-  passport.authenticate('facebook', { successRedirect: '/profile', failureRedirect: '/home'}));
+  passport.authenticate('facebook', { successRedirect: '/#/main', failureRedirect: '/home'}));
 
 app.listen(port, function() {
   console.log('Listening on port', port);
