@@ -67,6 +67,7 @@ class ChallengeCreateForm extends React.Component {
     return (
     <div className="row">
       <h3> Create a challenge! </h3>
+      <ChallengeCreateImageUpload />
       <form 
         name="challenge-create" 
         onSubmit={this.handleSubmit}

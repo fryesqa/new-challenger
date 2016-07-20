@@ -1,5 +1,5 @@
 import React from 'react';
-import ChallengerList from './ChallengerList.jsx';
+import PendingApprovalList from './PendingApprovalList.jsx';
 import dummyData from './dummyData.js';
 
 class AdminChallenge extends React.Component {
@@ -14,6 +14,8 @@ class AdminChallenge extends React.Component {
     $(e.target).next().toggleClass('hidden');
   }
 
+  //Instead of lines 22-25 insert a ChallengeListEntry with the challenge data as props
+  //Figure out styling later
   render() {
     return ( 
       <div>
@@ -21,7 +23,7 @@ class AdminChallenge extends React.Component {
         <h2>{dummyData.adminChallenge.name}</h2>
         <img src={dummyData.adminChallenge.imageUrl} alt="" />
         <p>{dummyData.adminChallenge.description}</p>
-        <ChallengerList challengers={dummyData.adminChallenge.challengers} handleClick={this.handleClick} />
+        <PendingApprovalList challengers={dummyData.adminChallenge.challengers} handleClick={this.handleClick} />
       </div>
     );
   }
