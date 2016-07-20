@@ -93,7 +93,7 @@ function renderPage(appHtml) {
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 
         <!-- Custom Styling -->
-        <link rel="stylesheet" src="/styles/style.css">
+        <link rel="stylesheet" href="/styles/styles.css">
         <link rel="stylesheet" href="https://npmcdn.com/react-select/dist/react-select.css">
         
       </head>
