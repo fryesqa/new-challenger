@@ -4,7 +4,7 @@ import Main from './Main.jsx';
 import Login from './Login.jsx';
 import ChallengeCreateForm from './ChallengeCreateForm.jsx';
 import UserProfile from './UserProfile.jsx';
-import ChallengeInfoUser from './ChallengeInfoUser.jsx';
-import ChallengeSubmitAttempt from './ChallengeSubmitAttempt.jsx';
+import PlayerList from './PlayerList.jsx';
+import SubmitAttempt from './SubmitAttempt.jsx';
 
-export { App, Main, Login, AdminChallenge, ChallengeCreateForm, UserProfile, ChallengeInfoUser, ChallengeSubmitAttempt };
+export { App, Main, Login, AdminChallenge, ChallengeCreateForm, UserProfile, PlayerList, SubmitAttempt };

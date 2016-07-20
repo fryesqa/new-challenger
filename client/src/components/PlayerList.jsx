@@ -17,8 +17,8 @@ var challenge = {
         endTime: new Date().toString()
       };
 
-
-var ChallengeInfoUser = (props) => (
+//Get rid of 31-42 and replace with ChallengeListEntry with props
+var PlayerList = (props) => (
   <table>
     <thead>
       <tr>
@@ -63,4 +63,4 @@ var ChallengeInfoUser = (props) => (
   </table>
 )
 
-export default ChallengeInfoUser;
+export default PlayerList;
