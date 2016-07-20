@@ -13,7 +13,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?/,
-        include: /client/,
+        include: [/client/, /routes/]
         loader: 'babel',
       },
     ],
