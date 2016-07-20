@@ -17,8 +17,8 @@ ReactDOM.render((
       <Route path="/challenge/create" component={ChallengeCreateForm} />
       <Route path="/challenge/:challengeId" component={ChallengeInfoUser} />
       <Route path="/challenge/:challengeId/admin" component={AdminChallenge} />
+      <Route path="/challenge/:challengeId/submission" component={ChallengeSubmitAttempt} />
     </Route>
     <Route path="/user/:userId" component={UserProfile} />
-    <Route path="/challenge/submitAttempt" component={ChallengeSubmitAttempt} />
   </Router>
 ), document.getElementById('app'));
