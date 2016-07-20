@@ -1,19 +1,57 @@
 import React from 'react';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+
+
+const imageStyle = {
+  height: '200px'
+};
+const buttonStyle = {
+  margin: 12,
+  float: 'right'
+};
 
 // Needs more styling depending on fields
-var ChallengeListEntry = ({challenge}) => (
-  <div className="challenge"> 
-  <div className="image"> <img src={challenge.imageUrl} /> </div>
-  <div className="name"> Challenge Name: {challenge.name} </div>
-  <div className="username"> Challenge Creator: {challenge.username} </div>
-  <div className="description"> The Challenge: {challenge.description} </div>
-  <div className="category"> Challenge Category: {challenge.category} </div>
-  <div className="number"> Number of challengers: {challenge.challengers} </div>
-  <div className="successes"> Successfully completed: {challenge.successes} </div>
-  <div className="createdAt">Challenge was issued on: {challenge.createdAt} </div>
-  <div className="endTime">Challenge ends on {challenge.endTime} </div>
-  </div>
-);
+class ChallengeListEntry extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleSignUp() {
+    console.log('handleSignUp')
+  }
+
+  render() {
+    return (
+      <Card className="challenge list">
+        <CardHeader
+          title={this.props.challenge.username}
+          subtitle=""
+          avatar="user-profile-image"
+        />
+        <CardMedia>
+          <img style={imageStyle} src={this.props.challenge.imageUrl} />
+        </CardMedia>
+        <CardTitle title={this.props.challenge.name} subtitle={this.props.challenge.category} />
+        <CardText>
+          <div>{this.props.challenge.description}</div> 
+          <br />
+          <div>{this.props.challenge.successes} out of {this.props.challenge.challengers} challengers have completed this challenge! </div>
+          <br />
+          <div>Start: {this.props.challenge.createdAt} </div>
+
+          <div>End: {this.props.challenge.endTime} </div>
+
+
+        </CardText>
+        <CardActions>
+          <RaisedButton label="Sign Up!" primary={true} style={buttonStyle} onTouchTap={this.handleSignUp}/>
+        </CardActions>
+      </Card>
+    );
+  }
+
+};
 
 ChallengeListEntry.propTypes = {
   challenge: React.PropTypes.object.isRequired

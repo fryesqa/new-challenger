@@ -5,11 +5,10 @@ import ChallengeListEntry from './ChallengeListEntry.jsx';
 // takes in props.challenges, and maps over to create ChallengeListEntry
 const ChallengeList = ({challenges, currentUser}) => (
   <div> 
-   {challenges.map(function(challenge, i) {
+   {challenges.map(function(challenge) {
     return (
       <div key={challenge.id}>
         <Link to={currentUser === challenge.creatorId ? `/challenge/${challenge.id}/admin` : `/challenge/${challenge.id}`}>
-          <h3> Challenge {i + 1}</h3> 
           <ChallengeListEntry challenge={challenge} />
         </Link>
       </div>
