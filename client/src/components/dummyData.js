@@ -114,7 +114,7 @@ var dummyData = {
         username: 'Mort'
       }
     ]
-  } 
+  },
   currentUser: 1
 };
 
