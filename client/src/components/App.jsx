@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Navigation from './Navigation.jsx';
 import dummyData from './dummyData.js';
 
 // challenges data is temporarily living in this.state.challenges
@@ -21,9 +22,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <div>
-            <Link to="/">NC</Link>
-          </div>
+          <Navigation />
           <Link to={`user/${this.state.userId}`}>
             <img src="http://vignette3.wikia.nocookie.net/bobsburgerpedia/images/3/32/Jimmy_Pesto.png/revision/latest?cb=20130305162049" alt=""/>
           </Link>
