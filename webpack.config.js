@@ -1,5 +1,7 @@
+const path = require('path');
+
 module.exports = {
-  entry: './client/src/index.jsx',
+  entry: path.resolve(__dirname, 'client', 'src', 'index.jsx'),
   output: {
     path: './client/public',
     filename: 'bundle.js'
@@ -13,7 +15,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?/,
-        include: [/client/, /routes/]
+        include: [/client/, path.resolve(__dirname, 'routes','routes.jsx')],
         loader: 'babel',
       },
     ],
