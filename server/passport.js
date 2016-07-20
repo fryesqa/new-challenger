@@ -2,6 +2,7 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 var config = require('./config/auth-facebook.js');
+var model = require('./db/sequelize.js')
 
 passport.serializeUser(function(user, done) {
   // placeholder for custom user serialization
@@ -26,11 +27,27 @@ passport.use(new FacebookStrategy({
   }, 
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function(){
-      console.log('name is : ', profile.displayName);
-      console.log('id is : ', profile.id)
-      console.log('email is : ', profile.emails[0].value);
-      console.log('profile picture', profile.photos[0].value)
-      // placeholder to lookup user or create user record
+      // console.log('name is : ', profile.displayName);
+      // console.log('id is : ', profile.id)
+      // console.log('email is : ', profile.emails[0].value);
+      // console.log('profile picture', profile.photos[0].value)
+      model.User.sync().then(function(){
+        model.User.findOrCreate(
+          {
+            where: {
+              facebookid: profile.id
+            },
+            defaults: {
+              name: profile.displayName,
+              email: profile.emails[0].value,
+              url: profile.photos[0].value,
+            }
+          }
+        ).spread(function(user, created) {
+          console.log('created: ', created);
+        })
+
+      })
       done(null, profile);
     });
   }
