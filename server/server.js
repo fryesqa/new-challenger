@@ -57,7 +57,7 @@ app.get('/auth/facebook/callback',
   //   res.redirect('/#/main');
   // });
 
-
+//https://github.com/reactjs/react-router-tutorial/tree/master/lessons/13-server-rendering
 app.get('*', function(req, res) {
   match({ routes: routes, location: req.url }, (err, redirect, props) => {
     if (err) {
