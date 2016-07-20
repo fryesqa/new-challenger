@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import ChallengeList from './ChallengeList.jsx';
-import UserProfile from './UserProfile.jsx';
-import AdminChallenge from './AdminChallenge.jsx';
+import Navigation from './Navigation.jsx';
 import dummyData from './dummyData.js';
 
 // challenges data is temporarily living in this.state.challenges
@@ -10,7 +8,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      challenges: dummyData.challenges
+      challenges: dummyData.challenges,
+      userId: dummyData.currentUser // dummy value for testing purposes, replace with signed in user info
     };
   }
 
@@ -23,13 +22,15 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <Link to="user/1">
+          <Navigation />
+          <Link to={`user/${this.state.userId}`}>
             <img src="http://vignette3.wikia.nocookie.net/bobsburgerpedia/images/3/32/Jimmy_Pesto.png/revision/latest?cb=20130305162049" alt=""/>
           </Link>
         </div>
         <Link to="/challenge/create">Create a Challenge</Link>
-        <AdminChallenge challenge={dummyData.adminChallenge} />
-        {this.props.children || <ChallengeList challenges={this.state.challenges} />}
+        <div>
+          {this.props.children}
+        </div>
       </div>
     );
   }

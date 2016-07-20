@@ -24,7 +24,7 @@ var ChallengeInfoUser = (props) => (
       <tr>
         <td> <img src="images/spork.png" width="50px" height="50px" /> </td> 
         <td> <h3>{challenge.name}</h3> </td> 
-        <td> <Link to="/challenge/submitAttempt"><button>Submit Button</button></Link> </td> 
+        <td> <Link to={`/challenge/${challenge.id}/submission`}><button>Submit Button</button></Link> </td> 
       </tr>
     </thead>
     <tbody>

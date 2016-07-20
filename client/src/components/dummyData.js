@@ -7,6 +7,7 @@ var dummyData = {
       imageUrl: "https://upload.wikimedia.org/wikipedia/en/7/7f/Bob's_Burgers_promo.png",
       name: 'Burger time!',
       username: 'Bob Belcher', //creatorId?
+      creatorId: 3,
       description: 'Eat 5 hamburgers',
       category: 'Food',
       challengers: 10,
@@ -19,13 +20,28 @@ var dummyData = {
       imageUrl: 'http://i.onionstatic.com/avclub/5748/94/original/304.jpg',
       name: 'Burger frenzy!',
       username: 'Bobby Belchy',
+      creatorId: 2,
       description: 'Eat 10 hamburgers',
       category: 'Food',
       challengers: 20,
       successes: 3,
       createdAt: new Date().toString(),
       endTime: new Date().toString()
+    },
+    {
+      id: '3',
+      imageUrl: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/5/10/1273503176987/13970-lbs-of-pasta-007.jpg",
+      name: 'Pasta Pit',
+      username: 'Jimmy Pesto',
+      creatorId: 1,
+      description: 'Dive into a pit of perfectly cooked, saucy pasta and find the lone meatball',
+      category: 'Other',
+      challengers: 10,
+      successes: 2,
+      createdAt: new Date().toString(),
+      endTime: new Date().toString()
     }
+
   ],
   user: {
     id: '1',
@@ -38,6 +54,7 @@ var dummyData = {
         imageUrl: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/5/10/1273503176987/13970-lbs-of-pasta-007.jpg",
         name: 'Pasta Pit',
         username: 'Jimmy Pesto',
+        creatorId: 1,
         description: 'Dive into a pit of perfectly cooked, saucy pasta and find the lone meatball',
         category: 'Other',
         challengers: 10,
@@ -52,6 +69,7 @@ var dummyData = {
         imageUrl: "https://upload.wikimedia.org/wikipedia/en/7/7f/Bob's_Burgers_promo.png",
         name: 'Burger time!',
         username: 'Bob Belcher', //creatorId?
+        creatorId: 3,
         description: 'Eat 5 hamburgers',
         category: 'Food',
         challengers: 10,
@@ -66,6 +84,7 @@ var dummyData = {
         imageUrl: 'http://i.onionstatic.com/avclub/5748/94/original/304.jpg',
         name: 'Burger frenzy!',
         username: 'Bobby Belchy',
+        creatorId: 2,
         description: 'Eat 10 hamburgers',
         category: 'Food',
         challengers: 20,
@@ -95,7 +114,8 @@ var dummyData = {
         username: 'Mort'
       }
     ]
-  } 
+  },
+  currentUser: 1
 };
 
 export default dummyData;

@@ -1,5 +1,6 @@
 import React from 'react';
 import ChallengerList from './ChallengerList.jsx';
+import dummyData from './dummyData.js';
 
 class AdminChallenge extends React.Component {
   constructor(props) {
@@ -16,11 +17,11 @@ class AdminChallenge extends React.Component {
   render() {
     return ( 
       <div>
-        <img src={this.props.challenge.icon} alt="" />
-        <h2>{this.props.challenge.name}</h2>
-        <img src={this.props.challenge.imageUrl} alt="" />
-        <p>{this.props.challenge.description}</p>
-        <ChallengerList challengers={this.props.challenge.challengers} handleClick={this.handleClick} />
+        <img src={dummyData.adminChallenge.icon} alt="" />
+        <h2>{dummyData.adminChallenge.name}</h2>
+        <img src={dummyData.adminChallenge.imageUrl} alt="" />
+        <p>{dummyData.adminChallenge.description}</p>
+        <ChallengerList challengers={dummyData.adminChallenge.challengers} handleClick={this.handleClick} />
       </div>
     );
   }
