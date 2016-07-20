@@ -20,7 +20,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <div>
           <Navigation />
           <Link to={`user/${this.state.userId}`}>
