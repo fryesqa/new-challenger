@@ -1,19 +1,19 @@
 import React from 'react'
-import { renderToString } from 'react/dom'
+import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
-import routes from '../client/src/routes'
+import routes from '../routes/routes.jsx'
 
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
-var passport = require('passport');
-var FacebookStrategy = require('passport-facebook').Strategy;
-var pgClient = require('./db/connection.js')
-var session = require('express-session');
-var passportFacebook = require('./passport.js')
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const passport = require('passport');
+const FacebookStrategy = require('passport-facebook').Strategy;
+const pgClient = require('./db/connection.js');
+const passportFacebook = require('./passport.js');
+const session = require('express-session');
 
-var app = express();
-var port = process.env.PORT || 3000;
+const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -80,7 +80,7 @@ app.listen(port, function() {
 
 /////////////////////////////////////
 function renderPage(appHtml) {
-  return (
+  return ` 
     <!DOCTYPE html>
     <html>
       <head>
@@ -98,7 +98,7 @@ function renderPage(appHtml) {
         
       </head>
       <body>
-        <div id='app'>{appHtml}</div>
+        <div id='app'>${appHtml}</div>
         <!-- bundle.js contains all of webpack's compiled & transpiled JSX -->
         <script src="./bundle.js"></script>
 
@@ -108,6 +108,6 @@ function renderPage(appHtml) {
         <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
       </body>
     </html>
-  )
+  ` 
 }
 
