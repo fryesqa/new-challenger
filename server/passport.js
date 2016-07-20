@@ -32,14 +32,22 @@ passport.use(new FacebookStrategy({
       // console.log('email is : ', profile.emails[0].value);
       // console.log('profile picture', profile.photos[0].value)
       model.User.sync().then(function(){
-        model.User.create({
-        name: profile.displayName,
-        email: profile.emails[0].value,
-        url: profile.photos[0].value,
-        facebookid: profile.id
+        model.User.findOrCreate(
+          {
+            where: {
+              facebookid: profile.id
+            },
+            defaults: {
+              name: profile.displayName,
+              email: profile.emails[0].value,
+              url: profile.photos[0].value,
+            }
+          }
+        ).spread(function(user, created) {
+          console.log('created: ', created);
         })
+
       })
-      // placeholder to lookup user or create user record
       done(null, profile);
     });
   }
