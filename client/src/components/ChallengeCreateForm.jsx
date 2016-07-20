@@ -1,6 +1,6 @@
 import React from 'react';
 import ChallengeCreateImageUpload from './ChallengeCreateImageUpload.jsx';
-import Select from 'react-select';
+import className from 'classname';
 
 class ChallengeCreateForm extends React.Component {
   constructor(props) {
@@ -37,9 +37,9 @@ class ChallengeCreateForm extends React.Component {
     });
   }
 
-  handleCategory(value) {
+  handleCategory(e) {
     this.setState({
-      category: value
+      category: e.target.value
     })
   }
 
@@ -63,40 +63,60 @@ class ChallengeCreateForm extends React.Component {
 
   render() {
     return (
-    <div>
+    <div className="row">
       <h3> Create a challenge! </h3>
       <form 
         name="challenge-create" 
-        onSubmit={this.handleSubmit} >
-        Challenge Name: 
-          <input 
-            type="text" 
-            name="challenge-name" 
-            value={this.state.name} 
-            onChange={this.handleName} 
-            placeholder="What's the name of your challenge?"/>
-        Challenge Description:
+        onSubmit={this.handleSubmit}
+        className="col s10" >
+          <div className="input-field">
+            <input
+              className="validate" 
+              type="text" 
+              id="challenge_name" 
+              value={this.state.name} 
+              onChange={this.handleName} 
+              />
+            <label htmlFor="challenge_name">Challenge Name</label>
+          </div>
+          <div className="input-field">
           <textarea 
-            name="challenge-description" 
-            rows="5" 
+            className="materialize-textarea"
+            rows="10" 
+            id="challenge_description"
             value={this.state.description} 
             onChange={this.handleDescription} 
-            placeholder="What's your challenge about?"/>
-        Challenge Category: 
-          <Select
-            name="form-field-name"
-            value={this.state.category}
-            options={this.categories}
-            onChange={this.handleCategory}
-            placeholder="What category is your challenge?"/>
-        <ChallengeCreateImageUpload handleImage={this.handleImage}/>
-        
-        <input type="submit"/>
+            />
+          <label htmlFor="challenge_description">Challenge Description</label>
+          </div>
+          <div className="input-field">
 
+            <select value={this.state.category} onChange={this.handleCategory}>
+              <option value="" disabled selected></option>
+              {this.categories.map(function(category) { 
+                return (<option value={category.value}>{category.label}</option>);
+              })}
+            </select>
+            <label>Challenge Category</label>
+          </div>
+          <div className="file-field input-field">
+            <div className="btn">
+              <span>Upload image</span>
+              <input type="file" />
+            </div>
+            <div className="file-path-wrapper">
+              <input className="file-path validate" type="text" />
+            </div>
+          </div>
+          <input className="btn" type="submit"/>
+
+        
       </form>
     </div>
     );
   }
 }
+
+
 
 export default ChallengeCreateForm;
