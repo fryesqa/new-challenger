@@ -23,7 +23,7 @@ class App extends React.Component {
       <div className="container">
         <div>
           <Navigation />
-          <Link to={`user/${this.state.userId}`}>
+          <Link to={`/user/${this.state.userId}`}>
             <img src="http://vignette3.wikia.nocookie.net/bobsburgerpedia/images/3/32/Jimmy_Pesto.png/revision/latest?cb=20130305162049" alt=""/>
           </Link>
         </div>
