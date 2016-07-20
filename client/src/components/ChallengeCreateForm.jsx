@@ -38,6 +38,8 @@ class ChallengeCreateForm extends React.Component {
   }
 
   handleCategory(e) {
+    // THIS DOESN'T WORK BECAUSE MATERIALIZE OVERWRITES SELECT AND MANIPULATES DOM, DOESN'T PASS IN THIS HANDLER
+    console.log(e);
     this.setState({
       category: e.target.value
     })
@@ -53,7 +55,7 @@ class ChallengeCreateForm extends React.Component {
     console.log(
       'challenge name:', this.state.name, '/',
       'challenge description:', this.state.description, '/',
-      'challenge category:', this.state.category.value);
+      'challenge category:', this.state.category);
     this.setState({
       name: '',
       description: '',
@@ -82,7 +84,6 @@ class ChallengeCreateForm extends React.Component {
           <div className="input-field">
           <textarea 
             className="materialize-textarea"
-            rows="10" 
             id="challenge_description"
             value={this.state.description} 
             onChange={this.handleDescription} 
@@ -90,11 +91,10 @@ class ChallengeCreateForm extends React.Component {
           <label htmlFor="challenge_description">Challenge Description</label>
           </div>
           <div className="input-field">
-
             <select value={this.state.category} onChange={this.handleCategory}>
-              <option value="" disabled selected></option>
-              {this.categories.map(function(category) { 
-                return (<option value={category.value}>{category.label}</option>);
+              <option value="" disabled></option>
+              {this.categories.map(function(category, i) { 
+                return (<option key={i} value={category.value}>{category.label}</option>);
               })}
             </select>
             <label>Challenge Category</label>
