@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageUpload from './ImageUpload.jsx';
-import className from 'classname';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 class ChallengeCreateForm extends React.Component {
   constructor(props) {
@@ -37,11 +38,11 @@ class ChallengeCreateForm extends React.Component {
     });
   }
 
-  handleCategory(e) {
-    // THIS DOESN'T WORK BECAUSE MATERIALIZE OVERWRITES SELECT AND MANIPULATES DOM, DOESN'T PASS IN THIS HANDLER
-    console.log(e);
+  handleCategory(event, index, value) {
+    // using materialUI
+    console.log(value);
     this.setState({
-      category: e.target.value
+      category: value
     })
   }
 
@@ -92,14 +93,17 @@ class ChallengeCreateForm extends React.Component {
           <label htmlFor="challenge_description">Challenge Description</label>
           </div>
           <div className="input-field">
-            <select value={this.state.category} onChange={this.handleCategory}>
-              <option value="" disabled></option>
-              {this.categories.map(function(category, i) { 
-                return (<option key={i} value={category.value}>{category.label}</option>);
-              })}
-            </select>
-            <label>Challenge Category</label>
-          </div>
+            <SelectField 
+            value={this.state.category} 
+            floatingLabelText="Challenge Category"
+            onChange={this.handleCategory} >
+              {this.categories.map((category, i) => {
+              return (
+                <MenuItem key={i} value={category.value} primaryText={category.label} />
+                );
+               })}
+            </SelectField>
+           </div>
           <div className="file-field input-field">
             <div className="btn">
               <span>Upload image</span>
@@ -118,6 +122,7 @@ class ChallengeCreateForm extends React.Component {
   }
 }
 
+// if want to validate forms https://github.com/christianalfoni/formsy-react
 
 
 export default ChallengeCreateForm;
