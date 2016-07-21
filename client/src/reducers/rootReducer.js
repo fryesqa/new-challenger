@@ -9,7 +9,15 @@ function challenge(state = [], action) {
 }
 
 function index(i = 0, action) {
-  console.log(i, action);
+  console.log('Inside index reducer, Action:', action.type);
+  switch (action.type) {
+    case 'INCREMENT':
+      //const i = action.index;
+      console.log('Incrementing index', i);
+      return i + 1;
+    default:
+      return i;
+  }
   return i;
 }
 const rootReducer = combineReducers(

@@ -1,3 +1,5 @@
+//For attaching actions and state to the App
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as allActions from './../actions/allActions.js';

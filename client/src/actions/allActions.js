@@ -7,9 +7,10 @@ export function saveChallenge(form) {
     form
   };
 }
+
 //test function
 export function increment(index) {
-  return {
+  return{
     type:'INCREMENT',
     index
   };
