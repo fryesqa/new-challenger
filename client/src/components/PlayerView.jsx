@@ -18,7 +18,7 @@ var challenge = {
       };
 
 //Get rid of 31-42 and replace with ChallengeListEntry with props
-var PlayerList = (props) => (
+const PlayerView = (props) => (
   <table>
     <thead>
       <tr>
@@ -63,4 +63,4 @@ var PlayerList = (props) => (
   </table>
 )
 
-export default PlayerList;
+export default PlayerView;
