@@ -37,7 +37,8 @@ class App extends React.Component {
           </div>
           <Link to="/challenge/create">Create a Challenge</Link>
           <div>
-            {this.props.children}
+            {/*Passes this redux state to first children*/}
+            {React.cloneElement(this.props.children, this.props)}
           </div>
         </div>
       </MuiThemeProvider>
