@@ -22,8 +22,8 @@ module.exports = {
     get: function(req, res) {
       model.Challenge.findAll()
       .then(function(challenges) {
-        var challengeArray = challenges.map(function(chall){
-          return chall.dataValues
+        var challengeArray = challenges.map(function(challenge){
+          return challenge.dataValues
         })
         // challengeArray is an array of all challenges which are objects
         console.log('list of challenges : ', challengeArray);
