@@ -23,7 +23,7 @@ class ChallengeListEntry extends React.Component {
 
   render() {
     return (
-      <Card className="challenge list">
+      <Card className={this.props.cardClass}>
         <CardHeader
           title={this.props.challenge.username}
           subtitle=""
