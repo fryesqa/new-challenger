@@ -6,7 +6,6 @@ import routes from '../../routes/routes.jsx';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
-
 ReactDOM.render((
   <Provider store={store}>
     <Router history={history} routes={routes} />    
