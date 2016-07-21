@@ -23,12 +23,21 @@ var User = sequelize.define('user', {
 });
 
 // Type model
-exports.Type = sequelize.define('type', {
+var Type = sequelize.define('type', {
   name: Sequelize.STRING(50)
 });
 
+//test of Type model
+
+// Type.sync().then(function() {
+//   Type.create({
+//     name: 'Physical'
+//   })
+// })
+
+
 // Challenge model
-exports.Challenge = sequelize.define('challenge', {
+var Challenge = sequelize.define('challenge', {
   name: Sequelize.STRING(100),
   description: Sequelize.TEXT,
   url: Sequelize.TEXT,
