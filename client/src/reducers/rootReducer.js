@@ -8,11 +8,12 @@ function challenge(state = [], action) {
   return state;
 }
 
-function increment(index = 0, action) {
-  console.log(index, action);
-  return index;
+function index(i = 0, action) {
+  console.log(i, action);
+  return i;
 }
-
 const rootReducer = combineReducers(
-  {challenge, increment, routing: routerReducer}
+  {challenge, index, routing: routerReducer}
 );
+
+export default rootReducer;

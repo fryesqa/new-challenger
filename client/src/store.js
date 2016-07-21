@@ -6,17 +6,20 @@ import rootReducer from './reducers/rootReducer';
 
 //import dummyData from './components/dummyData';
 
-var initialData = {
+var initialData = [
   {name: 'ALS Water Bucket', challengers: 1000},
   {name: 'Pie Eating', challengers:20},
   {name: 'Chili Pepper', challengers:0}
-}
+];
 
 const defaultState = {
-  challenges: initialData
-}
+  challenge: initialData,
+  index: 0
+};
 
-export default const store = createStore(rootReducer, defaultState);
-
+const store = createStore(rootReducer, defaultState);
+console.log('store', store);
 export const history = syncHistoryWithStore(browserHistory, store);
+
+export default store;
 
