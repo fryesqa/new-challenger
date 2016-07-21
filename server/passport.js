@@ -27,10 +27,6 @@ passport.use(new FacebookStrategy({
   }, 
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function(){
-      // console.log('name is : ', profile.displayName);
-      // console.log('id is : ', profile.id)
-      // console.log('email is : ', profile.emails[0].value);
-      // console.log('profile picture', profile.photos[0].value)
       model.User.sync().then(function(){
         model.User.findOrCreate(
           {
