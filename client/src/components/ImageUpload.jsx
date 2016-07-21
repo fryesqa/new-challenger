@@ -3,21 +3,24 @@ import Dropzone from 'react-dropzone';
 var Promise = require ('es6-promise').polyfill();
 var fetch = require ('isomorphic-fetch');
 
+// DON'T USE THIS, IT IS CURRENTLY BROKEN, SEE COMMENTS BELOW
 class ImageUpload extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageFile: []
+      imageFile: [],
     }
+    this.onDrop.bind(this);
   }
 
   onDrop(imageFile) {
     console.log('Received imageFile:', imageFile);
+    // this.setState is not running. onDrop doesn't have this context, tried binding above.
     this.setState({
       imageFile: imageFile
     });
+    console.log(this.state.imageFile);
   }
-  // ^^ need some sort of handleImage / handleSubmit here, right now not being posted to server
 
   // fetch('localhost:3000/upload')
   //     .then(function(response) {

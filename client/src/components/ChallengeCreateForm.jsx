@@ -1,6 +1,10 @@
 import React from 'react';
 import ImageUpload from './ImageUpload.jsx';
-import className from 'classname';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
+// probably want to use redux-form instead
+// http://redux-form.com/5.3.1/#/getting-started?_k=7i191c
 
 class ChallengeCreateForm extends React.Component {
   constructor(props) {
@@ -8,7 +12,8 @@ class ChallengeCreateForm extends React.Component {
     this.state = {
       name: '',
       description: '',
-      category: ''
+      category: '',
+      file: []
     };
     this.categories = [
       { value: 'online', label: 'Online' },
@@ -37,17 +42,20 @@ class ChallengeCreateForm extends React.Component {
     });
   }
 
-  handleCategory(e) {
-    // THIS DOESN'T WORK BECAUSE MATERIALIZE OVERWRITES SELECT AND MANIPULATES DOM, DOESN'T PASS IN THIS HANDLER
-    console.log(e);
+  handleCategory(event, index, value) {
+    // using materialUI
+    console.log(value);
     this.setState({
-      category: e.target.value
+      category: value
     })
   }
 
-  // currently not working
-  handleImage(imageFileData) {
-    console.log(imageFileData)
+  handleImage(e) {
+    console.log(e.target);
+    // not sure what file to grab here... 
+    this.setState({
+      file: e.target.value
+    });
   }
 
   handleSubmit(e) {
@@ -55,11 +63,13 @@ class ChallengeCreateForm extends React.Component {
     console.log(
       'challenge name:', this.state.name, '/',
       'challenge description:', this.state.description, '/',
-      'challenge category:', this.state.category);
+      'challenge category:', this.state.category, '/',
+      'challenge imageFile:', this.state.file);
     this.setState({
       name: '',
       description: '',
-      category: ''
+      category: '',
+      file: []
     });
   }
 
@@ -67,7 +77,6 @@ class ChallengeCreateForm extends React.Component {
     return (
     <div className="row">
       <h3> Create a challenge! </h3>
-      <ImageUpload />
       <form 
         name="challenge-create" 
         onSubmit={this.handleSubmit}
@@ -92,32 +101,34 @@ class ChallengeCreateForm extends React.Component {
           <label htmlFor="challenge_description">Challenge Description</label>
           </div>
           <div className="input-field">
-            <select value={this.state.category} onChange={this.handleCategory}>
-              <option value="" disabled></option>
-              {this.categories.map(function(category, i) { 
-                return (<option key={i} value={category.value}>{category.label}</option>);
-              })}
-            </select>
-            <label>Challenge Category</label>
-          </div>
+            <SelectField 
+            value={this.state.category} 
+            floatingLabelText="Challenge Category"
+            onChange={this.handleCategory} >
+              {this.categories.map((category, i) => {
+              return (
+                <MenuItem key={i} value={category.value} primaryText={category.label} />
+                );
+               })}
+            </SelectField>
+           </div>
           <div className="file-field input-field">
             <div className="btn">
               <span>Upload image</span>
-              <input type="file" />
+              <input type="file" onChange={this.handleImage}/>
             </div>
             <div className="file-path-wrapper">
               <input className="file-path validate" type="text" />
             </div>
           </div>
           <input className="btn" type="submit"/>
-
-        
       </form>
     </div>
     );
   }
 }
 
+// if want to validate forms https://github.com/christianalfoni/formsy-react
 
 
 export default ChallengeCreateForm;
