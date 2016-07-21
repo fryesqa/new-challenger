@@ -8,6 +8,12 @@ function challenge(state = [], action) {
   return state;
 }
 
+function challengeList(state = [], action) {
+  console.log(state, action);
+  return state;
+}
+
+
 function index(i = 0, action) {
   console.log('Inside index reducer, Action:', action.type);
   switch (action.type) {
@@ -21,7 +27,7 @@ function index(i = 0, action) {
   return i;
 }
 const rootReducer = combineReducers(
-  {challenge, index, routing: routerReducer}
+  {challenge, challengeList, index, routing: routerReducer}
 );
 
 export default rootReducer;

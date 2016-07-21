@@ -21,7 +21,7 @@ const Main = (props) => (
       <button onClick={props.increment.bind(null, props.index)}>Increment Using Actions</button>
       <div>Index: {props.index}</div>
     </div>  
-    <ChallengeList cardClass={listClass} challenges={dummyData.challenges} currentUser={dummyData.currentUser} />
+    <ChallengeList cardClass={listClass} challenges={props.challengeList} currentUser={dummyData.currentUser} />
   </div>
 )
 

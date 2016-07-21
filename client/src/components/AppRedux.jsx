@@ -8,6 +8,7 @@ import App from './App.jsx';
 function mapStateToProps(state) {
   return {
     challenge: state.challenge,
+    challengeList: state.challengeList,
     index: state.index
   };
 }
