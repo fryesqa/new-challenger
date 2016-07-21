@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router';
 import Navigation from './Navigation.jsx';
 import dummyData from './dummyData.js';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
@@ -23,18 +27,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div>
-          <Navigation />
-          <Link to={`/user/${this.state.userId}`}>
-            <img src="http://vignette3.wikia.nocookie.net/bobsburgerpedia/images/3/32/Jimmy_Pesto.png/revision/latest?cb=20130305162049" alt=""/>
-          </Link>
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+        <div className="container">
+          <div>
+            <Navigation />
+            <Link to={`/user/${this.state.userId}`}>
+              <img src="http://vignette3.wikia.nocookie.net/bobsburgerpedia/images/3/32/Jimmy_Pesto.png/revision/latest?cb=20130305162049" alt=""/>
+            </Link>
+          </div>
+          <Link to="/challenge/create">Create a Challenge</Link>
+          <div>
+            {this.props.children}
+          </div>
         </div>
-        <Link to="/challenge/create">Create a Challenge</Link>
-        <div>
-          {this.props.children}
-        </div>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
