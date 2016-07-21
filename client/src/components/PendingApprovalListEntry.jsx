@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ChallengerListEntry = ({challenger, handleClick}) => (
+const PendingApprovalListEntry = ({challenger, handleClick}) => (
   <div>
     <div onClick={handleClick}>{challenger.username}</div>
     <div className="hidden">
@@ -9,9 +9,9 @@ const ChallengerListEntry = ({challenger, handleClick}) => (
   </div>
 ) 
 
-ChallengerListEntry.propTypes = {
+PendingApprovalListEntry.propTypes = {
   challenger: React.PropTypes.object.isRequired,
   handleClick: React.PropTypes.func.isRequired
 };
 
-export default ChallengerListEntry;
+export default PendingApprovalListEntry;
