@@ -13,7 +13,8 @@ var sequelize = new Sequelize('newchallenger', 'kwong', '', {
   }
 });
 
-// User model
+
+// user model
 exports.User = sequelize.define('user', {
   name: Sequelize.STRING(100),
   email: Sequelize.STRING(100),
