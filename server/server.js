@@ -42,17 +42,17 @@ app.use(passport.session());
 // ****** To Fix ******
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
 app.get('/auth/facebook/callback', 
-  passport.authenticate('facebook', { successRedirect: '/#/main', failureRedirect: '/'}));
+  // passport.authenticate('facebook', { successRedirect: '/#/main', failureRedirect: '/'}));
   
   // comment out line 40 and replace with code below if you want to do something with the 
   // session information i.e. save to database
 
-  // passport.authenticate('facebook', { failureRedirect: '/#/home'}), 
-  // function(req, res) {
-  //   // req.user contains session information
-  //   console.log('line 39', req.user);
-  //   res.redirect('/#/main');
-  // });
+  passport.authenticate('facebook', { failureRedirect: '/#/home'}), 
+  function(req, res) {
+    // req.user contains session information
+    console.log('line 39', req.user);
+    res.redirect('/main');
+  });
 
 const dummyData = require('./dummyData');
 
