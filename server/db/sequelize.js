@@ -13,9 +13,8 @@ var sequelize = new Sequelize('newchallenger', 'kwong', '', {
   }
 });
 
-
 // User model
-var User = sequelize.define('user', {
+exports.User = sequelize.define('user', {
   name: Sequelize.STRING(100),
   email: Sequelize.STRING(100),
   url: Sequelize.TEXT,
@@ -23,21 +22,12 @@ var User = sequelize.define('user', {
 });
 
 // Type model
-var Type = sequelize.define('type', {
+exports.Type = sequelize.define('type', {
   name: Sequelize.STRING(50)
 });
 
-//test of Type model
-
-// Type.sync().then(function() {
-//   Type.create({
-//     name: 'Physical'
-//   })
-// })
-
-
 // Challenge model
-var Challenge = sequelize.define('challenge', {
+exports.Challenge = sequelize.define('challenge', {
   name: Sequelize.STRING(100),
   description: Sequelize.TEXT,
   url: Sequelize.TEXT,
