@@ -59,6 +59,14 @@ app.get('/auth/facebook/callback',
   //   res.redirect('/#/main');
   // });
 
+app.get('/challenges', function(req, res) {
+  const data = [
+    {id:1, name:'best challenge', description: 'eat 10 bananas'},
+    {id:2, name:'worst challenge', description: 'eat 0 bananas'}
+  ];
+  res.json(data);
+});
+
 //https://github.com/reactjs/react-router-tutorial/tree/master/lessons/13-server-rendering
 app.get('*', function(req, res) {
   match({ routes: routes, location: req.url }, (err, redirect, props) => {
