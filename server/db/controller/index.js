@@ -36,6 +36,16 @@ var model = require('../sequelize.js');
 // })
 
 
+// model.Testarray.create({
+//   listArray: [1, 2, 3]
+// })
+
+// model.Testarray.find({ where: {id: 1} }).then(function(test){
+//   test.update({
+//     listArray: model.sequelize.fn('array_append', model.sequelize.col('listArray'), 10)
+//   })
+// })
+
 
 // function to find and increment the number of challengers who accepted the challenge
 
@@ -59,7 +69,15 @@ module.exports = {
         }
       })
       .then(function(user) {
-        console.log('user information is : ', user.dataValues);
+        // console.log('user information is : ', user.dataValues);
+        model.Challenge.findAll({where: { userId: user.dataValues.id }})
+          .then(function(challenges){
+            user.dataValues.challengesCreated = challenges.map(function(challenge){
+              return challenge.dataValues;
+            })
+
+            console.log(user.dataValues)
+          })
       });
     }
   },
@@ -121,6 +139,10 @@ module.exports = {
           function(challenge) {
             challenge.increment(['challengers']);
         })
+    },
+
+    created: function(req, res) {
+
     }
   },
 };
