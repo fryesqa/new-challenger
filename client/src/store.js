@@ -1,10 +1,12 @@
-import { createStore, compse } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
+import thunk from 'redux-thunk';
 
 import rootReducer from './reducers/rootReducer';
 
 import dummyData from './components/dummyData';
+
 
 // var initialData = [
 //   {name: 'ALS Water Bucket', challengers: 1000},
@@ -18,7 +20,7 @@ const defaultState = {
   index: 0
 };
 
-const store = createStore(rootReducer, defaultState);
+const store = createStore(rootReducer, defaultState, applyMiddleware(thunk));
 
 export const history = syncHistoryWithStore(browserHistory, store);
 

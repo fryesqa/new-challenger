@@ -1,18 +1,15 @@
 //All Actions
 //Import actions here
+import createChallenge from './createChallenge';
 
-export function saveChallenge(form) {
-  return {
-    type: 'SAVE_CHALLENGE_FORM',
-    form
-  };
-}
 
 //test function
 export function increment(index) {
-  return{
+  console.log('INCREMENT!');
+  return {
     type:'INCREMENT',
     index
   };
 }
 
+export { createChallenge };
