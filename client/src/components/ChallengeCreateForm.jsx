@@ -2,6 +2,7 @@ import React from 'react';
 import ImageUpload from './ImageUpload.jsx';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import { browserHistory } from 'react-router';
 
 // probably want to use redux-form instead
 // http://redux-form.com/5.3.1/#/getting-started?_k=7i191c
@@ -23,23 +24,8 @@ class ChallengeCreateForm extends React.Component {
       { value: 'other', label: 'Other' }
     ];
     // should probably use lodash's bindAll, this is ridiculous
-    this.handleName = this.handleName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDescription = this.handleDescription.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
-    this.handleImage = this.handleImage.bind(this);
-  }
-
-  handleName(e){
-    this.setState({
-      name: e.target.value
-    });
-  }
-
-  handleDescription(e){
-    this.setState({
-      description: e.target.value
-    });
   }
 
   handleCategory(event, index, value) {
@@ -47,30 +33,28 @@ class ChallengeCreateForm extends React.Component {
     console.log(value);
     this.setState({
       category: value
-    })
-  }
-
-  handleImage(e) {
-    console.log(e.target);
-    // not sure what file to grab here... 
-    this.setState({
-      file: e.target.value
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(
-      'challenge name:', this.state.name, '/',
-      'challenge description:', this.state.description, '/',
-      'challenge category:', this.state.category, '/',
-      'challenge imageFile:', this.state.file);
-    this.setState({
-      name: '',
-      description: '',
-      category: '',
-      file: []
-    });
+    // console.log(
+    //   'challenge name:', this.refs.name.value, '/',
+    //   'challenge description:', this.refs.description.value, '/',
+    //   'challenge category:', this.state.category, '/',
+    //   'challenge imageFile:', this.refs.image.value);
+
+    var newChallenge = {
+      name: this.refs.name.value,
+      description: this.refs.description.value,
+      type: this.state.category,
+      image: this.refs.image.value
+    };
+
+    console.log(newChallenge);
+
+    this.props.createChallenge(newChallenge);
+    browserHistory.push('/');
   }
 
   render() {
@@ -81,25 +65,26 @@ class ChallengeCreateForm extends React.Component {
         name="challenge-create" 
         onSubmit={this.handleSubmit}
         className="col s10" >
+
           <div className="input-field">
             <input
               className="validate" 
               type="text" 
               id="challenge_name" 
-              value={this.state.name} 
-              onChange={this.handleName} 
+              ref="name"
               />
             <label htmlFor="challenge_name">Challenge Name</label>
           </div>
+
           <div className="input-field">
           <textarea 
             className="materialize-textarea"
             id="challenge_description"
-            value={this.state.description} 
-            onChange={this.handleDescription} 
+            ref="description"
             />
           <label htmlFor="challenge_description">Challenge Description</label>
           </div>
+
           <div className="input-field">
             <SelectField 
             value={this.state.category} 
@@ -112,15 +97,17 @@ class ChallengeCreateForm extends React.Component {
                })}
             </SelectField>
            </div>
+
           <div className="file-field input-field">
             <div className="btn">
               <span>Upload image</span>
-              <input type="file" onChange={this.handleImage}/>
+              <input type="file" ref='image'/>
             </div>
             <div className="file-path-wrapper">
               <input className="file-path validate" type="text" />
             </div>
           </div>
+
           <input className="btn" type="submit"/>
       </form>
     </div>
