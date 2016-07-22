@@ -28,8 +28,8 @@ var Challenge = sequelize.define('challenge', {
   name: Sequelize.STRING(100),
   description: Sequelize.TEXT,
   url: Sequelize.TEXT,
-  challengers: Sequelize.INTEGER,
-  successes: Sequelize.INTEGER,
+  challengers: Sequelize.ARRAY(Sequelize.INTEGER),
+  successes: Sequelize.ARRAY(Sequelize.INTEGER),
   endTime: Sequelize.DATE
 });
 
@@ -59,11 +59,17 @@ var Proof = sequelize.define('proof', {
 
 Users_challenge.hasMany(Proof)
 
+
+var Testarray = sequelize.define('testarray', {
+  listArray: Sequelize.ARRAY(Sequelize.INTEGER)
+})
 // User.sync();
 // Type.sync();
 // Challenge.sync();
 // Users_challenge.sync();
 // Proof.sync();
+// Testarray.sync();
+
 
 
 exports.User = User;
@@ -71,3 +77,5 @@ exports.Type = Type;
 exports.Challenge = Challenge;
 exports.Users_challenge = Users_challenge;
 exports.Proof = Proof;
+exports.Testarray = Testarray;
+exports.sequelize = sequelize;
