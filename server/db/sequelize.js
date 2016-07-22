@@ -8,70 +8,66 @@ var pgHstore = require('pg-hstore');
 var sequelize = new Sequelize('newchallenger', 'kwong', '', {
   dialect: 'postgres',
   host: 'localhost',
-  define: {
-    timestamps: false
-  }
 });
 
 // user model
-exports.User = sequelize.define('user', {
+var User = sequelize.define('user', {
   name: Sequelize.STRING(100),
   email: Sequelize.STRING(100),
   url: Sequelize.TEXT,
-  facebookid: Sequelize.TEXT
+  facebookId: Sequelize.TEXT
 });
 
 // Type model
-exports.Type = sequelize.define('type', {
+var Type = sequelize.define('type', {
   name: Sequelize.STRING(50)
 });
 
 // Challenge model
-exports.Challenge = sequelize.define('challenge', {
+var Challenge = sequelize.define('challenge', {
   name: Sequelize.STRING(100),
   description: Sequelize.TEXT,
   url: Sequelize.TEXT,
   challengers: Sequelize.INTEGER,
   successes: Sequelize.INTEGER,
-  creatorid: {
-    type: Sequelize.INTEGER,
-    references: 'User',
-    referencesKey: 'id'
-  },
-  typeid: {
-    type: Sequelize.INTEGER,
-    references: 'Type',
-    referencesKey: 'id'
-  },
-  endtime: Sequelize.DATE
+  endTime: Sequelize.DATE
 });
+
+User.hasMany(Challenge);
+Type.hasMany(Challenge);
 
 // Users_challenge model
-exports.Users_challenge = sequelize.define('users_challenge', {
-  userid: {
+var Users_challenge = sequelize.define('users_challenge', {
+  id : {
     type: Sequelize.INTEGER,
-    references: 'User',
-    referencesKey: 'id'
+    primaryKey: true,
+    autoIncrement: true
   },
-  challengeid: {
-    type: Sequelize.INTEGER,
-    references: 'Challenge',
-    referencesKey: 'id'
-  },
-  timeaccepted: Sequelize.DATE
+  timeAccepted: Sequelize.DATE
 });
+User.belongsToMany(Challenge, { through: Users_challenge })
+Challenge.belongsToMany(User, { through: Users_challenge })
+
 
 // proof model
-exports.Proof = sequelize.define('proof', {
-  creatoraccepted: Sequelize.BOOLEAN,
-  userchallengeid: {
-    type: Sequelize.INTEGER,
-    references: 'User_challenge',
-    referencesKey: 'id'
-  }
+var Proof = sequelize.define('proof', {
+  creatorAccepted: Sequelize.BOOLEAN,
   },
 {
   freezeTableName: true
 });
 
+Users_challenge.hasMany(Proof)
 
+// User.sync();
+// Type.sync();
+// Challenge.sync();
+// Users_challenge.sync();
+// Proof.sync();
+
+
+exports.User = User;
+exports.Type = Type;
+exports.Challenge = Challenge;
+exports.Users_challenge = Users_challenge;
+exports.Proof = Proof;
