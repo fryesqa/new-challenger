@@ -36,8 +36,10 @@ class ChallengeListEntry extends React.Component {
           <br />
           <div>{this.props.challenge.successes} out of {this.props.challenge.challengers} challengers have completed this challenge! </div>
           <br />
+          <div>Current challengers: {this.props.challenge.currentChallengers}</div>
+          <div>Completed: {this.props.challenge.successNames}</div>
+          <br />
           <div>Start: {this.props.challenge.createdAt} </div>
-
           <div>End: {this.props.challenge.endTime} </div>
 
 
