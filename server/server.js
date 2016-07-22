@@ -12,6 +12,9 @@ const pgClient = require('./db/connection.js');
 const passportFacebook = require('./passport.js');
 const session = require('express-session');
 
+// dummyData
+import dummyData from '../client/src/components/dummyData.js';
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -60,10 +63,7 @@ app.get('/auth/facebook/callback',
   // });
 
 app.get('/challenges', function(req, res) {
-  const data = [
-    {id:1, name:'best challenge', description: 'eat 10 bananas'},
-    {id:2, name:'worst challenge', description: 'eat 0 bananas'}
-  ];
+  const data = dummyData.challenges;
   res.json(data);
 });
 
