@@ -11,29 +11,35 @@ const exampleStyle = {
   'width': '200px'
 };
 
-const cardClass = classNames('main', 'list', 'card');
-const imageClass = classNames('main', 'list', 'card', 'image');
-const imageStyle = {
-  width: '100%',
-  height: '150px'
+const cardStyle = {
+  width: '30%',
+  height: '600px',
+  overflow: 'hidden',
+  float: 'left',
+  margin: '1%'
 }
 
-const classes = {
-  cardClass,
-  imageClass,
+const imageStyle = {
+  width: '100%',
+  height: '200px',
+  overflow: 'hidden'
+}
+
+const styles = {
+  cardStyle,
   imageStyle
 }
 
 const Main = (props) => ( 
   <div>
-    <ChallengeList classes={classes} challenges={props.challengeList} currentUser={dummyData.currentUser} />
+    <ChallengeList styles={styles} challenges={props.challengeList} currentUser={dummyData.currentUser} />
+    <div style={exampleStyle}>
+      Example of Redux
+      {/*bind so that on page load the props.increment wont run*/}
+      <button onClick={props.increment.bind(null, props.index)}>Increment Using Actions</button>
+      <div>Index: {props.index}</div>
+    </div>  
   </div>
 )
 
 export default Main;
-    // <div style={exampleStyle}>
-    //   Example of Redux
-    //   {/*bind so that on page load the props.increment wont run*/}
-    //   <button onClick={props.increment.bind(null, props.index)}>Increment Using Actions</button>
-    //   <div>Index: {props.index}</div>
-    // </div>  

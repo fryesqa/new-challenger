@@ -9,31 +9,6 @@ nav{
   color:rgba(187, 222, 251, 0.8);
 }
 
-.main.list.card {
-  width: 30%;
-  height: 20%;
-  float: left;
-  margin: 1%;
-}
-
-.main.list.card.image {
-  width: 100%;
-  height: 150px;
-  /*height: 200px;*/
-  /*margin: 0px !important;*/
-}
-
-
-.player.card {
-  width: 80%;
-  float: left;
-  margin: 1%;
-}
-.player.card.image {
-  width: 100%;
-  /*margin: 0px !important;*/
-}
-
 .hidden {
   display: none;
 }

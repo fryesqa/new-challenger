@@ -26,10 +26,29 @@ var challenge = {
         endTime: new Date().toString()
       };
 
+const cardStyle = {
+  width: '80%',
+  overflow: 'hidden',
+  float: 'left',
+  'margin-top': '2%',
+  'margin-left': '10%',
+  'margin-right': '10%'
+}
+
+const imageStyle = {
+  width: '100%',
+  height: '400px',
+  overflow: 'hidden'
+}
+
+const styles = {
+  cardStyle,
+  imageStyle
+}
 //Get rid of 31-42 and replace with ChallengeListEntry with props
 const PlayerView = (props) => (
   <div>
-    <ChallengeListEntry challenge={props.challenge} classes={classes}/>
+    <ChallengeListEntry challenge={props.challenge} styles={styles}/>
   </div>
 )
 

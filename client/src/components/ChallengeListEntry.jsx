@@ -21,14 +21,14 @@ class ChallengeListEntry extends React.Component {
 
   render() {
     return (
-      <Card className={this.props.classes.cardClass}>
+      <Card style={this.props.styles.cardStyle}>
         <CardHeader
           title={this.props.challenge.username}
           subtitle=""
           avatar="user-profile-image"
         />
-        <CardMedia>
-          <img style={this.props.classes.imageStyle} src={this.props.challenge.imageUrl} />
+        <CardMedia style={this.props.styles.imageStyle}>
+          <img src={this.props.challenge.imageUrl} />
         </CardMedia>
         <CardTitle title={this.props.challenge.name} subtitle={this.props.challenge.category} />
         <CardText>
