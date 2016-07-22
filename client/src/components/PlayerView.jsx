@@ -14,9 +14,9 @@ const cardStyle = {
   width: '80%',
   overflow: 'hidden',
   float: 'left',
-  'margin-top': '2%',
-  'margin-left': '10%',
-  'margin-right': '10%'
+  'marginTop': '2%',
+  'marginLeft': '10%',
+  'marginRight': '10%'
 }
 
 const imageStyle = {
@@ -33,8 +33,6 @@ const styles = {
 const PlayerView = (props) => (
   <div>
     <ChallengeListEntry challenge={props.challenge} styles={styles}/>
-    <div>Current challengers: {props.challenge.currentChallengers}</div>
-    <div>Completed: {props.challenge.successNames}</div>
   </div>
 )
 
