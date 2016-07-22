@@ -8,7 +8,7 @@ export function requestChallenges() {
 export function receiveChallenges(challenges) {
   return {
     type: 'RECEIVE_CHALLENGE_LIST',
-    challenges,
+    challenges: challenges.map(challenge => challenge.id),
     entities: {challenges: challenges.reduce((obj, challenge) => {
       obj[challenge.id] = challenge;
       return obj;
