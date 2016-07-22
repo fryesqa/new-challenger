@@ -1,13 +1,23 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
+import merge from 'lodash/merge';
 
 //Import Reducers here
+import { challengeList } from './challenges.js';
+
+// add new or update challenges and users
+function entities(state = { users: {}, challenges: {} }, action) {
+  if (action.entities) {
+    return merge({}, state, action.entities);
+  }
+  return state;
+}
 
 function challenge(state = [], action) {
   //console.log(state, action);
   return state;
 }
-
+/*
 function challengeList(state = [], action) {
   switch (action.type) {
     case 'UPDATE_CHALLENGE_LIST':
@@ -19,7 +29,7 @@ function challengeList(state = [], action) {
       return state;
   }
 }
-
+*/
 
 function index(i = 0, action) {
   switch (action.type) {
@@ -32,7 +42,7 @@ function index(i = 0, action) {
   }
 }
 const rootReducer = combineReducers(
-  {challenge, challengeList, index, routing: routerReducer}
+  {entities, challenge, challengeList, index, routing: routerReducer}
 );
 
 export default rootReducer;
