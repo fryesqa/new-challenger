@@ -4,13 +4,19 @@ import { routerReducer } from 'react-router-redux';
 //Import Reducers here
 
 function challenge(state = [], action) {
-  console.log(state, action);
+  //console.log(state, action);
   return state;
 }
 
 function challengeList(state = [], action) {
-  console.log(state, action);
-  return state;
+  switch (action.type) {
+    case 'CREATE_CHALLENGE':
+      console.log('Inside create challenge reducer');
+      //update challenges
+      return state;
+    default:
+      return state;
+  }
 }
 
 
@@ -19,12 +25,10 @@ function index(i = 0, action) {
   switch (action.type) {
     case 'INCREMENT':
       //const i = action.index;
-      console.log('Incrementing index', i);
       return i + 1;
     default:
       return i;
   }
-  return i;
 }
 const rootReducer = combineReducers(
   {challenge, challengeList, index, routing: routerReducer}
