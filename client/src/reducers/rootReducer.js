@@ -12,9 +12,7 @@ function challengeList(state = [], action) {
   switch (action.type) {
     case 'UPDATE_CHALLENGE_LIST':
       console.log('Inside update challenge list', action.challenge);
-      var updatedChallengeList = state;
-      updatedChallengeList.push(action.challenge);
-      return updatedChallengeList;
+      return state.concat(action.challenge);
     case 'FAIL_CREATE_CHALLENGE':
       //return Object.assign({}, state, {})
     default :
