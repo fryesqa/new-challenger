@@ -1,5 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
+import ChallengeListEntry from './ChallengeListEntry.jsx'
+import classNames from 'classnames';
+
+const playerClass = classNames('player', 'card');
+
+const classes = {
+  cardClass: classNames('player', 'card'),
+  imageClass: classNames('player', 'card', 'image')
+}
 
 // dummy data for challenge
 var challenge = {
@@ -19,48 +28,9 @@ var challenge = {
 
 //Get rid of 31-42 and replace with ChallengeListEntry with props
 const PlayerView = (props) => (
-  <table>
-    <thead>
-      <tr>
-        <td> <img src="/images/spork.png" width="50px" height="50px" /> </td> 
-        <td> <h3>{challenge.name}</h3> </td> 
-        <td> <Link to={`/challenge/${challenge.id}/submission`}><button>Submit Button</button></Link> </td> 
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td> <img src={challenge.imageUrl} /> </td>
-        <td>
-          <h5>Category</h5>
-          {challenge.category}
-          <h5>Challenge Description:</h5>
-          {challenge.description}
-          <h5>Challenge Ends</h5>
-          {challenge.endTime}
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h5>Challenge Winners</h5>
-          <ul className="PlayerList">
-            {
-              challenge.successes.map(function(success) {
-                return <li key={success}>{success}</li>
-              })
-            }
-          </ul>
-        </td>
-        <td>
-          <h5>Active Challengers</h5>
-            {
-              challenge.currentChallengers.map(function(currentChallenger) {
-                return <li key={currentChallenger}>{currentChallenger}</li>
-              })
-            }
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <ChallengeListEntry challenge={props.challenge} classes={classes}/>
+  </div>
 )
 
 export default PlayerView;
