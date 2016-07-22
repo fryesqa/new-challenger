@@ -55,6 +55,7 @@ module.exports = {
           // once user is logged into facebook
           // use req.user.id for facebook id
           facebookId: '267921663576663'
+          // facebookId: req.user.id
         }
       })
       .then(function(user) {
