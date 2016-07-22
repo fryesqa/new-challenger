@@ -10,11 +10,18 @@ function challenge(state = [], action) {
 
 function challengeList(state = [], action) {
   switch (action.type) {
-    case 'CREATE_CHALLENGE':
-      console.log('Inside create challenge reducer');
-      //update challenges
-      return state;
-    default:
+    case 'UPDATE_CHALLENGE_LIST':
+      console.log('Inside update challenge list');
+      var updatedChallengeList = state.challengeList;
+      updatedChallengeList.push(action.challege);
+      console.log(state.challengeList);
+      console.log(updatedChallengeList);
+      return Object.assign({}, state, {
+        challengeList: updatedChallengeList
+      });
+    case 'FAIL_CREATE_CHALLENGE':
+      //return Object.assign({}, state, {})
+    default :
       return state;
   }
 }
