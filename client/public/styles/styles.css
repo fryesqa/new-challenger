@@ -9,15 +9,6 @@ nav{
   color:rgba(187, 222, 251, 0.8);
 }
 
-
-.main.list.card {
-  display: block;
-  width: 30%;
-  height: 20%;
-  float: left;
-  margin: 1%;
-}
-
 .hidden {
   display: none;
 }

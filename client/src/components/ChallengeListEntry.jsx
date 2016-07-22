@@ -1,11 +1,9 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
+import classNames from 'classnames';
 
 
-const imageStyle = {
-  height: '200px'
-};
 const buttonStyle = {
   margin: 12,
   float: 'right'
@@ -23,14 +21,14 @@ class ChallengeListEntry extends React.Component {
 
   render() {
     return (
-      <Card className={this.props.cardClass}>
+      <Card style={this.props.styles.cardStyle}>
         <CardHeader
           title={this.props.challenge.username}
           subtitle=""
           avatar="user-profile-image"
         />
-        <CardMedia>
-          <img style={imageStyle} src={this.props.challenge.imageUrl} />
+        <CardMedia style={this.props.styles.imageStyle}>
+          <img src={this.props.challenge.imageUrl} />
         </CardMedia>
         <CardTitle title={this.props.challenge.name} subtitle={this.props.challenge.category} />
         <CardText>
