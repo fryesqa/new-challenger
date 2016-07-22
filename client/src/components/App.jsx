@@ -14,16 +14,15 @@ injectTapEventPlugin();
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    /*this.state = {
       challenges: dummyData.challenges,
       userId: dummyData.currentUser // dummy value for testing purposes, replace with signed in user info
-    };
+    };*/
   }
 
-  // for routing to components
-    // use <Login /> for login
-    // use <ChallengeCreateForm /> for challenge create form
-    // note: may want to pass down the username as props to these or use it in redux's state
+  componentDidMount() {
+    this.props.fetchChallenges();
+  }
 
   render() {
     return (
