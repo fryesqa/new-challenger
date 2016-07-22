@@ -12,6 +12,9 @@ const pgClient = require('./db/connection.js');
 const passportFacebook = require('./passport.js');
 const session = require('express-session');
 
+// dummyData
+import dummyData from '../client/src/components/dummyData.js';
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -58,6 +61,11 @@ app.get('/auth/facebook/callback',
   //   console.log('line 39', req.user);
   //   res.redirect('/#/main');
   // });
+
+app.get('/challenges', function(req, res) {
+  const data = dummyData.challenges;
+  res.json(data);
+});
 
 //https://github.com/reactjs/react-router-tutorial/tree/master/lessons/13-server-rendering
 app.get('*', function(req, res) {
