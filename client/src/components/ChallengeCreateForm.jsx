@@ -11,10 +11,7 @@ class ChallengeCreateForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      description: '',
-      category: '',
-      file: []
+      category: ''
     };
     this.categories = [
       { value: 'online', label: 'Online' },
