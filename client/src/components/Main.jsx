@@ -32,7 +32,7 @@ const styles = {
 
 const Main = (props) => ( 
   <div>
-    <ChallengeList styles={styles} challenges={props.challengeList} currentUser={dummyData.currentUser} />
+    <ChallengeList styles={styles} challenges={props.challengeList.items} entities={props.entities} currentUser={dummyData.currentUser} />
     <div style={exampleStyle}>
       Example of Redux
       {/*bind so that on page load the props.increment wont run*/}
