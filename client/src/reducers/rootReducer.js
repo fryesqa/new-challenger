@@ -3,7 +3,7 @@ import { routerReducer } from 'react-router-redux';
 import merge from 'lodash/merge';
 
 //Import Reducers here
-import { challengeList } from './challenges.js';
+import { challengeList } from './challengeList.js';
 
 // add new or update challenges and users
 function entities(state = { users: {}, challenges: {} }, action) {
