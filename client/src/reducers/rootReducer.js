@@ -11,14 +11,10 @@ function challenge(state = [], action) {
 function challengeList(state = [], action) {
   switch (action.type) {
     case 'UPDATE_CHALLENGE_LIST':
-      console.log('Inside update challenge list');
-      var updatedChallengeList = state.challengeList;
-      updatedChallengeList.push(action.challege);
-      console.log(state.challengeList);
-      console.log(updatedChallengeList);
-      return Object.assign({}, state, {
-        challengeList: updatedChallengeList
-      });
+      console.log('Inside update challenge list', action.challenge);
+      var updatedChallengeList = state;
+      updatedChallengeList.push(action.challenge);
+      return updatedChallengeList;
     case 'FAIL_CREATE_CHALLENGE':
       //return Object.assign({}, state, {})
     default :
@@ -28,9 +24,9 @@ function challengeList(state = [], action) {
 
 
 function index(i = 0, action) {
-  console.log('Inside index reducer, Action:', action.type);
   switch (action.type) {
     case 'INCREMENT':
+      console.log('Inside index reducer incrementing');
       //const i = action.index;
       return i + 1;
     default:
