@@ -10,22 +10,6 @@ const classes = {
   imageClass: classNames('player', 'card', 'image')
 }
 
-// dummy data for challenge
-var challenge = {
-        id: '1',
-        imageUrl: "https://upload.wikimedia.org/wikipedia/en/7/7f/Bob's_Burgers_promo.png",
-        name: 'Burger time!',
-        profilePic: './icon.jpg',
-        username: 'Bob Belcher', //creatorId?
-        description: 'Eat 5 hamburgers',
-        category: 'Food',
-        challengers: ['sloppy joe', 'hungry hippo', 'big mac', 'spicy chicken', 'burger king'],
-        successes: ['sloppy joe', 'big mac'],
-        currentChallengers: ['spicy chicken', 'burger king'],
-        createdAt: new Date().toString(),
-        endTime: new Date().toString()
-      };
-
 const cardStyle = {
   width: '80%',
   overflow: 'hidden',
@@ -49,6 +33,8 @@ const styles = {
 const PlayerView = (props) => (
   <div>
     <ChallengeListEntry challenge={props.challenge} styles={styles}/>
+    <div>Current challengers: {props.challenge.currentChallengers}</div>
+    <div>Completed: {props.challenge.successNames}</div>
   </div>
 )
 

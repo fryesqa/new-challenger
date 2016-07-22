@@ -12,6 +12,9 @@ var dummyData = {
       category: 'Food',
       challengers: 10,
       successes: 8,
+      challengerNames: ['sloppy joe', 'hungry hippo', 'big mac', 'spicy chicken', 'burger king'],
+      successNames: ['sloppy joe', 'big mac'],
+      currentChallengers: ['spicy chicken', 'burger king'],
       createdAt: new Date().toString(),
       endTime: new Date().toString()
     },
