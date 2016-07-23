@@ -1,4 +1,4 @@
-export receiveUsers = function(users) {
+export function receiveUsers(users) {
   return {
     type: 'RECEIVE_USERS',
     entities: users.reduce((obj, user) => {
