@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm run build",
-    "start": "node server/server.bundle.js",
+    "start": "node server/server.js",
     "dev": "webpack-dev-server --content-base client/public",
     "build:client": "node_modules/.bin/webpack",
     "build": "npm run build:client",
