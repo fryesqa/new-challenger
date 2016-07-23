@@ -54,7 +54,7 @@ app.get('/auth/facebook/callback',
   //   res.redirect('/#/main');
   // });
 
-//import dummyData from '../client/src/components/dummyData.js';
+const dummyData = require('./dummyData');
 
 app.get('/challenges', function(req, res) {
   const data = dummyData.challenges;

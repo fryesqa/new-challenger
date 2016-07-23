@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: [path.resolve(__dirname, 'client', 'src', 'index.jsx'), 'whatwg-fetch'],
   output: {
-    path: './client/public',
+    path: './client/public/dist',
     filename: 'bundle.js'
   },
   devServer: {
@@ -15,7 +15,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?/,
-        include: [/client/, path.resolve(__dirname, 'routes','routes.jsx')],
+        include: /client/,
         loader: 'babel',
       },
     ],

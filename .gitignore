@@ -8,5 +8,4 @@ npm-debug.log
 /*.env
 
 # bundle
-client/public/bundle.js
-server/server.bundle.js
+client/public/dist
