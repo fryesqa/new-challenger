@@ -2,6 +2,7 @@
 //Import actions here
 import createChallenge from './createChallenge';
 import { fetchChallenges } from './fetchChallenges';
+import { fetchUsers } from './fetchUsers';
 
 //test function
 export function increment(index) {
@@ -12,4 +13,4 @@ export function increment(index) {
   };
 }
 
-export { createChallenge, fetchChallenges };
+export { createChallenge, fetchChallenges, fetchUsers };
