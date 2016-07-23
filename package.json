@@ -4,7 +4,8 @@
   "description": "NewChallenger",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "postinstall": "npm run build",
+    "start": "node server/server.bundle.js",
     "dev": "webpack-dev-server --content-base client/public",
     "build:client": "node_modules/.bin/webpack",
     "build": "npm run build:client",

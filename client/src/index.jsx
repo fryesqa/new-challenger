@@ -1,16 +1,24 @@
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 import ReactDOM from 'react-dom';
-import routes from '../../routes/routes.jsx';
+import { AppRedux, Main, Login, AdminChallenge, ChallengeCreateForm, UserProfile, PlayerView, SubmitAttempt } from './components/Components.js';
 
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
 ReactDOM.render((
   <Provider store={store}>
-    <Router history={history} routes={routes} />    
+    <Router history={history}>
+      <Route path="/" component={AppRedux}>
+        <IndexRoute component={Main} />
+        <Route path="challenge/create" component={ChallengeCreateForm} />
+        <Route path="challenge/:challengeId" component={PlayerView} />
+        <Route path="challenge/:challengeId/admin" component={AdminChallenge} />
+        <Route path="challenge/:challengeId/submission" component={SubmitAttempt} />
+      </Route>
+      <Route path="/login" component={Login} />
+      <Route path="/user/:userId" component={UserProfile} />
+    </Router>
   </Provider>
   ), document.getElementById('app')
 );
-
-      // <Router history={browserHistory} routes={routes} />
