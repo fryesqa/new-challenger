@@ -14,8 +14,12 @@ export function fetchChallenges() {
   return function(dispatch) {
     return fetch('http://localhost:3000/challenges')
       .then(res => {
+        if (!res.ok) {
+          throw Error(res.statusText);
+        }
         return res.json();
        })
-      .then(json => dispatch(receiveChallenges(json)));
+      .then(json => dispatch(receiveChallenges(json)))
+      .catch(err => console.log(err))
   }
 }
