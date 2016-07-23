@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm run build",
-    "start": "node server/server.bundle.js",
+    "start": "node server/server.js",
     "dev": "webpack-dev-server --content-base client/public",
-    "build:server": "node_modules/.bin/webpack --config webpack.server.config.js",
     "build:client": "node_modules/.bin/webpack",
-    "build": "npm run build:server && npm run build:client",
+    "build": "npm run build:client",
     "initDB": "sh server/db/dbinit.sh"
   },
   "repository": {
