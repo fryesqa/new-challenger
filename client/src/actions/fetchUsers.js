@@ -10,8 +10,14 @@ export function receiveUsers(users) {
 
 export function fetchUsers(challengeId, userType) {
   return function(dispatch) {
-    return fetch('http:localhost:3000/users')
-      .then(response => response.json())
-      .then(json => dispatch(receiveUsers(json)));
+    return fetch('http://localhost:3000/users')
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .then(json => dispatch(receiveUsers(json)))
+      .catch(err => console.log(err));
   }
 }
