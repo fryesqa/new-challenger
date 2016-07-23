@@ -22,6 +22,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.fetchChallenges();
+    this.props.fetchUsers();
   }
 
   render() {
