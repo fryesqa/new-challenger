@@ -5,7 +5,7 @@ const pgHstore = require('pg-hstore');
 // currently the shell script creates database with user as $USER
 // which creates a username based on your computer user name will need
 // to change
-const sequelize = new Sequelize('newchallenger', 'kwong', '', {
+const sequelize = new Sequelize('newchallengertest', 'kwong', '', {
   dialect: 'postgres',
   host: 'localhost',
 });
@@ -33,9 +33,6 @@ const Challenge = sequelize.define('challenge', {
   endTime: Sequelize.DATE,
 });
 
-User.hasMany(Challenge);
-Type.hasMany(Challenge);
-
 // Users_challenge model
 const Users_challenge = sequelize.define('users_challenge', {
   id: {
@@ -46,21 +43,25 @@ const Users_challenge = sequelize.define('users_challenge', {
   timeAccepted: Sequelize.DATE,
 });
 
-User.belongsToMany(Challenge, { through: Users_challenge });
-Challenge.belongsToMany(User, { through: Users_challenge });
-
 
 // proof model
 const Proof = sequelize.define('proof', { creatorAccepted: Sequelize.BOOLEAN }
   , { freezeTableName: true });
 
-Users_challenge.hasMany(Proof);
 
 User.sync();
 Type.sync();
 Challenge.sync();
 Users_challenge.sync();
 Proof.sync();
+
+User.hasMany(Challenge);
+Type.hasMany(Challenge);
+
+User.belongsToMany(Challenge, { through: Users_challenge });
+Challenge.belongsToMany(User, { through: Users_challenge });
+
+Users_challenge.hasMany(Proof);
 
 exports.User = User;
 exports.Type = Type;
