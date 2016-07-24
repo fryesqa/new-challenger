@@ -17,6 +17,7 @@ import dummyData from './components/dummyData';
 const defaultState = {
   // challengeList: dummyData.challenges,
   challenge: dummyData.challenges[0],
+  currentChallenge: 1,
   index: 0
 };
 
