@@ -10,7 +10,11 @@ class Container extends React.Component {
   }
 
   render() {
-    const passedProps = { challenge: this.props.currentChallenge, createChallenge: this.props.createChallenge };
+    const passedProps = {
+      currentChallenge: this.props.currentChallenge,
+      createChallenge: this.props.createChallenge,
+      currentUser: this.props.currentUser
+    };
     // will need to pass props to children
     return (
       <div>
