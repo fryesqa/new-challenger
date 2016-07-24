@@ -4,7 +4,7 @@ import dummyData from './dummyData.js';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
-const cardStyle = {
+const adminStyle = {
   width: '80%',
   overflow: 'hidden',
   float: 'left',
@@ -36,7 +36,7 @@ class AdminChallenge extends React.Component {
   render() {
 
     return (
-      <Card style={cardStyle}>
+      <Card style={adminStyle}>
         <CardHeader
           title={props.challenge.username}
           subtitle=""
