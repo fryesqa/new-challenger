@@ -27,9 +27,12 @@ const imageStyle = {
 class PlayerView extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props);
-    this.handleSignUp = this.handleSignUp.bind(this);
+    // grab the challengeId from the url
+    const challengeId = props.params.challengeId;
+    // find the correct challenge from props.entities.challenges
+    this.challenge = props.entities.challenges[challengeId];
 
+    this.handleSignUp = this.handleSignUp.bind(this);
   }
 
   handleSignUp() {
@@ -40,24 +43,24 @@ class PlayerView extends React.Component {
     return (
       <Card style={playerStyle}>
         <CardHeader
-          title={this.props.currentChallenge.username}
+          title={this.challenge.username}
           subtitle=""
           avatar="user-profile-image"
         />
         <CardMedia style={imageStyle}>
-          <img src={this.props.currentChallenge.imageUrl} />
+          <img src={this.challenge.imageUrl} />
         </CardMedia>
-        <CardTitle title={this.props.currentChallenge.name} subtitle={this.props.currentChallenge.category} />
+        <CardTitle title={this.challenge.name} subtitle={this.challenge.category} />
         <CardText>
-          <div>{this.props.currentChallenge.description}</div> 
+          <div>{this.challenge.description}</div> 
           <br />
-          <div>{this.props.currentChallenge.successes} out of {this.props.currentChallenge.challengers} challengers have completed this currentChallenge! </div>
+          <div>{this.challenge.successes} out of {this.challenge.challengers} challengers have completed this currentChallenge! </div>
           <br />
-          <div>Current challengers: {this.props.currentChallenge.currentChallengers}</div>
-          <div>Completed: {this.props.currentChallenge.successNames}</div>
+          <div>Current challengers: {this.challenge.currentChallengers}</div>
+          <div>Completed: {this.challenge.successNames}</div>
           <br />
-          <div>Start: {this.props.currentChallenge.createdAt} </div>
-          <div>End: {this.props.currentChallenge.endTime} </div>
+          <div>Start: {this.challenge.createdAt} </div>
+          <div>End: {this.challenge.endTime} </div>
 
 
         </CardText>

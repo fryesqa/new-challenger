@@ -36,7 +36,7 @@ class AdminChallenge extends React.Component {
   render() {
 
     return (
-      <Card style={adminStyle}>
+      <Card style={adminChallengeStyle}>
         <CardHeader
           title={props.challenge.username}
           subtitle=""
