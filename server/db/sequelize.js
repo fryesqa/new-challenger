@@ -5,7 +5,7 @@ const pgHstore = require('pg-hstore');
 // currently the shell script creates database with user as $USER
 // which creates a username based on your computer user name will need
 // to change
-const sequelize = new Sequelize('newchallengertest', 'kwong', '', {
+const sequelize = new Sequelize('newchallenger', 'carlchen', '', {
   dialect: 'postgres',
   host: 'localhost',
 });
