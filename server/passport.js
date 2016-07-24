@@ -31,7 +31,7 @@ passport.use(new FacebookStrategy({
         model.User.findOrCreate(
           {
             where: {
-              facebookid: profile.id
+              facebookId: profile.id
             },
             defaults: {
               name: profile.displayName,

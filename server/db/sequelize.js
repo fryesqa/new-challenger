@@ -1,77 +1,71 @@
-var Sequelize = require('sequelize');
-var pg = require('pg');
-var pgHstore = require('pg-hstore');
+const Sequelize = require('sequelize');
+const pg = require('pg');
+const pgHstore = require('pg-hstore');
 
 // currently the shell script creates database with user as $USER
 // which creates a username based on your computer user name will need
 // to change
-var sequelize = new Sequelize('newchallenger', 'kwong', '', {
+const sequelize = new Sequelize('newchallengertest', 'kwong', '', {
   dialect: 'postgres',
   host: 'localhost',
-  define: {
-    timestamps: false
-  }
 });
 
 // user model
-exports.User = sequelize.define('user', {
+const User = sequelize.define('user', {
   name: Sequelize.STRING(100),
   email: Sequelize.STRING(100),
   url: Sequelize.TEXT,
-  facebookid: Sequelize.TEXT
+  facebookId: Sequelize.TEXT,
 });
 
 // Type model
-exports.Type = sequelize.define('type', {
-  name: Sequelize.STRING(50)
+const Type = sequelize.define('type', {
+  name: Sequelize.STRING(50),
 });
 
 // Challenge model
-exports.Challenge = sequelize.define('challenge', {
+const Challenge = sequelize.define('challenge', {
   name: Sequelize.STRING(100),
   description: Sequelize.TEXT,
   url: Sequelize.TEXT,
   challengers: Sequelize.INTEGER,
   successes: Sequelize.INTEGER,
-  creatorid: {
-    type: Sequelize.INTEGER,
-    references: 'User',
-    referencesKey: 'id'
-  },
-  typeid: {
-    type: Sequelize.INTEGER,
-    references: 'Type',
-    referencesKey: 'id'
-  },
-  endtime: Sequelize.DATE
+  endTime: Sequelize.DATE,
 });
 
 // Users_challenge model
-exports.Users_challenge = sequelize.define('users_challenge', {
-  userid: {
+const Users_challenge = sequelize.define('users_challenge', {
+  id: {
     type: Sequelize.INTEGER,
-    references: 'User',
-    referencesKey: 'id'
+    primaryKey: true,
+    autoIncrement: true,
   },
-  challengeid: {
-    type: Sequelize.INTEGER,
-    references: 'Challenge',
-    referencesKey: 'id'
-  },
-  timeaccepted: Sequelize.DATE
+  timeAccepted: Sequelize.DATE,
 });
+
 
 // proof model
-exports.Proof = sequelize.define('proof', {
-  creatoraccepted: Sequelize.BOOLEAN,
-  userchallengeid: {
-    type: Sequelize.INTEGER,
-    references: 'User_challenge',
-    referencesKey: 'id'
-  }
-  },
-{
-  freezeTableName: true
-});
+const Proof = sequelize.define('proof', { creatorAccepted: Sequelize.BOOLEAN }
+  , { freezeTableName: true });
 
 
+User.sync();
+Type.sync();
+Challenge.sync();
+Users_challenge.sync();
+Proof.sync();
+
+User.hasMany(Challenge);
+Type.hasMany(Challenge);
+
+User.belongsToMany(Challenge, { through: Users_challenge });
+Challenge.belongsToMany(User, { through: Users_challenge });
+
+Users_challenge.hasMany(Proof);
+
+exports.User = User;
+exports.Type = Type;
+exports.Challenge = Challenge;
+exports.Users_challenge = Users_challenge;
+exports.Proof = Proof;
+exports.sequelize = sequelize;
