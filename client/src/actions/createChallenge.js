@@ -13,18 +13,8 @@ export function createChallengeSuccess(challenge) {
   }; 
 }
 
-export default function createChallenge(form) {
+export function createChallenge(form) {
   return dispatch =>
-    //TESTING THUNK
-    // setTimeout(() => {
-    //   var newChallenge = {
-    //     name: 'appendme',
-    //     description: 'adding me to the state',
-    //     type: 'nada',
-    //     image: 'nope'
-    //   };
-    //   dispatch(createChallengeSuccess(newChallenge));
-    // }, 1000);
     $.ajax({
       url: '/createChallenge',
       type: 'POST',
