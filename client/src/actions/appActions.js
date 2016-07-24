@@ -4,14 +4,6 @@
 import { fetchChallenges } from './fetchChallenges';
 import { fetchUsers } from './fetchUsers';
 import { loginUser } from './loginUser';
-//test function
-export function increment(index) {
-  console.log('INCREMENT!');
-  return {
-    type: 'INCREMENT',
-    index
-  };
-}
-
+import { adminClick } from './adminClick';
 
 export { fetchChallenges, fetchUsers, loginUser };
