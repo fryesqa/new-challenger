@@ -24,4 +24,13 @@ class ChallengeContainer extends React.Component {
   } 
 }
 
-export default ChallengeContainer;
+//For attaching actions and state to the App
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as challengeActions from './../actions/challengeActions.js';
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(challengeActions, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(ChallengeContainer);
