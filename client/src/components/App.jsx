@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Navigation from './Navigation.jsx';
-import dummyData from './dummyData.js';
-
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
@@ -19,13 +17,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <div>
-          <Navigation />
-        </div>
           {/*Passes this redux state to first children*/}
-        <div>
-          {React.cloneElement(this.props.children, this.props)}
-        </div>
+        {React.cloneElement(this.props.children, this.props)}
       </div>
     );
   }
