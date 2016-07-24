@@ -1,6 +1,6 @@
-//All Actions
+//App Actions: methods available for the first children of AppRedux
+
 //Import actions here
-import createChallenge from './createChallenge';
 import { fetchChallenges } from './fetchChallenges';
 import { fetchUsers } from './fetchUsers';
 
@@ -8,9 +8,9 @@ import { fetchUsers } from './fetchUsers';
 export function increment(index) {
   console.log('INCREMENT!');
   return {
-    type:'INCREMENT',
+    type: 'INCREMENT',
     index
   };
 }
 
-export { createChallenge, fetchChallenges, fetchUsers };
+export { fetchChallenges, fetchUsers };

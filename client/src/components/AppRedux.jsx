@@ -2,7 +2,7 @@
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as allActions from './../actions/allActions.js';
+import * as appActions from './../actions/appActions.js';
 import App from './App.jsx';
 
 function mapStateToProps(state) {
@@ -14,7 +14,7 @@ function mapStateToProps(state) {
   };
 }
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(allActions, dispatch);
+  return bindActionCreators(appActions, dispatch);
 }
 const AppRedux = connect(mapStateToProps, mapDispatchToProps)(App);
 
