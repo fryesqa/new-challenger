@@ -3,7 +3,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import { AppRedux, Main, Login, UserProfile, ChallengeContainer, Navigation, AdminChallenge, ChallengeCreateForm, PlayerView, SubmitAttempt } from './components/Components.js';
+import { App, Main, Login, UserProfile, ChallengeContainer, AdminChallenge, ChallengeCreateForm, PlayerView, SubmitAttempt } from './components/Components.js';
 
 import { Provider } from 'react-redux';
 import store, { history } from './store';
@@ -12,7 +12,7 @@ ReactDOM.render((
   <Provider store={store}>
     <MuiThemeProvider>
       <Router history={history}>
-        <Route path="/" component={AppRedux}>
+        <Route path="/" component={App}>
           <IndexRoute component={Main} />
           <Route path="challenges" component={ChallengeContainer}>
             <Route path="create" component={ChallengeCreateForm} />

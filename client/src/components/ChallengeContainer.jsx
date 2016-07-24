@@ -1,7 +1,6 @@
 import React from 'react';
-import { Navigation } from './Components.js';
 
-class Container extends React.Component {
+class ChallengeContainer extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -25,4 +24,13 @@ class Container extends React.Component {
   } 
 }
 
-export default Container;
+//For attaching actions and state to the App
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as challengeActions from './../actions/challengeActions.js';
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(challengeActions, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(ChallengeContainer);
