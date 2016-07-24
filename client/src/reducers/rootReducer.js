@@ -13,7 +13,7 @@ function entities(state = { users: {}, challenges: {} }, action) {
   return state;
 }
 
-function challenge(state = [], action) {
+function currentChallenge(state = 1, action) {
   //console.log(state, action);
   return state;
 }
@@ -42,7 +42,7 @@ function index(i = 0, action) {
   }
 }
 const rootReducer = combineReducers(
-  {entities, challenge, challengeList, index, routing: routerReducer}
+  {entities, currentChallenge, challengeList, index, routing: routerReducer}
 );
 
 export default rootReducer;

@@ -4,6 +4,12 @@ import classNames from 'classnames';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
+const buttonStyle = {
+  margin: 12,
+  float: 'right'
+};
+
+
 const cardStyle = {
   width: '80%',
   overflow: 'hidden',
@@ -22,6 +28,9 @@ const imageStyle = {
 class PlayerView extends React.Component {
   constructor(props) {
     super(props)
+    console.log(props);
+    this.handleSignUp = this.handleSignUp.bind(this);
+
   }
 
   handleSignUp() {
@@ -32,29 +41,29 @@ class PlayerView extends React.Component {
     return (
       <Card style={cardStyle}>
         <CardHeader
-          title={props.challenge.username}
+          title={this.props.currentChallenge.username}
           subtitle=""
           avatar="user-profile-image"
         />
         <CardMedia style={imageStyle}>
-          <img src={props.challenge.imageUrl} />
+          <img src={this.props.currentChallenge.imageUrl} />
         </CardMedia>
-        <CardTitle title={props.challenge.name} subtitle={props.challenge.category} />
+        <CardTitle title={this.props.currentChallenge.name} subtitle={this.props.currentChallenge.category} />
         <CardText>
-          <div>{props.challenge.description}</div> 
+          <div>{this.props.currentChallenge.description}</div> 
           <br />
-          <div>{props.challenge.successes} out of {props.challenge.challengers} challengers have completed this challenge! </div>
+          <div>{this.props.currentChallenge.successes} out of {this.props.currentChallenge.challengers} challengers have completed this currentChallenge! </div>
           <br />
-          <div>Current challengers: {props.challenge.currentChallengers}</div>
-          <div>Completed: {props.challenge.successNames}</div>
+          <div>Current challengers: {this.props.currentChallenge.currentChallengers}</div>
+          <div>Completed: {this.props.currentChallenge.successNames}</div>
           <br />
-          <div>Start: {props.challenge.createdAt} </div>
-          <div>End: {props.challenge.endTime} </div>
+          <div>Start: {this.props.currentChallenge.createdAt} </div>
+          <div>End: {this.props.currentChallenge.endTime} </div>
 
 
         </CardText>
         <CardActions>
-          <RaisedButton label="Sign Up!" primary={true} style={buttonStyle} onTouchTap={handleSignUp}/>
+          <RaisedButton label="Sign Up!" primary={true} style={buttonStyle} onTouchTap={this.handleSignUp}/>
         </CardActions>
       </Card>
     );
@@ -62,8 +71,8 @@ class PlayerView extends React.Component {
 }
 
 
-PlayerView.propTypes = {
-  challenge: React.PropTypes.object.isRequired
-};
+// PlayerView.propTypes = {
+//   currentChallenge: React.PropTypes.object.isRequired
+// };
 
 export default PlayerView;
