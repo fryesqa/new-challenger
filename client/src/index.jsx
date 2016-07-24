@@ -3,7 +3,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import { AppRedux, Main, Login, AdminChallenge, ChallengeCreateForm, UserProfile, PlayerView, SubmitAttempt } from './components/Components.js';
+import { AppRedux, Main, Login, UserProfile, ChallengeContainer, Navigation, AdminChallenge, ChallengeCreateForm, PlayerView, SubmitAttempt } from './components/Components.js';
 
 import { Provider } from 'react-redux';
 import store, { history } from './store';
@@ -14,13 +14,16 @@ ReactDOM.render((
       <Router history={history}>
         <Route path="/" component={AppRedux}>
           <IndexRoute component={Main} />
-          <Route path="challenge/create" component={ChallengeCreateForm} />
-          <Route path="challenge/:challengeId" component={PlayerView} />
-          <Route path="challenge/:challengeId/admin" component={AdminChallenge} />
-          <Route path="challenge/:challengeId/submission" component={SubmitAttempt} />
+          <Route path="challenges" component={ChallengeContainer}>
+            <IndexRoute component={Navigation} />
+            <Route path="create" component={ChallengeCreateForm} />
+            <Route path=":challengeId" component={PlayerView} />
+            <Route path=":challengeId/admin" component={AdminChallenge} />
+            <Route path=":challengeId/submission" component={SubmitAttempt} />
+          </Route>
+          <Route path="login" component={Login} />
+          <Route path="users/:userId" component={UserProfile} />
         </Route>
-        <Route path="/login" component={Login} />
-        <Route path="/user/:userId" component={UserProfile} />
       </Router>
     </MuiThemeProvider>
   </Provider>

@@ -10,7 +10,7 @@ const ChallengeList = ({styles, challenges, currentUser, entities}) => {
      {challenges.map(function(challenge) {
       return (
         <div key={challenge.id}>
-          <Link to={currentUser === challenge.creatorId ? `/challenge/${challenge.id}/admin` : `/challenge/${challenge.id}`}>
+          <Link to={currentUser === challenge.creatorId ? `/challenges/${challenge.id}/admin` : `/challenges/${challenge.id}`}>
             <ChallengeListEntry styles={styles} challenge={challenge} />
           </Link>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import ChallengeList from './ChallengeList.jsx';
+import Navigation from './Navigation.jsx';
 import dummyData from './dummyData.js';
 import classNames from 'classnames';
 
@@ -32,6 +33,7 @@ const styles = {
 
 const Main = (props) => ( 
   <div>
+    <Navigation />
     <ChallengeList styles={styles} challenges={props.challengeList.items} entities={props.entities} currentUser={dummyData.currentUser} />
     <div style={exampleStyle}>
       Example of Redux
