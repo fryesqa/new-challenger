@@ -33,7 +33,6 @@ const styles = {
 
 const Main = (props) => ( 
   <div>
-    <Navigation />
     <ChallengeList styles={styles} challenges={props.challengeList.items} entities={props.entities} currentUser={dummyData.currentUser} />
     <div style={exampleStyle}>
       Example of Redux
@@ -43,5 +42,6 @@ const Main = (props) => (
     </div>  
   </div>
 )
+    // <Navigation />
 
 export default Main;

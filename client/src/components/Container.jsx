@@ -19,10 +19,7 @@ class Container extends React.Component {
     // will need to pass props to children
     return (
       <div> 
-        <Navigation />    
-        <div>
           {React.cloneElement(this.props.children, passedProps)}
-        </div>
       </div>
     )
   } 
