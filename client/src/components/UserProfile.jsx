@@ -1,10 +1,9 @@
 import React from 'react';
 import ChallengeList from './ChallengeList.jsx';
-import dummyData from './dummyData';
 
 const UserProfile = ({entities, currentUser}) => {
   const user = entities.users[currentUser];
-  const idToChallenge = function(ids) {
+  const idsToChallenges = function(ids) {
     return ids.map(id => entities.challenges[id]);
   };  
   return (
@@ -18,15 +17,15 @@ const UserProfile = ({entities, currentUser}) => {
       </div>
       <div>
         <h3>My Challenges</h3>
-        <ChallengeList challenges={idToChallenge(user.challengesCreated)} />
+        <ChallengeList challenges={idsToChallenges(user.challengesCreated)} />
       </div>
       <div>
         <h4>Current Challenges</h4>
-        <ChallengeList challenges={idToChallenge(user.challengesTaken)} />
+        <ChallengeList challenges={idsToChallenges(user.challengesTaken)} />
       </div>
       <div>
         <h4>Completed Challenges</h4>
-        <ChallengeList challenges={idToChallenge(user.challengesCompleted)} />
+        <ChallengeList challenges={idsToChallenges(user.challengesCompleted)} />
       </div>
     </div>
   );
