@@ -56,11 +56,11 @@ const Proof = sequelize.define('proof', { creatorAccepted: Sequelize.BOOLEAN }
 
 Users_challenge.hasMany(Proof);
 
-// User.sync();
-// Type.sync();
-// Challenge.sync();
-// Users_challenge.sync();
-// Proof.sync();
+User.sync();
+Type.sync();
+Challenge.sync();
+Users_challenge.sync();
+Proof.sync();
 
 exports.User = User;
 exports.Type = Type;
