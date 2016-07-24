@@ -7,6 +7,6 @@ import UserProfile from './UserProfile.jsx';
 import PlayerView from './PlayerView.jsx';
 import SubmitAttempt from './SubmitAttempt.jsx';
 import Navigation from './Navigation.jsx';
-import ChallengeContainer from './Container.jsx';
+import ChallengeContainer from './ChallengeContainer.jsx';
 
 export { App, Main, Login, AdminChallenge, ChallengeCreateForm, UserProfile, PlayerView, SubmitAttempt, Navigation, ChallengeContainer };

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Navigation } from './Components.js';
 
-class Container extends React.Component {
+class ChallengeContainer extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -25,4 +24,4 @@ class Container extends React.Component {
   } 
 }
 
-export default Container;
+export default ChallengeContainer;
