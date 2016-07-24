@@ -3,6 +3,7 @@
 //Import actions here
 import { fetchChallenges } from './fetchChallenges';
 import { fetchUsers } from './fetchUsers';
+import { adminClick } from './adminClick';
 
 //test function
 export function increment(index) {
