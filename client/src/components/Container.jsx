@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigation } from './Components.js';
 
 class Container extends React.Component {
   constructor(props) {
@@ -17,8 +18,8 @@ class Container extends React.Component {
     };
     // will need to pass props to children
     return (
-      <div>
-        {React.cloneElement(this.props.children, passedProps)}
+      <div> 
+          {React.cloneElement(this.props.children, passedProps)}
       </div>
     )
   } 

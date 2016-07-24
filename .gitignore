@@ -9,3 +9,5 @@ npm-debug.log
 
 # bundle
 client/public/dist
+client/public/bundle.js
+server/server.bundle.js

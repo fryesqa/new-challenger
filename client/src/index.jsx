@@ -15,7 +15,6 @@ ReactDOM.render((
         <Route path="/" component={AppRedux}>
           <IndexRoute component={Main} />
           <Route path="challenges" component={ChallengeContainer}>
-            <IndexRoute component={Navigation} />
             <Route path="create" component={ChallengeCreateForm} />
             <Route path=":challengeId" component={PlayerView} />
             <Route path=":challengeId/admin" component={AdminChallenge} />

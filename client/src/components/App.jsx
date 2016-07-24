@@ -17,6 +17,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
+        <Navigation />    
+
           {/*Passes this redux state to first children*/}
         {React.cloneElement(this.props.children, this.props)}
       </div>
