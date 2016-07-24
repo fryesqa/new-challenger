@@ -9,6 +9,21 @@ const buttonStyle = {
   float: 'right'
 };
 
+const cardStyle = {
+  width: '30%',
+  height: '600px',
+  overflow: 'hidden',
+  float: 'left',
+  margin: '1%'
+}
+
+const imageStyle = {
+  width: '100%',
+  height: '200px',
+  overflow: 'hidden'
+}
+
+
 // Needs more styling depending on fields
 class ChallengeListEntry extends React.Component {
   constructor(props) {
@@ -21,13 +36,13 @@ class ChallengeListEntry extends React.Component {
 
   render() {
     return (
-      <Card style={this.props.styles.cardStyle}>
+      <Card style={cardStyle}>
         <CardHeader
           title={this.props.challenge.username}
           subtitle=""
           avatar="user-profile-image"
         />
-        <CardMedia style={this.props.styles.imageStyle}>
+        <CardMedia style={imageStyle}>
           <img src={this.props.challenge.imageUrl} />
         </CardMedia>
         <CardTitle title={this.props.challenge.name} subtitle={this.props.challenge.category} />

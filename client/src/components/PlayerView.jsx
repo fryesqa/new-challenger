@@ -9,8 +9,7 @@ const buttonStyle = {
   float: 'right'
 };
 
-
-const cardStyle = {
+const playerStyle = {
   width: '80%',
   overflow: 'hidden',
   float: 'left',
@@ -39,7 +38,7 @@ class PlayerView extends React.Component {
 
   render() {
     return (
-      <Card style={cardStyle}>
+      <Card style={playerStyle}>
         <CardHeader
           title={this.props.currentChallenge.username}
           subtitle=""
