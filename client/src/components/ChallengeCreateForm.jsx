@@ -3,6 +3,8 @@ import ImageUpload from './ImageUpload.jsx';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import { browserHistory } from 'react-router';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 // probably want to use redux-form instead
 // http://redux-form.com/5.3.1/#/getting-started?_k=7i191c
@@ -106,7 +108,7 @@ class ChallengeCreateForm extends React.Component {
           </div>
 
           <div className="center-align">
-            <input className="btn" type="submit"/>
+            <RaisedButton label="Submit!" backgroundColor="#fdd835" onTouchTap={this.handleSubmit} type="submit"/>
           </div>
       </form>
     </div>
