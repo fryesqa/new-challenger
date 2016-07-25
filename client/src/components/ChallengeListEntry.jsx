@@ -33,7 +33,8 @@ class ChallengeListEntry extends React.Component {
 
   handleSignUp() {
     // console.log('currentuser', this.props.currentUser)
-    this.props.signUpChallenge(this.props.currentUser, this.props.params.challengeId);
+    console.log('currentuser', this.props.currentUser, 'challengeid', this.props.challenge.id);
+    // this.props.signUpChallenge(this.props.currentUser, this.props.challenge.id);
   }
 
   render() {
@@ -45,7 +46,7 @@ class ChallengeListEntry extends React.Component {
           avatar="user-profile-image"
         />
         <CardMedia style={imageStyle}>
-          <img src={this.props.challenge.imageUrl} />
+          <img src={this.props.challenge.url} />
         </CardMedia>
         <CardTitle title={this.props.challenge.name} subtitle={this.props.challenge.category} />
         <CardText>

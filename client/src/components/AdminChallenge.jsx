@@ -43,7 +43,7 @@ class AdminChallenge extends React.Component {
           avatar="user-profile-image"
         />
         <CardMedia style={imageStyle}>
-          <img src={props.challenge.imageUrl} />
+          <img src={props.challenge.url} />
         </CardMedia>
         <CardTitle title={props.challenge.name} subtitle={props.challenge.category} />
         <CardText>
