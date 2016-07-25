@@ -74,8 +74,11 @@ app.get('/users', function(req, res) {
 
 app.post('/signup', function(req, res) {
   db.challenge.accept(req, res);
-  console.log('signed up');
 });
+
+app.post('/createChallenge', function(req, res) {
+  db.challenge.create(req, res);
+})
 
 //https://github.com/reactjs/react-router-tutorial/tree/master/lessons/13-server-rendering
 app.get('*', function(req, res) {

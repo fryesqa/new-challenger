@@ -150,7 +150,7 @@ module.exports = {
 
     create: (req, res) => {
       // this finds the user using the facebookId from session
-      model.User.find({ where: { facebookId: req.user.id } })
+      model.User.find({ where: { facebookId: req.body.userId } })
 
       // this finds or creates the data for the types table
       .then((user) => {
@@ -164,10 +164,14 @@ module.exports = {
             url: req.body.url,
             challengers: 0,
             successes: 0,
-            userId: user.dataValues.id,
+            // userId: req.body.userId,
+            // userId: user.dataValues.id,
+            // ^^ the foreign key for user isn't working right now, not sure why 
             typeId: type[0].dataValues.id,
             // end date is two weeks from date created
             endTime: new Date(+new Date + 12096e5),
+          }).then((challenge) => {
+            res.json({'challengeCreated': true});
           });
         });
       });
