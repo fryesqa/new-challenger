@@ -49,7 +49,7 @@ class PlayerView extends React.Component {
           avatar="user-profile-image"
         />
         <CardMedia style={imageStyle}>
-          <img src={this.challenge.imageUrl} />
+          <img src={this.challenge.url} />
         </CardMedia>
         <CardTitle title={this.challenge.name} subtitle={this.challenge.category} />
         <CardText>
