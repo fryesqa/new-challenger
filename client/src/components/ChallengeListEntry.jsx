@@ -6,10 +6,12 @@ import classNames from 'classnames';
 
 const buttonStyle = {
   margin: 12,
-  float: 'right'
+  float: 'right',
+  color: '#2962ff'
 };
 
 const cardStyle = {
+  fontFamily: 'Acme, sans-serif',
   width: '30%',
   height: '600px',
   overflow: 'hidden',
@@ -43,10 +45,9 @@ class ChallengeListEntry extends React.Component {
         <CardHeader
           title={this.props.challenge.username}
           subtitle=""
-          avatar="user-profile-image"
         />
         <CardMedia style={imageStyle}>
-          <img src={this.props.challenge.url} />
+          <img style={{height: '200px', objectFit: 'contain'}} src={this.props.challenge.url} />
         </CardMedia>
         <CardTitle title={this.props.challenge.name} subtitle={this.props.challenge.category} />
         <CardText>
