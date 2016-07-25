@@ -4,7 +4,7 @@ export function signUpChallenge(currentUser, challengeId) {
   return function(dispatch) {
     console.log('inside sign up challenge action');
     console.log('currentUser', currentUser, 'challengeId', challengeId);
-    return fetch('http://localhost:3000/signUpChallenge', {
+    return fetch('http://localhost:3000/signup', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
