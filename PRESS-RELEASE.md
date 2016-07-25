@@ -1,44 +1,28 @@
 # Project Name #
-
-<!-- 
-> This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
-
-There is an approach called "working backwards" that is widely used at Amazon. They work backwards from the customer, rather than starting with an idea for a product and trying to bolt customers onto it. While working backwards can be applied to any specific product decision, using this approach is especially important when developing new products or features.
-
-For new initiatives a product manager typically starts by writing an internal press release announcing the finished product. The target audience for the press release is the new/updated product's customers, which can be retail customers or internal users of a tool or technology. Internal press releases are centered around the customer problem, how current solutions (internal or external) fail, and how the new product will blow away existing solutions.
-
-If the benefits listed don't sound very interesting or exciting to customers, then perhaps they're not (and shouldn't be built). Instead, the product manager should keep iterating on the press release until they've come up with benefits that actually sound like benefits. Iterating on a press release is a lot less expensive than iterating on the product itself (and quicker!).
-
-If the press release is more than a page and a half, it is probably too long. Keep it simple. 3-4 sentences for most paragraphs. Cut out the fat. Don't make it into a spec. You can accompany the press release with a FAQ that answers all of the other business or execution questions so the press release can stay focused on what the customer gets. My rule of thumb is that if the press release is hard to write, then the product is probably going to suck. Keep working at it until the outline for each paragraph flows. 
-
-Oh, and I also like to write press-releases in what I call "Oprah-speak" for mainstream consumer products. Imagine you're sitting on Oprah's couch and have just explained the product to her, and then you listen as she explains it to her audience. That's "Oprah-speak", not "Geek-speak".
-
-Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
- -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+New Challenger
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+For friends and social networks to challenge each other to activities and reward them for successes! 
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+New Challenger is a fun new social web app for challenging your friends to new activities and creating rewards for completion. You can also sign up to take other people's challenges and earn rewards! It's super easy to get started! 
 
 ## Problem ##
-  > Describe the problem your product solves.
+Whether for fun or for productivity, people like to challenge each other to new things, but there hasn't been an easy and fun way to prove if someone completed a challenge and to then reward them.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+Image uploads and smart image verification technology is used to prove if someone completed a challenge. Automated payment to users or charities can be set up with PayPal & Stripe. 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+"New Challenger can change social media to be more activity-based, encouraging users to get out into the real world, do things for rewards, and share their successes via photos."
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+Login via Facebook and sign up for new challenges on the front page or click "Create a Challenge" to issue your own challenge and then you can approve other users' attempts!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+"New Challenger is so much fun! I issued a challenge to my family to work out everyday and gave them fun rewards if they succeeded. I knew they honestly completed the challenge thanks to their image verification software!"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+Challenge yourself to something new everyday!
