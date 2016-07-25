@@ -12,5 +12,5 @@ client/public/dist
 client/public/bundle.js
 server/server.bundle.js
 
-#facebook
+# Config file
 server/config/auth-facebook.js

@@ -135,6 +135,7 @@ module.exports = {
                   challengesArray[i].currentChallengers = array;
                 });
                 console.log(challengesArray);
+                res.json(challengesArray);
               });
             });
           });
