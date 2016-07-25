@@ -1,10 +1,12 @@
 export function receiveUsers(users) {
   return {
     type: 'RECEIVE_USERS',
-    entities: users.reduce((obj, user) => {
-      obj[user.id] = user;
-      return obj;
-    }, {})
+    entities: {
+      users: users.reduce((obj, user) => {
+        obj[user.id] = user;
+        return obj;
+      }, {})
+    }
   }
 }
 
