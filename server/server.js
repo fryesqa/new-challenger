@@ -6,6 +6,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const pgClient = require('./db/connection.js');
 const passportFacebook = require('./passport.js');
 const session = require('express-session');
+// const cookieSession = require('cookie-session')
 const db = require('./db/controller/index.js');
 
 
@@ -19,9 +20,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../client/public')));
 
+
+// app.use(cookieSession({
+//   session: 'session',
+//   secret: 'keyboard cat', 
+//   cookie: {maxAge: 60 * 60} }));
 app.use(session({ 
   secret: 'vivacious-salt',
-  resave: false,
+  resave: true,
   saveUninitialized: true 
 }));
 
@@ -52,7 +58,9 @@ app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/'}), 
   function(req, res) {
     // req.user contains session information
-    console.log(req.user);
+      // req.session.regenerate(function() {
+      //   req.session.user = '====================================user============================';
+      // });
     res.redirect('/');
   });
 
@@ -72,9 +80,9 @@ app.get('/users', function(req, res) {
   res.json(data);
 });
 
-app.post('/signup', function(req, res) {
-  db.challenge.accept(req, res);
-});
+app.get('/userInfo', db.user.get)
+
+app.post('/signup', db.challenge.accept);
 
 app.post('/createChallenge', function(req, res) {
   db.challenge.create(req, res);
