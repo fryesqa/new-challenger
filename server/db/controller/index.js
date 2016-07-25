@@ -4,12 +4,23 @@ const Promise = require('bluebird');
 module.exports = {
   user: {
     get: (req, res) => {
-      console.log('\n\n');
-      console.log('GETTING');
-      console.log('req.user', req.user);
+      // console.log('\n\n');
+      // console.log('GETTING');
+      var facebookSession = req.sessionStore.sessions;
+      var faceId;
+      for (var key in facebookSession) {
+        var fid = JSON.parse(facebookSession[key])
+        // console.log('facebookSession key is ==========================', fid);
+        if (fid.passport) {
+          // console.log('there is a passport field')
+          faceId = fid.passport.user.id;
+        }
+      }
+      console.log('facebookSession id is ====================================', faceId)
       let userInfo;
       // search for user from facebookId req.user is the session information stored in every req
-      model.User.find({ where: { facebookId: req.user.id } })
+      // model.User.find({ where: { facebookId: req.user.id } })
+      model.User.find({ where: { facebookId: faceId } })
       .then((user) => {
         userInfo = user.dataValues;
         // search for all challenges created by user
