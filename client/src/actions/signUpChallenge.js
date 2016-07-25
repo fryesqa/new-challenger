@@ -1,4 +1,4 @@
-import { recieveChallenges } from './fetchChallenges.js'
+import { fetchChallenges } from './fetchChallenges.js'
 
 export function signUpChallenge(currentUser, challengeId) {
   return function(dispatch) {
@@ -20,7 +20,7 @@ export function signUpChallenge(currentUser, challengeId) {
       }
       console.log(res.json());
       return res.json();
-    }).then(json => dispatch(receiveChallenges(json)))
+    }).then(json => dispatch(fetchChallenges(json)))
     .catch(err => console.log('error in receiving challenges back after signup', err));
   }
 }
