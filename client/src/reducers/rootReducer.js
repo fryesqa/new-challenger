@@ -17,9 +17,10 @@ function currentChallenge(state = 1, action) {
   //console.log(state, action);
   return state;
 }
-function currentUser(state = '1', action) {
-  if(action.uid) {
-    return action.uid;
+function currentUser(state = null, action) {
+  if(action.user) {
+    console.log('there is a user logged in');
+    return action.user;
   } 
   return state;
 }
@@ -49,7 +50,7 @@ function index(i = 0, action) {
   }
 }
 const rootReducer = combineReducers(
-  {entities, currentChallenge, currentUser, challengeList, index, routing: routerReducer}
+  { entities, currentChallenge, currentUser, challengeList, index, routing: routerReducer}
 );
 
 export default rootReducer;

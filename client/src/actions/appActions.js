@@ -3,7 +3,7 @@
 //Import actions here
 import { fetchChallenges } from './fetchChallenges';
 import { fetchUsers } from './fetchUsers';
-
+import { loginUser } from './loginUser';
 //test function
 export function increment(index) {
   console.log('INCREMENT!');
@@ -13,4 +13,5 @@ export function increment(index) {
   };
 }
 
-export { fetchChallenges, fetchUsers };
+
+export { fetchChallenges, fetchUsers, loginUser };
