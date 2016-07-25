@@ -45,7 +45,7 @@ class ChallengeListEntry extends React.Component {
           avatar="user-profile-image"
         />
         <CardMedia style={imageStyle}>
-          <img src={this.props.challenge.imageUrl} />
+          <img src={this.props.challenge.url} />
         </CardMedia>
         <CardTitle title={this.props.challenge.name} subtitle={this.props.challenge.category} />
         <CardText>

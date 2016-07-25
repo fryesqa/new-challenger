@@ -9,7 +9,7 @@ const UserProfile = ({entities, currentUser}) => {
   return (
     <div>
       <div>
-        <img src={user.imageUrl} alt=""></img>
+        <img src={user.url} alt=""></img>
         <span>
           <div>{user.username}</div>
           <div>{user.email}</div>
