@@ -72,7 +72,7 @@ app.get('/users', function(req, res) {
 
 app.post('/signup', function(req, res) {
   db.challenges.accept(req, res);
-}
+});
 
 //https://github.com/reactjs/react-router-tutorial/tree/master/lessons/13-server-rendering
 app.get('*', function(req, res) {
