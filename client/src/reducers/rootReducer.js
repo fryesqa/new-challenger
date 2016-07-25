@@ -21,8 +21,7 @@ function currentUser(state = null, action) {
   if(action.uid) {
     return action.uid;
   }
-  return state;
-}
+
 /*
 function challengeList(state = [], action) {
   switch (action.type) {

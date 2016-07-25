@@ -1,3 +1,5 @@
+import { fetchChallenges } from './fetchChallenges.js'
+
 export function createChallengeFail(error){
   return {
     type: 'FAIL_CREATE_CHALLENGE',
@@ -23,8 +25,11 @@ export function createChallenge(form) {
       success: function success(data) {
         console.log('success adding challenge', data);
 
-        //update challenge list
-        dispatch(createChallengeSuccess(data));
+        //grab all challenges from server
+        dispatch(fetchChallenges());
+
+        // dispatch(createChallengeSuccess(data));
+        // createChallengeSuccess is currently an action dispatcher that isn't being received by a reducer
       },
       error: function error(data) {
         console.error('fail', data);
