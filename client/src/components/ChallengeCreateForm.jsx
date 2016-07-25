@@ -7,6 +7,8 @@ import { browserHistory } from 'react-router';
 // probably want to use redux-form instead
 // http://redux-form.com/5.3.1/#/getting-started?_k=7i191c
 
+import { auth } from './../auth.js';
+
 class ChallengeCreateForm extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +26,9 @@ class ChallengeCreateForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
   }
-
+  componentWillMount() {
+    auth();
+  }
   handleCategory(event, index, value) {
     // using materialUI
     console.log(value);

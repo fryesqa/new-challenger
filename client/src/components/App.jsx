@@ -9,9 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
   }
-  componentWillMount() {
-    auth();
-  }
+
   componentDidMount() {
     this.props.fetchChallenges();
     this.props.fetchUsers();

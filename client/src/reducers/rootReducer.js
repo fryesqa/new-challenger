@@ -6,7 +6,7 @@ import merge from 'lodash/merge';
 import { challengeList } from './challengeList.js';
 
 // add new or update challenges and users
-function entities(state = { users: {}, challenges: {}, uid: null }, action) {
+function entities(state = { users: {}, challenges: {} }, action) {
   if (action.entities) {
     return merge({}, state, action.entities);
   }
@@ -17,7 +17,10 @@ function currentChallenge(state = 1, action) {
   //console.log(state, action);
   return state;
 }
-function currentUser(state = 'default', action) {
+function currentUser(state = null, action) {
+  if(action.uid) {
+    return action.uid;
+  }
   return state;
 }
 /*

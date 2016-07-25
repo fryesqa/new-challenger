@@ -6,7 +6,7 @@ module.exports = {
     get: (req, res) => {
       console.log('\n\n');
       console.log('GETTING');
-      console.log('req.user', req);
+      console.log('req.user', req.user);
       let userInfo;
       // search for user from facebookId req.user is the session information stored in every req
       model.User.find({ where: { facebookId: req.user.id } })
