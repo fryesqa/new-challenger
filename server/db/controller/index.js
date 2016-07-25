@@ -180,7 +180,9 @@ module.exports = {
           .then((challenge) => {
             challenge.increment(['challengers']);
             model.Users_challenge.create({
-              userId: req.body.userId,
+              // was getting error when trying to add userId, saying it was violating foreign key constraint, so commented it out
+              // userId: req.body.userId,
+
               challengeId: challenge.dataValues.id,
               timeAccepted: new Date(),
             })
@@ -188,6 +190,9 @@ module.exports = {
               model.Proof.create({
                 usersChallengeId: usersChallenge.dataValues.id,
                 creatorAccepted: false,
+              })
+              .then((proof) => {
+                res.json({'accepted': 'true'});
               });
             });
           });
