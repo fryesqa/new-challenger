@@ -181,7 +181,7 @@ module.exports = {
             url: req.body.url,
             challengers: 0,
             successes: 0,
-            // userId: req.body.userId,
+            userId: req.body.userId,
             // userId: user.dataValues.id,
             // ^^ the foreign key for user isn't working right now, not sure why 
             typeId: type[0].dataValues.id,
