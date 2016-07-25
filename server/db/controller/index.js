@@ -175,7 +175,7 @@ module.exports = {
           .then((challenge) => {
             challenge.increment(['challengers']);
             model.Users_challenge.create({
-              userId: req.body.userId,
+              // userId: req.body.userId,
               challengeId: challenge.dataValues.id,
               timeAccepted: new Date(),
             })
