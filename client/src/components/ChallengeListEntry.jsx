@@ -7,7 +7,7 @@ import classNames from 'classnames';
 const buttonStyle = {
   margin: 12,
   float: 'right',
-  color: '#2962ff'
+  color:'white'
 };
 
 const cardStyle = {
@@ -61,7 +61,7 @@ class ChallengeListEntry extends React.Component {
 
         </CardText>
         <CardActions>
-          <RaisedButton label="Sign Up!" primary={true} style={buttonStyle} onTouchTap={this.handleSignUp}/>
+          <RaisedButton label="Sign Up!" style={buttonStyle} backgroundColor="#fdd835" onTouchTap={this.handleSignUp}/>
         </CardActions>
       </Card>
     );

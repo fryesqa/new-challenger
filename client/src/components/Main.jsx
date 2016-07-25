@@ -6,16 +6,19 @@ import classNames from 'classnames';
 
 const Main = (props) => ( 
   <div>
-    <div className="about">
-      <ul className="collapsible" data-collapsible="accordion">
-        <li>
-          <div className="collapsible-header .center-align">What we're about~</div>
-          <div className="collapsible-body"><p>
-            New Challenger is a fun new social web app for challenging your friends to new activities and creating rewards for completion. Sign up to take other people's challenges and earn rewards!
-            Image uploads and smart image verification technology are used to prove if someone completed a challenge. Automated payment to users or charities can be set up with PayPal & Stripe.
-          </p></div>
-        </li>
-      </ul> 
+    <div class="row">
+      <div className="about">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <p>
+              New Challenger is a fun new social web app for challenging your friends to new activities and creating rewards for completion. Sign up to take other people's challenges and earn rewards!
+              Image uploads and smart image verification technology are used to prove if someone completed a challenge. Automated payment to users or charities can be set up with PayPal & Stripe.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <ChallengeList challenges={props.challengeList.items} entities={props.entities} currentUser={dummyData.currentUser} />
   </div>
