@@ -53,9 +53,9 @@ class ChallengeListEntry extends React.Component {
   
   handleClick(e) {
     const id = this.props.challenge.id;
-    this.props.challenge.playerIds.forEach(playerId => { this.props.addPlayer(id, playerId); });
+    this.props.challenge.currentChallengers.forEach(playerId => { this.props.addPlayer(id, playerId); });
     const loc = id === this.props.currentUser ? `/challenges/${id}/admin` : `/challenges/${id}`;
-    this.context.router.push(loc);
+    this.context.router.push(`/challenges/${id}/admin`);
   }
 
         // <CardHeader
@@ -64,12 +64,12 @@ class ChallengeListEntry extends React.Component {
         // />
   render() {
     return (
-      <Card style={cardStyle} onTouchTap={this.handleClick}>
+      <Card style={cardStyle} >
         <CardHeader
           title={this.props.challenge.username}
           subtitle=""
         />
-        <CardMedia style={imageStyle}>
+        <CardMedia style={imageStyle} onTouchTap={this.handleClick}>
           <img style={{height: '200px', objectFit: 'contain'}} src={this.props.challenge.url} />
         </CardMedia>
         <CardTitle style={titleStyle} title={this.props.challenge.name} subtitle={this.props.challenge.category} />
