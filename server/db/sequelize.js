@@ -52,17 +52,9 @@ const Users_challenge = sequelize.define('users_challenge', {
   timeAccepted: Sequelize.DATE,
 });
 
-
 // proof model
 const Proof = sequelize.define('proof', { creatorAccepted: Sequelize.BOOLEAN }
   , { freezeTableName: true });
-
-
-User.sync();
-Type.sync();
-Challenge.sync();
-Users_challenge.sync();
-Proof.sync();
 
 User.hasMany(Challenge);
 Type.hasMany(Challenge);
@@ -71,6 +63,12 @@ User.belongsToMany(Challenge, { through: Users_challenge });
 Challenge.belongsToMany(User, { through: Users_challenge });
 
 Users_challenge.hasMany(Proof);
+
+User.sync();
+Type.sync();
+Challenge.sync();
+Users_challenge.sync();
+Proof.sync();
 
 exports.User = User;
 exports.Type = Type;
