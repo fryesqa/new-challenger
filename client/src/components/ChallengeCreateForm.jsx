@@ -46,10 +46,12 @@ class ChallengeCreateForm extends React.Component {
     //   'challenge imageFile:', this.refs.image.value);
 
     var newChallenge = {
+      userId: this.props.currentUser,
       name: this.refs.name.value,
       description: this.refs.description.value,
       type: this.state.category,
-      image: this.refs.image.value
+      // url: this.state.url
+      // image: this.refs.image.value
     };
 
     console.log(newChallenge);

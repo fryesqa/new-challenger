@@ -150,7 +150,7 @@ module.exports = {
 
     create: (req, res) => {
       // this finds the user using the facebookId from session
-      model.User.find({ where: { facebookId: req.user.id } })
+      model.User.find({ where: { facebookId: req.body.userId } })
 
       // this finds or creates the data for the types table
       .then((user) => {
