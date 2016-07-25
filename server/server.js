@@ -75,12 +75,9 @@ app.get('/challenges', db.challenge.getAll
 // }
 );
 
-app.get('/users', function(req, res) {
-  const data = [{id: 1, name: 'Bob'}, {id: 2, name: 'Louise'}];
-  res.json(data);
-});
+app.get('/users', db.user.getAll);
 
-app.get('/userInfo', db.user.get)
+app.get('/userInfo', db.user.get);
 
 app.post('/signup', db.challenge.accept);
 
