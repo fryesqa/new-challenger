@@ -7,13 +7,17 @@ var SubmitAttempt = React.createClass({
         files: []
       };
   },
-
+  componentWillMount: function() {
+    //check if user is logged
+    if(!this.props.currentUser) {
+      this.context.router.push('/');
+    }
+  },
   onDrop: function (files) {
     this.setState({
       files: files
     });
   },
-
   onOpenClick: function() {
     this.refs.dropzone.open()
   },

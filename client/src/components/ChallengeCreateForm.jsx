@@ -5,11 +5,8 @@ import MenuItem from 'material-ui/MenuItem';
 import { browserHistory } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
 
-
 // probably want to use redux-form instead
 // http://redux-form.com/5.3.1/#/getting-started?_k=7i191c
-
-import { auth } from './../auth.js';
 
 class ChallengeCreateForm extends React.Component {
   constructor(props) {
@@ -29,15 +26,10 @@ class ChallengeCreateForm extends React.Component {
     this.handleCategory = this.handleCategory.bind(this);
   }
   componentWillMount() {
-    fetch('http://localhost:3000/user')
-      .then(res => {
-        if (!res.ok) {
-          throw Error(res.statusText);
-        }
-        return res.json();   
-       })
-      .then(json => this.props.loginUser(json))
-      .catch(err => console.log(err));
+    //check if user is logged
+    if(!this.props.currentUser) {
+      this.context.router.push('/');
+    }
   }
   handleCategory(event, index, value) {
     // using materialUI
@@ -124,6 +116,9 @@ class ChallengeCreateForm extends React.Component {
   }
 }
 
+ChallengeCreateForm.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 // if want to validate forms https://github.com/christianalfoni/formsy-react
 /* 
 <div className="file-field input-field">
