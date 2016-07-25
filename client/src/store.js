@@ -18,7 +18,6 @@ const defaultState = {
   // challengeList: dummyData.challenges,
   currentChallenge: dummyData.challenges[0],
   currentUser: '1', // must be a string
-  // currentChallenge: 1,
   index: 0
 };
 
