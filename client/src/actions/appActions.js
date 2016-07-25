@@ -4,6 +4,7 @@
 import { fetchChallenges } from './fetchChallenges';
 import { fetchUsers } from './fetchUsers';
 import { loginUser } from './loginUser';
+import { signUpChallenge } from './signUpChallenge';
 //test function
 export function increment(index) {
   console.log('INCREMENT!');
@@ -14,4 +15,4 @@ export function increment(index) {
 }
 
 
-export { fetchChallenges, fetchUsers, loginUser };
+export { fetchChallenges, fetchUsers, loginUser, signUpChallenge };

@@ -18,7 +18,7 @@ const Main = (props) => (
         </div>
       </div>
     </div>
-    <ChallengeList challenges={props.challengeList.items} entities={props.entities} currentUser={dummyData.currentUser} />
+    <ChallengeList challenges={props.challengeList.items} entities={props.entities} currentUser={dummyData.currentUser} signUpChallenge={props.signUpChallenge} />
   </div>
 )
 
