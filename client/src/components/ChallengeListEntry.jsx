@@ -28,10 +28,12 @@ const imageStyle = {
 class ChallengeListEntry extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSignUp = this.handleSignUp.bind(this);
   }
 
   handleSignUp() {
-    console.log('handleSignUp')
+    // console.log('currentuser', this.props.currentUser)
+    this.props.signUpChallenge(this.props.currentUser, this.props.params.challengeId);
   }
 
   render() {

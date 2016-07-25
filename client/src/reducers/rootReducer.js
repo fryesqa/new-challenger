@@ -17,6 +17,10 @@ function currentChallenge(state = 1, action) {
   //console.log(state, action);
   return state;
 }
+function currentUser(state = '12345', action) {
+  //console.log(state, action);
+  return state;
+}
 /*
 function challengeList(state = [], action) {
   switch (action.type) {
@@ -42,7 +46,7 @@ function index(i = 0, action) {
   }
 }
 const rootReducer = combineReducers(
-  {entities, currentChallenge, challengeList, index, routing: routerReducer}
+  {entities, currentChallenge, currentUser, challengeList, index, routing: routerReducer}
 );
 
 export default rootReducer;
