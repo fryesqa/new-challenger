@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import classNames from 'classnames';
@@ -41,12 +42,20 @@ class ChallengeListEntry extends React.Component {
   constructor(props) {
     super(props);
     this.handleSignUp = this.handleSignUp.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleSignUp() {
     // console.log('currentuser', this.props.currentUser)
     console.log('currentuser', this.props.currentUser, 'challengeid', this.props.challenge.id);
     // this.props.signUpChallenge(this.props.currentUser, this.props.challenge.id);
+  }
+  
+  handleClick(e) {
+    const id = this.props.challenge.id;
+    this.props.challenge.playerIds.forEach(playerId => { this.props.addPlayer(id, playerId); });
+    const loc = id === this.props.currentUser ? `/challenges/${id}/admin` : `/challenges/${id}`;
+    this.context.router.push(loc);
   }
 
         // <CardHeader
@@ -55,7 +64,11 @@ class ChallengeListEntry extends React.Component {
         // />
   render() {
     return (
-      <Card style={cardStyle}>
+      <Card style={cardStyle} onTouchTap={this.handleClick}>
+        <CardHeader
+          title={this.props.challenge.username}
+          subtitle=""
+        />
         <CardMedia style={imageStyle}>
           <img style={{height: '200px', objectFit: 'contain'}} src={this.props.challenge.url} />
         </CardMedia>
@@ -77,5 +90,9 @@ class ChallengeListEntry extends React.Component {
 ChallengeListEntry.propTypes = {
   challenge: React.PropTypes.object.isRequired
 };
+
+ChallengeListEntry.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
 
 export default ChallengeListEntry;
