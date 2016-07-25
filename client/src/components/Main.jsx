@@ -4,9 +4,9 @@ import Navigation from './Navigation.jsx';
 import dummyData from './dummyData.js';
 import classNames from 'classnames';
 
-const Main = (props) => ( 
+const Main = ({ challengeList, entities, currentUser, addPlayer, history }) => ( 
   <div>
-    <ChallengeList challenges={props.challengeList.items} entities={props.entities} currentUser={dummyData.currentUser} />
+    <ChallengeList challenges={challengeList.items} entities={entities} currentUser={currentUser} addPlayer={addPlayer} history={history} />
   </div>
 )
 
