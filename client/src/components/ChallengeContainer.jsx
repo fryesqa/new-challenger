@@ -12,7 +12,7 @@ class ChallengeContainer extends React.Component {
       createChallenge: this.props.createChallenge,
       signUpChallenge: this.props.signUpChallenge,
       currentUser: this.props.currentUser,
-      loginUser: this.props.loginUser
+      loginUser: this.props.loginUser,
       playersOfUserChallenges: this.props.playersOfUserChallenges,
       adminClick: this.props.adminClick,
       addPlayers: this.props.addPlayers,

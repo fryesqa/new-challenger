@@ -51,7 +51,7 @@ class ChallengeCreateForm extends React.Component {
     e.preventDefault();
 
     var newChallenge = {
-      userId: this.props.currentUser,
+      userId: this.props.currentUser.id,
       name: this.refs.name.value,
       description: this.refs.description.value,
       type: this.state.category,

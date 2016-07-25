@@ -15,10 +15,7 @@ import dummyData from './components/dummyData';
 // ];
 
 const defaultState = {
-  // challengeList: dummyData.challenges,
-  currentChallenge: dummyData.challenges[0],
   currentUser: '1', // must be a string
-  index: 0
 };
 
 const store = createStore(rootReducer, defaultState, applyMiddleware(thunk));
