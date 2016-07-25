@@ -14,7 +14,7 @@ var sequelize = new Sequelize(config.herokuPostgresAuth, {
   dialectOptions: {
     ssl: true,
   },
-  logging: true,
+  logging: false,
   define: {
     timestamps: false
   }
