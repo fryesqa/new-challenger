@@ -26,8 +26,16 @@ class ChallengeCreateForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
   }
-  componentWillMount() {
-    auth();
+  componentDidMount() {
+    fetch('http://localhost:3000/user')
+      .then(res => {
+        if (!res.ok) {
+          throw Error(res.statusText);
+        }
+        return res.json();   
+       })
+      .then(json => this.props.loginUser(json))
+      .catch(err => console.log(err));
   }
   handleCategory(event, index, value) {
     // using materialUI

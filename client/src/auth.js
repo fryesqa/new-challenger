@@ -8,7 +8,7 @@ export function auth() {
       //if uid then check if current uid === logged in uid
       //if null reroute to login      
      })
-    .then(json => console.log('get back json', json))
+    .then(json => this.props.loginUser(json))
     .catch(err => console.log(err));
   /*  
   $.ajax({

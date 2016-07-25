@@ -1,5 +1,7 @@
 import { fetchChallenges } from './fetchChallenges.js'
 
+import { auth } from './../auth.js'
+
 export function createChallengeFail(error){
   return {
     type: 'FAIL_CREATE_CHALLENGE',
