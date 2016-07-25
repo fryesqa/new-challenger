@@ -19,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../client/public')));
 
+
+app.use(express.cookieSession({ secret: 'keyboard cat', cookie: {maxAge: 60 * 60} }));
 app.use(session({ 
   secret: 'vivacious-salt',
   resave: false,
@@ -72,9 +74,9 @@ app.get('/users', function(req, res) {
   res.json(data);
 });
 
-app.post('/signup', function(req, res) {
-  db.challenge.accept(req, res);
-});
+app.get('/userInfo', db.user.get)
+
+app.post('/signup', db.challenge.accept);
 
 app.post('/createChallenge', function(req, res) {
   db.challenge.create(req, res);
