@@ -17,7 +17,10 @@ function currentChallenge(state = 1, action) {
   //console.log(state, action);
   return state;
 }
-function currentUser(state = 'default', action) {
+function currentUser(state = null, action) {
+  if(action.uid) {
+    return action.uid;
+  }
   return state;
 }
 /*
