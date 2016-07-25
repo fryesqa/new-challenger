@@ -175,7 +175,9 @@ module.exports = {
           .then((challenge) => {
             challenge.increment(['challengers']);
             model.Users_challenge.create({
+              // was getting error when trying to add userId, saying it was violating foreign key constraint, so commented it out
               // userId: req.body.userId,
+
               challengeId: challenge.dataValues.id,
               timeAccepted: new Date(),
             })
