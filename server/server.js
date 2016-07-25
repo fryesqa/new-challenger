@@ -6,6 +6,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const pgClient = require('./db/connection.js');
 const passportFacebook = require('./passport.js');
 const session = require('express-session');
+const queries = require('./db/controller/index.js');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -65,6 +66,10 @@ app.get('/users', function(req, res) {
   const data = [{id: 1, name: 'Bob'}, {id: 2, name: 'Louise'}];
   res.json(data);
 });
+
+app.post('/signup', function(req, res) {
+  queries.challenges.accept(req, res);
+}
 
 //https://github.com/reactjs/react-router-tutorial/tree/master/lessons/13-server-rendering
 app.get('*', function(req, res) {

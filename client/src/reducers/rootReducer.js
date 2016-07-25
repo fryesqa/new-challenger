@@ -17,8 +17,7 @@ function currentChallenge(state = 1, action) {
   //console.log(state, action);
   return state;
 }
-function currentUser(state = '12345', action) {
-  //console.log(state, action);
+function currentUser(state = 'default', action) {
   return state;
 }
 /*
