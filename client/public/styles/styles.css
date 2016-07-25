@@ -13,4 +13,6 @@ nav{
   display: none;
 }
 
-
+.login {
+  float:right;
+}

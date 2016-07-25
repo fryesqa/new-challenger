@@ -3,11 +3,15 @@ import Navigation from './Navigation.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+import { auth } from './../auth.js';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  componentWillMount() {
+    auth();
+  }
   componentDidMount() {
     this.props.fetchChallenges();
     this.props.fetchUsers();
