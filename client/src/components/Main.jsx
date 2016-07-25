@@ -6,16 +6,14 @@ import classNames from 'classnames';
 
 const Main = (props) => ( 
   <div>
-    <div class="row">
-      <div className="about">
-        <div class="col s12 m6">
-          <div class="card">
-            <div class="card-content">
-              <p>
-              New Challenger is a fun new social web app for challenging your friends to new activities and creating rewards for completion. Sign up to take other people's challenges and earn rewards!
-              Image uploads and smart image verification technology are used to prove if someone completed a challenge. Automated payment to users or charities can be set up with PayPal & Stripe.
-              </p>
-            </div>
+    <div className="row center-align">
+      <div className="col s12">
+        <div className="card">
+          <div className="card-content">
+            <p>
+            New Challenger is a fun new social web app for challenging your friends to new activities and creating rewards for completion. <br /> Sign up to take other people's challenges and earn rewards! <br />
+            <span className='subtext'>Image uploads and smart image verification technology are used to prove if someone completed a challenge. Automated payment to users or charities can be set up with PayPal & Stripe.</span>
+            </p>
           </div>
         </div>
       </div>

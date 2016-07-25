@@ -68,11 +68,6 @@ img {
       2px 2px 0 #000;
 }
 
-.about{
-  margin-top: 30px;
-  background-color:white;
-  font-size: 1.3em;
-}
 .collapsible-header{
   text-align: center;
   font-size: 2em;
@@ -82,4 +77,15 @@ img {
   background-color: white;
   padding: 30px 20px 50px 20px;
   border-radius: 20px;
+}
+.card{
+  font-size: 1.4em;
+  color:rgba(0,0,0,0.5);
+  margin-top: 30px;
+  border-radius: 20px;
+  padding:20px;
+}
+.subtext{
+  font-size: 0.8em;
+  color:rgba(0,0,0,0.5);
 }
