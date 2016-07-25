@@ -5,7 +5,7 @@ const PendingApprovalList = ({ players, handleClick, entities }) => (
   <div>
   {
     players.map(player => {
-      return <PendingApprovalListEntry player={player} key={player.id} handleClick={handleClick} entities={entities} />
+      return <PendingApprovalListEntry player={player} key={player.id} handleClick={handleClick.bind(null, player.id)} entities={entities} />
     })
   }
   </div>
