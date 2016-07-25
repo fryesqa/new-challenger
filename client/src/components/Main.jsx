@@ -1,7 +1,6 @@
 import React from 'react';
 import ChallengeList from './ChallengeList.jsx';
 import Navigation from './Navigation.jsx';
-import dummyData from './dummyData.js';
 import classNames from 'classnames';
 
 const Main = (props) => ( 
@@ -18,7 +17,7 @@ const Main = (props) => (
         </div>
       </div>
     </div>
-    <ChallengeList challenges={props.challengeList.items} entities={props.entities} currentUser={dummyData.currentUser} />
+    <ChallengeList challenges={props.challengeList.items} entities={props.entities} />
   </div>
 )
 

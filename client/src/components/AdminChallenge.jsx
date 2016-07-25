@@ -24,7 +24,12 @@ class AdminChallenge extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
-
+  componentWillMount() {
+    //check if user is logged
+    if(!this.props.currentUser) {
+      this.context.router.push('/');
+    }
+  }
   handleClick(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -67,6 +72,9 @@ class AdminChallenge extends React.Component {
     );
   }
 }
+AdminChallenge.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default AdminChallenge;
 

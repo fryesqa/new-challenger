@@ -13,6 +13,17 @@ class App extends React.Component {
   componentDidMount() {
     this.props.fetchChallenges();
     this.props.fetchUsers();
+
+    //get current user
+    fetch('http://localhost:3000/user')
+      .then(res => {
+        if (!res.ok) {
+          throw Error(res.statusText);
+        }
+        return res.json();   
+       })
+      .then(json => this.props.loginUser(json))
+      .catch(err => console.log('ERROR GETTING USEA', err));
   }
 
   render() {
