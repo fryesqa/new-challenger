@@ -36,6 +36,7 @@ function mapStateToProps(state) {
     entities: state.entities,
     currentChallenge: state.currentChallenge,
     challengeList: state.challengeList,
+    currentUser: state.currentUser,
     index: state.index
   };
 }
