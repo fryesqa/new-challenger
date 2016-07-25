@@ -1,16 +1,19 @@
 import React from 'react';
 
-const PendingApprovalListEntry = ({challenger, handleClick}) => (
-  <div>
-    <div onClick={handleClick}>{challenger.username}</div>
-    <div className="hidden">
-      {challenger.attempt ? <img src={challenger.attempt.url} alt=""/> : <p>{challenger.username} hasn't submitted an attempt yet</p>}
+const PendingApprovalListEntry = ({player, handleClick, entities }) => {
+  const data = entities.users[player.id];
+  return ( 
+    <div>
+      <div onClick={handleClick}>{data.username}</div>
+      <div className={player.attemptVisible ? "" : "hidden"}>
+        {data.attempt ? <img src={data.attempt.imageUrl} alt=""/> : <p>{data.username} hasn't submitted an attempt yet</p>}
+      </div>
     </div>
-  </div>
-) 
+  );
+}
 
 PendingApprovalListEntry.propTypes = {
-  challenger: React.PropTypes.object.isRequired,
+  player: React.PropTypes.object.isRequired,
   handleClick: React.PropTypes.func.isRequired
 };
 

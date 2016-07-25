@@ -4,6 +4,7 @@ import merge from 'lodash/merge';
 
 //Import Reducers here
 import { challengeList } from './challengeList.js';
+import { playersOfUserChallenges } from './playersOfUserChallenges';
 
 // add new or update challenges and users
 function entities(state = { users: {}, challenges: {} }, action) {
@@ -49,7 +50,7 @@ function index(i = 0, action) {
   }
 }
 const rootReducer = combineReducers(
-  {entities, currentChallenge, currentUser, challengeList, index, routing: routerReducer}
+  {entities, currentChallenge, currentUser, playersOfUserChallenges, challengeList, index, routing: routerReducer}
 );
 
 export default rootReducer;

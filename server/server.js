@@ -76,7 +76,7 @@ app.get('/challenges', db.challenge.getAll
 );
 
 app.get('/users', function(req, res) {
-  const data = [{id: 1, name: 'Bob'}, {id: 2, name: 'Louise'}];
+  const data = [{id: 1, username: 'Bob', attempt: {imageUrl: 'http://kindersay.com/files/images/fork.png'}}, {id: 2, username: 'Louise'}];
   res.json(data);
 });
 
