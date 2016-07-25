@@ -11,7 +11,7 @@ const ChallengeList = ({challenges, currentUser, entities}) => {
       return (
         <div key={challenge.id}>
           <Link to={currentUser === challenge.creatorId ? `/challenges/${challenge.id}/admin` : `/challenges/${challenge.id}`}>
-            <ChallengeListEntry challenge={challenge} />
+            <ChallengeListEntry challenge={challenge} currentUser={currentUser} />
           </Link>
         </div>
       );

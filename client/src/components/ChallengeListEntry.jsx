@@ -33,7 +33,8 @@ class ChallengeListEntry extends React.Component {
 
   handleSignUp() {
     // console.log('currentuser', this.props.currentUser)
-    this.props.signUpChallenge(this.props.currentUser, this.props.params.challengeId);
+    console.log('currentuser', this.props.currentUser, 'challengeid', this.props.challenge.id);
+    // this.props.signUpChallenge(this.props.currentUser, this.props.challenge.id);
   }
 
   render() {
