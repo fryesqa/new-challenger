@@ -1,13 +1,23 @@
 const Sequelize = require('sequelize');
 const pg = require('pg');
 const pgHstore = require('pg-hstore');
+const config = require('../config/config.js')
 
 // currently the shell script creates database with user as $USER
 // which creates a username based on your computer user name will need
 // to change
-const sequelize = new Sequelize('newchallenger', 'carlchen', '', {
+var sequelize = new Sequelize(config.herokuPostgresAuth, {
   dialect: 'postgres',
-  host: 'localhost',
+  protocol: 'postgres',
+  port: 5432,
+  host: 'ec2-54-243-199-79.compute-1.amazonaws.com',
+  dialectOptions: {
+    ssl: true,
+  },
+  logging: true,
+  define: {
+    timestamps: false
+  }
 });
 
 // user model
@@ -43,17 +53,9 @@ const Users_challenge = sequelize.define('users_challenge', {
   timeAccepted: Sequelize.DATE,
 });
 
-
 // proof model
 const Proof = sequelize.define('proof', { creatorAccepted: Sequelize.BOOLEAN }
   , { freezeTableName: true });
-
-
-User.sync();
-Type.sync();
-Challenge.sync();
-Users_challenge.sync();
-Proof.sync();
 
 User.hasMany(Challenge);
 Type.hasMany(Challenge);
@@ -62,6 +64,12 @@ User.belongsToMany(Challenge, { through: Users_challenge });
 Challenge.belongsToMany(User, { through: Users_challenge });
 
 Users_challenge.hasMany(Proof);
+
+User.sync();
+Type.sync();
+Challenge.sync();
+Users_challenge.sync();
+Proof.sync();
 
 exports.User = User;
 exports.Type = Type;
