@@ -26,7 +26,7 @@ class ChallengeCreateForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
   }
-  componentDidMount() {
+  componentWillMount() {
     fetch('http://localhost:3000/user')
       .then(res => {
         if (!res.ok) {
