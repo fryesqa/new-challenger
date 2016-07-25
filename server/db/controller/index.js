@@ -3,6 +3,12 @@ const Promise = require('bluebird');
 
 module.exports = {
   user: {
+    getAll: (req, res) => {
+      model.User.findAll().then((users) => {
+        const usersAll = users.map(user => user.dataValues);
+        res.json(usersAll);
+      })
+    },
     get: (req, res) => {
       // console.log('\n\n');
       // console.log('GETTING');
