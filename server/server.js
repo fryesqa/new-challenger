@@ -58,6 +58,8 @@ app.get('/auth/facebook/callback',
 
 const dummyData = require('./dummyData');
 
+app.get('/user', db.user.get);
+
 app.get('/challenges', db.challenge.getAll
 // function(req, res) {
 //   const data = dummyData.challenges;
