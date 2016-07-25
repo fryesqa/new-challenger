@@ -66,7 +66,7 @@ class PlayerView extends React.Component {
 
         </CardText>
         <CardActions>
-          <RaisedButton label="Sign Up!" primary={true} style={buttonStyle} onTouchTap={this.handleSignUp}/>
+          <RaisedButton label="Sign Up!" backgroundColor="#fdd835" style={buttonStyle} onTouchTap={this.handleSignUp}/>
         </CardActions>
       </Card>
     );
