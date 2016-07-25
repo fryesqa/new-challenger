@@ -39,7 +39,7 @@ function mapStateToProps(state) {
     currentChallenge: state.currentChallenge,
     challengeList: state.challengeList,
     currentUser: state.currentUser,
-    index: state.index
+    index: state.index,
     playersOfUserChallenges: state.playersOfUserChallenges
   };
 }
