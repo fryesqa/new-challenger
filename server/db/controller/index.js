@@ -190,15 +190,25 @@ module.exports = {
     },
 
     accept: (req, res) => {
-      model.User.find({ where: { facebookId: req.body.userId } })
+      var facebookSession = req.sessionStore.sessions;
+      var faceId;
+      for (var key in facebookSession) {
+        var fid = JSON.parse(facebookSession[key])
+        // console.log('facebookSession key is ==========================', fid);
+        if (fid.passport) {
+          // console.log('there is a passport field')
+          faceId = fid.passport.user.id;
+        }
+      }
+
+
+      model.User.find({ where: { facebookId: faceId } })
       .then((user) => {
         model.Challenge.find({ where: { id: req.body.challengeId } })
           .then((challenge) => {
             challenge.increment(['challengers']);
             model.Users_challenge.create({
-              // was getting error when trying to add userId, saying it was violating foreign key constraint, so commented it out
-              // userId: req.body.userId,
-
+              userId: user.dataValues.id,
               challengeId: challenge.dataValues.id,
               timeAccepted: new Date(),
             })
@@ -209,9 +219,6 @@ module.exports = {
               })
               .then((proof) => {
                 res.json({'accepted': 'true'});
-
-                // res.send('Challenge Accepted');
-
               });
             });
           });
