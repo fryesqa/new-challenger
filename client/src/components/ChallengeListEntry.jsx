@@ -52,10 +52,11 @@ class ChallengeListEntry extends React.Component {
   }
   
   handleClick(e) {
+    console.log('props', this.props);
     const id = this.props.challenge.id;
     this.props.challenge.currentChallengers.forEach(playerId => { this.props.addPlayer(id, playerId); });
-    const loc = id === this.props.currentUser ? `/challenges/${id}/admin` : `/challenges/${id}`;
-    this.context.router.push(`/challenges/${id}/admin`);
+    const loc = id === this.props.currentUser.id ? `/challenges/${id}/admin` : `/challenges/${id}`;
+    this.context.router.push(loc);
   }
 
         // <CardHeader
