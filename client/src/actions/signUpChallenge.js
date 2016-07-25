@@ -18,7 +18,7 @@ export function signUpChallenge(currentUser, challengeId) {
       if (!res.ok) {
         console.log('error in posting signup challenge', err)
       }
-      console.log(res.json());
+      console.log(res);
       return res.json();
     }).then(json => dispatch(fetchChallenges(json)))
     .catch(err => console.log('error in receiving challenges back after signup', err));
