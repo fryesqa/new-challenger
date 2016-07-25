@@ -169,7 +169,7 @@ module.exports = {
     },
 
     accept: (req, res) => {
-      model.User.find({ where: { facebookId: req.user.id } })
+      model.User.find({ where: { facebookId: req.body.userId } })
       .then((user) => {
         model.Challenge.find({ where: { id: req.body.challengeId } })
           .then((challenge) => {

@@ -14,6 +14,7 @@ class ChallengeContainer extends React.Component {
       entities: this.props.entities,
       currentChallenge: this.props.currentChallenge,
       createChallenge: this.props.createChallenge,
+      signUpChallenge: this.props.signUpChallenge,
       currentUser: this.props.currentUser
     };
     // will need to pass props to children
