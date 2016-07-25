@@ -40,6 +40,7 @@ function mapStateToProps(state) {
     challengeList: state.challengeList,
     currentUser: state.currentUser,
     index: state.index
+    playersOfUserChallenges: state.playersOfUserChallenges
   };
 }
 function mapDispatchToProps(dispatch) {
