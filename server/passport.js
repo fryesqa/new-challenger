@@ -1,7 +1,7 @@
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
-var config = require('./config/auth-facebook.js');
+var config = require('./config/config.js');
 var model = require('./db/sequelize.js')
 
 passport.serializeUser(function(user, done) {
