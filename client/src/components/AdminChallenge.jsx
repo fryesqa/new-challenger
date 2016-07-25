@@ -36,8 +36,9 @@ class AdminChallenge extends React.Component {
   render() {
     const id = this.props.params.challengeId;
     const challenge = this.props.entities.challenges[id];
+    console.log('ac', this.props);
     return (
-      <Card style={adminChallengeStyle}>
+      <Card style={adminStyle}>
         <CardHeader
           title={challenge.username}
           subtitle=""
@@ -58,12 +59,9 @@ class AdminChallenge extends React.Component {
           <div>Start: {challenge.createdAt} </div>
           <div>End: {challenge.endTime} </div>
 
-        <PendingApprovalList players={this.props.playersOfUserChallenges[id]} handleClick={this.props.adminClick} entities={this.props.entities} />
+        <PendingApprovalList players={this.props.playersOfUserChallenges[id]} handleClick={this.props.adminClick.bind(null, id)} entities={this.props.entities} />
 
         </CardText>
-        <CardActions>
-          <RaisedButton label="Sign Up!" primary={true} style={buttonStyle} onTouchTap={handleSignUp}/>
-        </CardActions>
       </Card>
     );
   }
