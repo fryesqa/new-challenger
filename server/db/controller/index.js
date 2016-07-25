@@ -173,6 +173,7 @@ module.exports = {
           }).then((challenge) => {
             res.json({'challengeCreated': true});
           });
+          res.send('Challenge created')
         });
       });
     },
@@ -197,6 +198,9 @@ module.exports = {
               })
               .then((proof) => {
                 res.json({'accepted': 'true'});
+
+                // res.send('Challenge Accepted');
+
               });
             });
           });
@@ -214,6 +218,7 @@ module.exports = {
         model.Challenge.find({ where: { id: userChallenge.challengeId } })
         .then((challenge) => {
           challenge.increment(['successes']);
+          // res.send('Challenge Approved');
         });
       });
     },
@@ -231,6 +236,7 @@ module.exports = {
           Promise.all(usersArray).then((users) => {
             adminChallenge.challengers = users.map(user => user.dataValues);
             console.log(adminChallenge);
+            // res.json(adminChallenge);
           });
         });
       });
