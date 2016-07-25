@@ -13,13 +13,18 @@ const buttonStyle = {
 const cardStyle = {
   fontFamily: 'Acme, sans-serif',
   width: '30%',
-  height: '500px',
+  height: '450px',
   overflow: 'hidden',
   float: 'left',
   margin: '1%'
 }
 
-const textBox = {
+const titleStyle = {
+  height: '50px', 
+  overflow:'hidden'
+}
+
+const textStyle = {
   height: '100px',
   overflow: 'hidden'
 }
@@ -54,8 +59,8 @@ class ChallengeListEntry extends React.Component {
         <CardMedia style={imageStyle}>
           <img style={{height: '200px', objectFit: 'contain'}} src={this.props.challenge.url} />
         </CardMedia>
-        <CardTitle title={this.props.challenge.name} subtitle={this.props.challenge.category} />
-        <CardText style={textBox}>
+        <CardTitle style={titleStyle} title={this.props.challenge.name} subtitle={this.props.challenge.category} />
+        <CardText style={textStyle}>
           <div>{this.props.challenge.description}</div> 
           <br />
           <div>{this.props.challenge.successes} out of {this.props.challenge.challengers} challengers have completed this challenge! </div>
