@@ -28,10 +28,12 @@ const imageStyle = {
 class ChallengeListEntry extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSignUp = this.handleSignUp.bind(this);
   }
 
   handleSignUp() {
-    console.log('handleSignUp')
+    // console.log('currentuser', this.props.currentUser)
+    this.props.signUpChallenge(this.props.currentUser, this.props.params.challengeId);
   }
 
   render() {
@@ -50,9 +52,6 @@ class ChallengeListEntry extends React.Component {
           <div>{this.props.challenge.description}</div> 
           <br />
           <div>{this.props.challenge.successes} out of {this.props.challenge.challengers} challengers have completed this challenge! </div>
-          <br />
-          <div>Current challengers: {this.props.challenge.currentChallengers}</div>
-          <div>Completed: {this.props.challenge.successNames}</div>
           <br />
           <div>Start: {this.props.challenge.createdAt} </div>
           <div>End: {this.props.challenge.endTime} </div>
