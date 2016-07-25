@@ -1,11 +1,12 @@
 const Sequelize = require('sequelize');
 const pg = require('pg');
 const pgHstore = require('pg-hstore');
+const config = require('../config/config.js')
 
 // currently the shell script creates database with user as $USER
 // which creates a username based on your computer user name will need
 // to change
-var sequelize = new Sequelize('postgres://hsutlvevwhnfec:tQLHivrIdwxyK6h7VWKs2s2VGN@ec2-54-243-199-79.compute-1.amazonaws.com:5432/d5a2equuei2hm', {
+var sequelize = new Sequelize(config.herokuPostgresAuth, {
   dialect: 'postgres',
   protocol: 'postgres',
   port: 5432,
