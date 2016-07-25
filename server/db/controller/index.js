@@ -188,6 +188,9 @@ module.exports = {
               model.Proof.create({
                 usersChallengeId: usersChallenge.dataValues.id,
                 creatorAccepted: false,
+              })
+              .then((proof) => {
+                res.json({'accepted': 'true'});
               });
             });
           });
