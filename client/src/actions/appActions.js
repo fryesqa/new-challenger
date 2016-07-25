@@ -4,6 +4,7 @@
 import { fetchChallenges } from './fetchChallenges';
 import { fetchUsers } from './fetchUsers';
 import { adminClick } from './adminClick';
+import { addPlayer } from './addPlayer';
 
 //test function
 export function increment(index) {
@@ -14,4 +15,4 @@ export function increment(index) {
   };
 }
 
-export { fetchChallenges, fetchUsers };
+export { fetchChallenges, fetchUsers, adminClick, addPlayer };
