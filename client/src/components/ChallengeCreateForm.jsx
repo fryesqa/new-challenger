@@ -39,18 +39,13 @@ class ChallengeCreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // console.log(
-    //   'challenge name:', this.refs.name.value, '/',
-    //   'challenge description:', this.refs.description.value, '/',
-    //   'challenge category:', this.state.category, '/',
-    //   'challenge imageFile:', this.refs.image.value);
 
     var newChallenge = {
       userId: this.props.currentUser,
       name: this.refs.name.value,
       description: this.refs.description.value,
       type: this.state.category,
-      // url: this.state.url
+      url: this.refs.image.value
       // image: this.refs.image.value
     };
 
@@ -99,17 +94,20 @@ class ChallengeCreateForm extends React.Component {
                 );
                })}
             </SelectField>
-           </div>
-
-          <div className="file-field input-field">
-            <div className="btn">
-              <span>Upload image</span>
-              <input type="file" ref='image'/>
-            </div>
-            <div className="file-path-wrapper">
-              <input className="file-path validate" type="text" />
-            </div>
           </div>
+
+          <div className="input-field">
+            <input
+              className="validate" 
+              type="text" 
+              id="challenge_image" 
+              ref="image"
+              />
+            <label htmlFor="challenge_image">Challenge Image Url</label>
+          </div>
+
+
+
 
           <input className="btn" type="submit"/>
       </form>
@@ -119,6 +117,16 @@ class ChallengeCreateForm extends React.Component {
 }
 
 // if want to validate forms https://github.com/christianalfoni/formsy-react
-
+/* 
+<div className="file-field input-field">
+  <div className="btn">
+    <span>Upload image</span>
+    <input type="file" ref='image'/>
+  </div>
+  <div className="file-path-wrapper">
+    <input className="file-path validate" type="text" />
+  </div>
+</div>
+*/
 
 export default ChallengeCreateForm;
