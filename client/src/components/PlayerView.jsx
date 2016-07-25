@@ -10,6 +10,7 @@ const buttonStyle = {
 };
 
 const playerStyle = {
+  fontFamily: 'Acme, sans-serif',
   width: '80%',
   overflow: 'hidden',
   float: 'left',
@@ -46,10 +47,9 @@ class PlayerView extends React.Component {
         <CardHeader
           title={this.challenge.username}
           subtitle=""
-          avatar="user-profile-image"
         />
         <CardMedia style={imageStyle}>
-          <img src={this.challenge.url} />
+          <img style={{height: '400px', objectFit: 'contain'}} src={this.challenge.url} />
         </CardMedia>
         <CardTitle title={this.challenge.name} subtitle={this.challenge.category} />
         <CardText>

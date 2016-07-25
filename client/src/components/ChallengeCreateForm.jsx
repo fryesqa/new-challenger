@@ -57,13 +57,12 @@ class ChallengeCreateForm extends React.Component {
 
   render() {
     return (
-    <div className="row">
-      <h3> Create a challenge! </h3>
+    <div className="row formDiv">
       <form 
         name="challenge-create" 
         onSubmit={this.handleSubmit}
-        className="col s10" >
-
+        className="col s10 offset-s1" >
+          <h3 className="center-align"> Create a challenge! </h3>
           <div className="input-field">
             <input
               className="validate" 
@@ -106,10 +105,9 @@ class ChallengeCreateForm extends React.Component {
             <label htmlFor="challenge_image">Challenge Image Url</label>
           </div>
 
-
-
-
-          <input className="btn" type="submit"/>
+          <div className="center-align">
+            <input className="btn" type="submit"/>
+          </div>
       </form>
     </div>
     );
