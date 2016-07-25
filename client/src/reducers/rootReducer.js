@@ -17,10 +17,12 @@ function currentChallenge(state = 1, action) {
   //console.log(state, action);
   return state;
 }
-function currentUser(state = null, action) {
+function currentUser(state = '1', action) {
   if(action.uid) {
     return action.uid;
-  }
+  } 
+  return state;
+}
 
 /*
 function challengeList(state = [], action) {
