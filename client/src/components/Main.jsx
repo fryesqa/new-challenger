@@ -18,6 +18,7 @@ const Main = ({ challengeList, entities, currentUser, addPlayer, history }) => (
       </div>
     </div>
     <ChallengeList challenges={challengeList.items} entities={entities} currentUser={currentUser} addPlayer={addPlayer} history={history} />
+
   </div>
 )
 
