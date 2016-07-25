@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const Navigation = () => (
   <nav className="blue">
     <Link to="/"><span className="brand-logo">New Challenger</span></Link>
-    <div className="login"> <a href="/auth/facebook"><img src="./images/facebook-login-button.png" onClick=""/></a> </div>
+    <span className="login"><a href="/auth/facebook"><img alt="login" src="./images/facebook-login-button.png" onClick="" /></a></span>
     <Link to="/challenges/create"><span className="right linkStyle">Create Challenge</span></Link>
   </nav>
 );
