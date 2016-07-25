@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import ChallengeListEntry from './ChallengeListEntry.jsx';
 
 // takes in props.challenges, and maps over to create ChallengeListEntry
-const ChallengeList = ({challenges, currentUser, entities, addPlayer, currentUser }) => {
+const ChallengeList = ({challenges, currentUser, entities, addPlayer }) => {
   challenges = challenges.map(id => entities.challenges[id]);
   return ( 
     <div> 
