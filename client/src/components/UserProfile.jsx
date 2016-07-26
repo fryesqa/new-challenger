@@ -1,7 +1,7 @@
 import React from 'react';
 import ChallengeList from './ChallengeList.jsx';
 
-const UserProfile = ({entities, currentUser}) => {
+const UserProfile = ({ entities, currentUser }) => {
   const user = entities.users[currentUser];
   const idsToChallenges = function(ids) {
     return ids.map(id => entities.challenges[id]);
