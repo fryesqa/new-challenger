@@ -1,6 +1,7 @@
 import React from 'react';
 import ChallengeList from './ChallengeList.jsx';
 
+// THIS IS NOT BEING USED RIGHT NOW, NO ROUTES TO IT
 const UserProfile = ({ entities, currentUser }) => {
   const user = entities.users[currentUser];
   const idsToChallenges = function(ids) {
