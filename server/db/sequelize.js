@@ -3,9 +3,7 @@ const pg = require('pg');
 const pgHstore = require('pg-hstore');
 const config = require('../config/config.js')
 
-// currently the shell script creates database with user as $USER
-// which creates a username based on your computer user name will need
-// to change
+// setup connection with postgresdb
 var sequelize = new Sequelize(config.herokuPostgresAuth, {
   dialect: 'postgres',
   protocol: 'postgres',
@@ -57,12 +55,15 @@ const Users_challenge = sequelize.define('users_challenge', {
 const Proof = sequelize.define('proof', { creatorAccepted: Sequelize.BOOLEAN }
   , { freezeTableName: true });
 
+// create foreign key contraints within challenge table
 User.hasMany(Challenge);
 Type.hasMany(Challenge);
 
+// create foreign key contraints in join table Users_challenge
 User.belongsToMany(Challenge, { through: Users_challenge });
 Challenge.belongsToMany(User, { through: Users_challenge });
 
+// create foreign key contraint for Proof table
 Users_challenge.hasMany(Proof);
 
 User.sync();
