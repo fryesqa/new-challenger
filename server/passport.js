@@ -17,16 +17,18 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
+// strategy used to connect to Facebook using Passport OAuth
 passport.use(new FacebookStrategy({
    clientID : config.facebookAuth.clientID,
    clientSecret : config.facebookAuth.clientSecret,
    callbackURL : config.facebookAuth.callbackURL,
-
    enableProof: true,
    profileFields : ['id', 'name', 'displayName', 'picture', 'emails']
   }, 
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function(){
+      // information received back from facebook.  The user is then added to 
+      // database if new user
       model.User.sync().then(function(){
         model.User.findOrCreate(
           {
