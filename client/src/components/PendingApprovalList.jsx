@@ -1,18 +1,18 @@
 import React from 'react';
 import PendingApprovalListEntry from './PendingApprovalListEntry.jsx';
 
-const PendingApprovalList = ({challengers, handleClick}) => (
+const PendingApprovalList = ({ players, handleClick, entities }) => (
   <div>
   {
-    challengers.map(challenger => {
-      return <PendingApprovalListEntry challenger={challenger} key={challenger.id} handleClick={handleClick} />
+    players.map(player => {
+      return <PendingApprovalListEntry player={player} key={player.id} handleClick={handleClick.bind(null, player.id)} entities={entities} />
     })
   }
   </div>
 );
 
 PendingApprovalList.propTypes = {
-  challengers: React.PropTypes.array.isRequired,
+  players: React.PropTypes.array.isRequired,
   handleClick: React.PropTypes.func.isRequired
 };
 

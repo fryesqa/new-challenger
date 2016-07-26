@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import classNames from 'classnames';
@@ -41,6 +42,7 @@ class ChallengeListEntry extends React.Component {
   constructor(props) {
     super(props);
     this.handleSignUp = this.handleSignUp.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleSignUp() {
@@ -48,15 +50,23 @@ class ChallengeListEntry extends React.Component {
     console.log('currentuser', this.props.currentUser, 'challengeid', this.props.challenge.id);
     // this.props.signUpChallenge(this.props.currentUser, this.props.challenge.id);
   }
+  
+  handleClick(e) {
+    console.log('props', this.props);
+    const id = this.props.challenge.id;
+    this.props.challenge.currentChallengers.forEach(playerId => { this.props.addPlayer(id, playerId); });
+    const loc = this.props.challenge.userId === this.props.currentUser.id ? `/challenges/${id}/admin` : `/challenges/${id}`;
+    this.context.router.push(loc);
+  }
 
-        // <CardHeader
-        //   title={this.props.challenge.username}
-        //   subtitle=""
-        // />
   render() {
     return (
-      <Card style={cardStyle}>
-        <CardMedia style={imageStyle}>
+      <Card style={cardStyle} >
+        <CardHeader
+          title={this.props.challenge.username}
+          subtitle=""
+        />
+        <CardMedia style={imageStyle} onTouchTap={this.handleClick}>
           <img style={{height: '200px', objectFit: 'contain'}} src={this.props.challenge.url} />
         </CardMedia>
         <CardTitle style={titleStyle} title={this.props.challenge.name} subtitle={this.props.challenge.category} />
@@ -77,5 +87,9 @@ class ChallengeListEntry extends React.Component {
 ChallengeListEntry.propTypes = {
   challenge: React.PropTypes.object.isRequired
 };
+
+ChallengeListEntry.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
 
 export default ChallengeListEntry;

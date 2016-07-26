@@ -39,6 +39,7 @@ module.exports = {
       category: 'Other',
       challengers: 10,
       successes: 2,
+      playerIds: [1, 2],
       createdAt: new Date().toString(),
       endTime: new Date().toString()
     }

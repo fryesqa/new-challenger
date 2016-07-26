@@ -5,10 +5,6 @@ class ChallengeContainer extends React.Component {
     super(props)
   }
 
-  idsToChallenges(ids) {
-    return ids.map(id => props.entities.challenges[id]);
-  }
-
   render() {
     const passedProps = {
       entities: this.props.entities,
@@ -16,7 +12,10 @@ class ChallengeContainer extends React.Component {
       createChallenge: this.props.createChallenge,
       signUpChallenge: this.props.signUpChallenge,
       currentUser: this.props.currentUser,
-      loginUser: this.props.loginUser
+      loginUser: this.props.loginUser,
+      playersOfUserChallenges: this.props.playersOfUserChallenges,
+      adminClick: this.props.adminClick,
+      addPlayers: this.props.addPlayers,
     };
     // will need to pass props to children
     return (
