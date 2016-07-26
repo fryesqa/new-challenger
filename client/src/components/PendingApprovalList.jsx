@@ -3,11 +3,12 @@ import PendingApprovalListEntry from './PendingApprovalListEntry.jsx';
 
 const PendingApprovalList = ({ players, handleClick, entities }) => (
   <div>
-  {
-    players.map(player => {
-      return <PendingApprovalListEntry player={player} key={player.id} handleClick={handleClick.bind(null, player.id)} entities={entities} />
-    })
-  }
+    <h4>Current Challengers:</h4>
+    {
+      players.map(player => {
+        return <PendingApprovalListEntry player={player} key={player.id} handleClick={handleClick.bind(null, player.id)} entities={entities} />
+      })
+    }
   </div>
 );
 
