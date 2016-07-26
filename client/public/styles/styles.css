@@ -4,6 +4,7 @@ html{
 }
 body{
   height:100%;
+  /*Makes the infinite polka dot background*/
   background: radial-gradient(circle, grey 15%, transparent 10%),
   radial-gradient(circle, grey 15%, white 15%) 30px 30px;
   background-size:60px 60px;
@@ -19,38 +20,14 @@ img {
   height:200px;
   width: auto;
 }
-.linkStyle{
-  transition: all 0.3s ease;
-  margin:0 5px 0 5px;
-}
-.linkStyle:hover {
-  color:red;
-}
 
-.login {
-  float:right;
-  height:100%;
-}
-.login img{
-  height:100%;
-}
-/*.vignette {
-  background: 
-    radial-gradient(transparent, rgba(0,0,0,0.6));
-  -webkit-box-shadow: inset 0px 1em 20em rgba(0,0,0,0.8);
-  -moz-box-shadow:    inset 0px 1em 20em rgba(0,0,0,0.8);
-  box-shadow:         inset 0px 1em 20em rgba(0,0,0,0.8);
-}*/
-
+/*BACKGROUND*/
 .gradient {
   height: 100%;
   overflow: scroll;
-  /*background: -webkit-linear-gradient(right,rgba(0,0,255,0),rgba(0,0,255,1)); 
-  background: -o-linear-gradient(right,rgba(0,0,255,0),rgba(0,0,255,1)); 
-  background: -moz-linear-gradient(right,rgba(0,0,255,0),rgba(0,0,255,1)); */
-  /*background: linear-gradient(rgba(255,255,255,1),rgba(0,0,255,0.5)); */
 }
 
+/*NAV BAR*/
 .title{
   float:left;
   font-size:2.5em;
@@ -63,10 +40,25 @@ img {
      -2px 2px 0 #000,
       2px 2px 0 #000;
 }
+.linkStyle{
+  transition: all 0.3s ease;
+  margin:0 5px 0 5px;
+}
+.linkStyle:hover {
+  color:red;
+}
+.login {
+  float:right;
+  height:100%;
+}
+.login img{
+  height:100%;
+}
 
-.collapsible-header{
-  text-align: center;
-  font-size: 2em;
+/*COMPONENTS*/
+.subtext{
+  font-size: 0.8em;
+  color:rgba(0,0,0,0.5);
 }
 .formDiv{
   margin-top: 30px;  
@@ -80,8 +72,4 @@ img {
   margin-top: 30px;
   border-radius: 20px;
   padding:20px;
-}
-.subtext{
-  font-size: 0.8em;
-  color:rgba(0,0,0,0.5);
 }
