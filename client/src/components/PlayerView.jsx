@@ -11,6 +11,7 @@ const buttonStyle = {
 
 const playerStyle = {
   fontFamily: 'Acme, sans-serif',
+  fontSize: '2em',
   width: '80%',
   overflow: 'hidden',
   float: 'left',

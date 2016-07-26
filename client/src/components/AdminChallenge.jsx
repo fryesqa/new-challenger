@@ -5,6 +5,8 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import RaisedButton from 'material-ui/RaisedButton';
 
 const adminStyle = {
+  fontFamily: 'Acme, sans-serif',
+  fontSize: '2em',
   width: '80%',
   overflow: 'hidden',
   float: 'left',
@@ -16,7 +18,8 @@ const adminStyle = {
 const imageStyle = {
   width: '100%',
   height: '400px',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  objectFit: 'contain'
 }
 
 class AdminChallenge extends React.Component {

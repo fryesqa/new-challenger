@@ -13,6 +13,7 @@ const buttonStyle = {
 
 const cardStyle = {
   fontFamily: 'Acme, sans-serif',
+  fontSize: '2em',
   width: '30%',
   height: '450px',
   overflow: 'hidden',
