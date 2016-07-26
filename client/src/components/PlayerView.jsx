@@ -38,7 +38,11 @@ class PlayerView extends React.Component {
 
   handleSignUp() {
     // console.log('currentuser', this.props.currentUser)
-    this.props.signUpChallenge(this.props.currentUser, this.props.params.challengeId);
+    if (!this.props.currentUser) {
+      alert('Please log in to sign up for a challenge!');
+    } else {
+      this.props.signUpChallenge(this.props.currentUser, this.props.params.challengeId);
+    }
   }
 
   render() {

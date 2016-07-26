@@ -20,7 +20,7 @@ function currentChallenge(state = 1, action) {
 }
 function currentUser(state = null, action) {
   if(action.user) {
-    console.log('there is a user logged in');
+    console.log('there is a user logged in', action.user);
     return action.user;
   } 
   return state;

@@ -10,20 +10,4 @@ export function auth() {
      })
     .then(json => this.props.loginUser(json))
     .catch(err => console.log(err));
-  /*  
-  $.ajax({
-    url: '/user',
-    type: 'GET',
-    contentType: 'application/json',
-    success: function success(data) {
-      console.log('Success getting logged in user', data);
-      //if uid then check if current uid === logged in uid
-      //if null reroute to login
-      return true;
-    },
-    error: function error(data) {
-      console.error('fail', data);
-      return false;
-    }
-  });*/
 }
