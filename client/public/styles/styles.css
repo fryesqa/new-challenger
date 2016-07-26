@@ -25,10 +25,6 @@ img {
 }
 .linkStyle:hover {
   color:red;
-}`
-
-.hidden {
-  display: none;
 }
 
 .login {
