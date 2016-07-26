@@ -121,6 +121,7 @@ ChallengeCreateForm.contextTypes = {
 };
 // if want to validate forms https://github.com/christianalfoni/formsy-react
 /* 
+if want to use a file upload for the image rather than a image url
 <div className="file-field input-field">
   <div className="btn">
     <span>Upload image</span>
