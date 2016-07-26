@@ -59,10 +59,6 @@ class ChallengeListEntry extends React.Component {
     this.context.router.push(loc);
   }
 
-        // <CardHeader
-        //   title={this.props.challenge.username}
-        //   subtitle=""
-        // />
   render() {
     return (
       <Card style={cardStyle} >
