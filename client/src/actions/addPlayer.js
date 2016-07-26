@@ -5,11 +5,3 @@ export function addPlayer(challengeId, playerId) {
     playerId
   };
 }
-
-export function addPlayers(challengeId = 3, playerIds = [1, 2]) {
-  return {
-    type: 'ADD_PLAYERS',
-    challengeId,
-    playerIds
-  }
-}
