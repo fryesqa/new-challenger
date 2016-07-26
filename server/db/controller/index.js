@@ -4,25 +4,23 @@ const Promise = require('bluebird');
 module.exports = {
   user: {
     getAll: (req, res) => {
+      // grabs all users and maps to an array to be sent to client
       model.User.findAll().then((users) => {
         const usersAll = users.map(user => user.dataValues);
         res.json(usersAll);
       })
     },
     get: (req, res) => {
-      // console.log('\n\n');
-      // console.log('GETTING');
+      // gets facebook id saved in passport session
+      // information is saved as a string within sessionStore
       var facebookSession = req.sessionStore.sessions;
       var faceId;
       for (var key in facebookSession) {
         var fid = JSON.parse(facebookSession[key])
-        // console.log('facebookSession key is ==========================', fid);
         if (fid.passport) {
-          // console.log('there is a passport field')
           faceId = fid.passport.user.id;
         }
       }
-      console.log('facebookSession id is ====================================', faceId)
       let userInfo;
       // search for user from facebookId req.user is the session information stored in every req
       // model.User.find({ where: { facebookId: req.user.id } })
@@ -50,7 +48,7 @@ module.exports = {
                   challengesTaken.dataValues);
 
                 // search and save all challenges completed and approved
-                // search Users_challenges table to find all apporve user challenges
+                // search Users_challenges table to find all approved user challenges
                 model.Users_challenge.findAll({
                   where: { userId: user.dataValues.id },
                   include: [{
@@ -58,18 +56,16 @@ module.exports = {
                     where: { creatorAccepted: true },
                   }],
                 }).then((approvedChallenges) => {
-                  // search challene table to find the challenge that was approved
                   const arrayOfApprovedChallenges = approvedChallenges.map(approvedChallenge =>
                     model.Challenge.find({ where: approvedChallenge.dataValues.challengeId }));
 
                   Promise.all(arrayOfApprovedChallenges).then((resolvedChallenges) => {
-                    // userInfo will give the object in dummydata for user
-                    // send userInfo back to client with res.send(userInfo);
 
                     userInfo.challengesCompleted = resolvedChallenges.map(challenge =>
                       challenge.dataValues);
-                    console.log('=================================================');
-                    console.log('USERINFO', userInfo);
+                    // returns object will all users each of the challenges they have created,
+                    // each of the challenges they have accepted, and each of the challenges they
+                    // have completed
                     res.json(userInfo);
                   });
                 });
@@ -81,13 +77,15 @@ module.exports = {
   },
 
   challenge: {
+    // finds all challenges
     getAll: (req, res) => {
       let challengesArray;
       model.Challenge.findAll()
       .then((challenges) => {
         challengesArray = challenges.map(challenge => challenge.dataValues);
 
-        // adds all the promise requests to an array
+        // takes each challenge and adds requests list of users who have accepted 
+        // the challenge
         const arrayUsersWhoAcceptedChallenge = challengesArray.map(challenge =>
           model.User.findAll({
             include: [{
@@ -97,14 +95,14 @@ module.exports = {
           })
         );
 
-          // This adds challenger names to result
+          // This adds challenger names to the array of challenges
         Promise.all(arrayUsersWhoAcceptedChallenge).then((usersAcceptedChallenge) => {
           challengesArray.forEach((challenge, i) => {
             challengesArray[i].challengernames = usersAcceptedChallenge[i].map(user =>
               user.dataValues.name);
           });
 
-          // This adds category value
+          // This adds category name for each challenge
           const arrayChallengeType = challengesArray.map(challenge =>
             model.Type.find({ where: { id: challenge.typeId } }));
 
@@ -135,7 +133,7 @@ module.exports = {
                 }
               });
 
-              // This adds the currentChallengers
+              // This adds the id of all the currentChallengers
               const arrayCurrentChallengers = challengesArray.map(challenge =>
                 model.Users_challenge.findAll({
                   where: { challengeId: challenge.id },
@@ -156,7 +154,6 @@ module.exports = {
                   }
                   challengesArray[i].currentChallengers = array;
                 });
-                //console.log(challengesArray);
                 res.json(challengesArray);
               });
             });
@@ -182,8 +179,6 @@ module.exports = {
             challengers: 0,
             successes: 0,
             userId: req.body.userId,
-            // userId: user.dataValues.id,
-            // ^^ the foreign key for user isn't working right now, not sure why 
             typeId: type[0].dataValues.id,
             // end date is two weeks from date created
             endTime: new Date(+new Date + 12096e5),
@@ -196,28 +191,31 @@ module.exports = {
     },
 
     accept: (req, res) => {
+      // grabs the userid of the user who accepted the challenge
       var facebookSession = req.sessionStore.sessions;
       var faceId;
       for (var key in facebookSession) {
         var fid = JSON.parse(facebookSession[key])
-        // console.log('facebookSession key is ==========================', fid);
         if (fid.passport) {
-          // console.log('there is a passport field')
           faceId = fid.passport.user.id;
         }
       }
 
-
+      // gets the user information
       model.User.find({ where: { facebookId: faceId } })
       .then((user) => {
+        // gets the challenge ID from the selected challenge
         model.Challenge.find({ where: { id: req.body.challengeId } })
           .then((challenge) => {
+            // increments the count of number of challenges who accepted challenge
             challenge.increment(['challengers']);
+            // saves userId and challengeId in join table
             model.Users_challenge.create({
               userId: user.dataValues.id,
               challengeId: challenge.dataValues.id,
               timeAccepted: new Date(),
             })
+            // creates an entry in proof table for creator of challenge to approve
             .then((usersChallenge) => {
               model.Proof.create({
                 usersChallengeId: usersChallenge.dataValues.id,
@@ -232,35 +230,40 @@ module.exports = {
     },
 
     // this will approve the userChallenge in the proof table
+    // not implemented yet
     approve: (req, res) => {
+      // changes value of approved in proof table to true
       model.Proof.find({ where: { usersChallengeId: req.body.userChallengeId } })
       .then((userChallenge) => {
         userChallenge.updateAttributes({ creatorAccepted: true });
       });
+      // finds the challenge and increments the number of successes
       model.Users_challenge.find({ where: { id: req.body.userChallengeId } })
       .then((userChallenge) => {
         model.Challenge.find({ where: { id: userChallenge.challengeId } })
         .then((challenge) => {
           challenge.increment(['successes']);
-          // res.send('Challenge Approved');
         });
       });
     },
 
+    // provides information for the admin view
     admin: (req, res) => {
       let adminChallenge;
+      // finds current challenge
       model.Challenge.find({ where: req.body.challengeId })
       .then((challenge) => {
         adminChallenge = challenge.dataValues;
+        // finds list of users who have accepted challenge
         model.Users_challenge.findAll({ where: { challengeId: req.body.challengeId } })
         .then((usersChallenges) => {
           const usersArray = usersChallenges.map(userChallenge =>
             model.User.find({ where: userChallenge.dataValues.userId })
           );
+          // finds record of all users who accepted challenge and adds to array sent back to client
           Promise.all(usersArray).then((users) => {
             adminChallenge.challengers = users.map(user => user.dataValues);
-            console.log(adminChallenge);
-            // res.json(adminChallenge);
+            res.json(adminChallenge);
           });
         });
       });
