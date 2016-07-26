@@ -28,6 +28,7 @@ export function createChallenge(form) {
         console.log('success adding challenge', data);
 
         //grab all challenges from server
+        // note: this is not the most efficient way to add more challenges.
         dispatch(fetchChallenges());
 
         // dispatch(createChallengeSuccess(data));
