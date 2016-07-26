@@ -40,16 +40,6 @@ function challengeList(state = [], action) {
 }
 */
 
-function index(i = 0, action) {
-  switch (action.type) {
-    case 'INCREMENT':
-      console.log('Inside index reducer incrementing');
-      //const i = action.index;
-      return i + 1;
-    default:
-      return i;
-  }
-}
 const rootReducer = combineReducers(
   {entities, currentUser, playersOfUserChallenges, challengeList, routing: routerReducer}
 );

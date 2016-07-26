@@ -4,9 +4,4 @@
 import { createChallenge } from './createChallenge';
 import { signUpChallenge } from './signUpChallenge';
 
-function exampleFUNCTION() {
-  console.log("HEY");
-}
-
-
-export { createChallenge, signUpChallenge, exampleFUNCTION };
+export { createChallenge, signUpChallenge };
