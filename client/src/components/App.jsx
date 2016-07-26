@@ -3,8 +3,6 @@ import Navigation from './Navigation.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-import { auth } from './../auth.js';
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +12,7 @@ class App extends React.Component {
     this.props.fetchChallenges();
     this.props.fetchUsers();
 
-    //get current user
+    //Get current user on load
     fetch('http://localhost:3000/user')
       .then(res => {
         if (!res.ok) {
@@ -38,8 +36,7 @@ class App extends React.Component {
   }
 }
 
-//For attaching actions and state to the App
-
+//Attach store and app actions to App
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as appActions from './../actions/appActions.js';
