@@ -4,9 +4,9 @@ New Challenger is a brand new web app for issuing challenges to the world and tr
 
 ## Team
 
-  - __Product Owner__: Carl Chen
-  - __Scrum Master__: Frances Yang
   - __Development Team Members__: June Won, Keith Wong, Frances Yang, Carl Chen
+  - __Scrum Master__: Frances Yang
+  - __Product Owner__: Carl Chen
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ New Challenger is a brand new web app for issuing challenges to the world and tr
 
 ## Usage
 
-After downloading or cloning, run npm install. There is a post-install npm script that will build and compile the client files using webpack. Then run node server/server.js or deploy remotely.
+After downloading or cloning, run npm install. There is a post-install npm script that will build and compile the client files using webpack. Then run node server/server.js or deploy remotely. Use psql (postgreSQL) for database, whether local or remote. Make sure to create the database and pass in user/pw, and connect to the database source as an environment variable. 
 
 ## Requirements
 
