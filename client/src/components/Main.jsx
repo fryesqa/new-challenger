@@ -1,7 +1,6 @@
 import React from 'react';
 import ChallengeList from './ChallengeList.jsx';
 import Navigation from './Navigation.jsx';
-import dummyData from './dummyData.js';
 import classNames from 'classnames';
 
 const Main = ({ challengeList, entities, currentUser, addPlayer, history }) => ( 
@@ -19,6 +18,7 @@ const Main = ({ challengeList, entities, currentUser, addPlayer, history }) => (
       </div>
     </div>
     <ChallengeList challenges={challengeList.items} entities={entities} currentUser={currentUser} addPlayer={addPlayer} history={history} />
+
   </div>
 )
 
