@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
-import classNames from 'classnames';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const buttonStyle = {
@@ -15,9 +13,9 @@ const playerStyle = {
   width: '80%',
   overflow: 'hidden',
   float: 'left',
-  'marginTop': '2%',
-  'marginLeft': '10%',
-  'marginRight': '10%'
+  marginTop: '2%',
+  marginLeft: '10%',
+  marginRight: '10%'
 }
 
 const imageStyle = {
@@ -29,9 +27,9 @@ const imageStyle = {
 class PlayerView extends React.Component {
   constructor(props) {
     super(props)
-    // grab the challengeId from the url
+    // Grab the challengeId from the url
     const challengeId = props.params.challengeId;
-    // find the correct challenge from props.entities.challenges
+    // Find the correct challenge from props.entities.challenges
     this.challenge = props.entities.challenges[challengeId];
 
     this.handleSignUp = this.handleSignUp.bind(this);
@@ -54,7 +52,7 @@ class PlayerView extends React.Component {
           subtitle=""
         />
         <CardMedia style={imageStyle}>
-          <img style={{height: '400px', objectFit: 'contain'}} src={this.challenge.url} />
+          <img style={{ height: '400px', objectFit: 'contain' }} src={this.challenge.url} />
         </CardMedia>
         <CardTitle title={this.challenge.name} subtitle={this.challenge.category} />
         <CardText>
@@ -77,10 +75,5 @@ class PlayerView extends React.Component {
     );
   }
 }
-
-
-// PlayerView.propTypes = {
-//   currentChallenge: React.PropTypes.object.isRequired
-// };
 
 export default PlayerView;
