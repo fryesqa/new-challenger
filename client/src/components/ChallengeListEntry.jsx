@@ -52,8 +52,8 @@ class ChallengeListEntry extends React.Component {
     } else {
       console.log('CURRENT USER', this.props.currentUser);
       console.log('currentuser', this.props.currentUser, 'challengeid', this.props.challenge.id);
+      this.props.signUpChallenge(this.props.currentUser, this.props.challenge.id);
     }
-    // this.props.signUpChallenge(this.props.currentUser, this.props.challenge.id);
   }
   
   handleClick(e) {
