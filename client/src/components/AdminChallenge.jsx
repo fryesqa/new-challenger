@@ -1,9 +1,8 @@
 import React from 'react';
 import PendingApprovalList from './PendingApprovalList.jsx';
-import dummyData from './dummyData.js';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
 
+// for styling
 const adminStyle = {
   fontFamily: 'Acme, sans-serif',
   fontSize: '2em',
@@ -25,7 +24,6 @@ const imageStyle = {
 class AdminChallenge extends React.Component {
   constructor(props) {
     super(props);
-    console.log('adminchallenge', props);
   }
 
   componentWillMount() {
@@ -34,18 +32,12 @@ class AdminChallenge extends React.Component {
       this.context.router.push('/');
     }
   }
-  handleClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    $(e.target).next().toggleClass('hidden');
-  }
 
-  //Instead of lines 22-25 insert a ChallengeListEntry with the challenge data as props
-  //Figure out styling later
   render() {
+    // get challenge id from url
     const id = this.props.params.challengeId;
+    // get challeng info from entities
     const challenge = this.props.entities.challenges[id];
-    console.log('ac', this.props);
     return (
       <Card style={adminStyle}>
         <CardHeader
@@ -75,6 +67,7 @@ class AdminChallenge extends React.Component {
     );
   }
 }
+
 AdminChallenge.contextTypes = {
   router: React.PropTypes.object.isRequired
 };
