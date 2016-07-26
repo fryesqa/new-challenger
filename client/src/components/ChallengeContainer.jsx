@@ -17,7 +17,7 @@ class ChallengeContainer extends React.Component {
       adminClick: this.props.adminClick,
       addPlayers: this.props.addPlayers,
     };
-    // will need to pass props to children
+    //Pass some store props to challengeContainer's children
     return (
       <div> 
           {React.cloneElement(this.props.children, passedProps)}
@@ -26,7 +26,7 @@ class ChallengeContainer extends React.Component {
   } 
 }
 
-//For attaching actions and state to the App
+//Attach challenge actions to challenge container
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as challengeActions from './../actions/challengeActions.js';

@@ -19,11 +19,11 @@ var SubmitAttempt = React.createClass({
     });
   },
   onOpenClick: function() {
-    this.refs.dropzone.open()
+    this.refs.dropzone.open();
   },
 
   submit: function() {
-    console.log('uploading files')
+    console.log('uploading files');
     // ajax call goes here
   },
 
