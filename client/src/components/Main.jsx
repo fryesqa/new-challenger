@@ -3,7 +3,7 @@ import ChallengeList from './ChallengeList.jsx';
 import Navigation from './Navigation.jsx';
 import classNames from 'classnames';
 
-const Main = ({ challengeList, entities, currentUser, addPlayer, history }) => ( 
+const Main = ({ challengeList, entities, currentUser, addPlayer, history, signUpChallenge }) => ( 
   <div>
     <div className="row center-align">
       <div className="col s12">
@@ -17,7 +17,7 @@ const Main = ({ challengeList, entities, currentUser, addPlayer, history }) => (
         </div>
       </div>
     </div>
-    <ChallengeList challenges={challengeList.items} entities={entities} currentUser={currentUser} addPlayer={addPlayer} history={history} />
+    <ChallengeList challenges={challengeList.items} entities={entities} currentUser={currentUser} addPlayer={addPlayer} signUpChallenge={signUpChallenge} history={history} />
 
   </div>
 )

@@ -52,8 +52,8 @@ class ChallengeListEntry extends React.Component {
     } else {
       console.log('CURRENT USER', this.props.currentUser);
       console.log('currentuser', this.props.currentUser, 'challengeid', this.props.challenge.id);
+      this.props.signUpChallenge(this.props.currentUser, this.props.challenge.id);
     }
-    // this.props.signUpChallenge(this.props.currentUser, this.props.challenge.id);
   }
   
   handleClick(e) {
@@ -64,13 +64,13 @@ class ChallengeListEntry extends React.Component {
     this.context.router.push(loc);
   }
 
+        // <CardHeader
+        //   title={this.props.challenge.username}
+        //   subtitle=""
+        // />
   render() {
     return (
       <Card style={cardStyle} >
-        <CardHeader
-          title={this.props.challenge.username}
-          subtitle=""
-        />
         <CardMedia style={imageStyle} onTouchTap={this.handleClick}>
           <img style={{height: '200px', objectFit: 'contain'}} src={this.props.challenge.url} />
         </CardMedia>

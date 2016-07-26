@@ -6,5 +6,6 @@ import { fetchUsers } from './fetchUsers';
 import { loginUser } from './loginUser';
 import { adminClick } from './adminClick';
 import { addPlayer } from './addPlayer';
+import { signUpChallenge } from './signUpChallenge';
 
-export { fetchChallenges, fetchUsers, adminClick, addPlayer, loginUser };
+export { fetchChallenges, fetchUsers, adminClick, addPlayer, loginUser, signUpChallenge };
